@@ -11,8 +11,8 @@ use Zotel\Wallet\Interfaces\Customer;
 use Zotel\Wallet\Interfaces\Wallet;
 use Zotel\Wallet\Internal\Exceptions\ExceptionInterface;
 use Zotel\Wallet\Internal\Exceptions\TransactionFailedException;
-use App\Models\WalletTransaction;
-use App\Models\WalletTransfer;
+use Zotel\Wallet\Models\WalletTransaction;
+use Zotel\Wallet\Models\WalletTransfer;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\RecordsNotFoundException;
 

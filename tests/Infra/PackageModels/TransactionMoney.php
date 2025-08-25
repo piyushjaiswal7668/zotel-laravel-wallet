@@ -11,7 +11,7 @@ use Zotel\Wallet\Test\Infra\Values\Money;
  *
  * @property Money $currency
  */
-final class TransactionMoney extends \App\Models\WalletTransaction
+final class TransactionMoney extends \Zotel\Wallet\Models\WalletTransaction
 {
     private ?Money $currency = null;
 

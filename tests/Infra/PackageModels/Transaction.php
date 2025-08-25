@@ -9,7 +9,7 @@ namespace Zotel\Wallet\Test\Infra\PackageModels;
  *
  * @property null|string $bank_method
  */
-final class WalletTransaction extends \App\Models\WalletTransaction
+final class WalletTransaction extends \Zotel\Wallet\Models\WalletTransaction
 {
     public function getFillable(): array
     {

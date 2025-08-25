@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Zotel\Wallet\Services;
 
 use Zotel\Wallet\Interfaces\Wallet;
-use App\Models\Wallet as WalletModel;
+use Zotel\Wallet\Models\Wallet as WalletModel;
 use Illuminate\Database\Eloquent\Model;
 
 /**

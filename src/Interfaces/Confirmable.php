@@ -12,7 +12,7 @@ use Zotel\Wallet\Exceptions\WalletOwnerInvalid;
 use Zotel\Wallet\Internal\Exceptions\ExceptionInterface;
 use Zotel\Wallet\Internal\Exceptions\RecordNotFoundException;
 use Zotel\Wallet\Internal\Exceptions\TransactionFailedException;
-use App\Models\WalletTransaction;
+use Zotel\Wallet\Models\WalletTransaction;
 use Illuminate\Database\RecordsNotFoundException;
 
 interface Confirmable

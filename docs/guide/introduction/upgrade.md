@@ -16,17 +16,17 @@ Replace `calculateBalance` to `refreshBalance`
 
 ## 2.4.x → 3.0.x
 
-Replace path `bavix.wallet::transaction` to `App\Models\WalletTransaction::class`
+Replace path `bavix.wallet::transaction` to `Zotel\Wallet\Models\WalletTransaction::class`
 
-Replace path `bavix.wallet::transfer` to `App\Models\WalletTransfer::class`
+Replace path `bavix.wallet::transfer` to `Zotel\Wallet\Models\WalletTransfer::class`
 
-Replace path `bavix.wallet::wallet` to `App\Models\Wallet::class`
+Replace path `bavix.wallet::wallet` to `Zotel\Wallet\Models\Wallet::class`
 
 ```php
 // old
 app('bavix.wallet::transaction'); 
 // new
-app(App\Models\WalletTransaction::class); 
+app(Zotel\Wallet\Models\WalletTransaction::class); 
 ```
 
 Add the `$quantity` parameter to the `canBuy` method.

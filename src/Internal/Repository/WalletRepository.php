@@ -6,7 +6,7 @@ namespace Zotel\Wallet\Internal\Repository;
 
 use Zotel\Wallet\Internal\Exceptions\ExceptionInterface;
 use Zotel\Wallet\Internal\Exceptions\ModelNotFoundException;
-use App\Models\Wallet;
+use Zotel\Wallet\Models\Wallet;
 use Illuminate\Database\Eloquent\ModelNotFoundException as EloquentModelNotFoundException;
 
 final readonly class WalletRepository implements WalletRepositoryInterface

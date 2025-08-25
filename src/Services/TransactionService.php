@@ -9,7 +9,7 @@ use Zotel\Wallet\Internal\Assembler\TransactionCreatedEventAssemblerInterface;
 use Zotel\Wallet\Internal\Dto\TransactionDtoInterface;
 use Zotel\Wallet\Internal\Exceptions\RecordNotFoundException;
 use Zotel\Wallet\Internal\Service\DispatcherServiceInterface;
-use App\Models\WalletTransaction;
+use Zotel\Wallet\Models\WalletTransaction;
 
 /**
  * @internal

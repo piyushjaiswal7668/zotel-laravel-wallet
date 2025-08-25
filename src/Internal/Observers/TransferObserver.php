@@ -9,7 +9,7 @@ use Zotel\Wallet\Exceptions\WalletOwnerInvalid;
 use Zotel\Wallet\Internal\Exceptions\ExceptionInterface;
 use Zotel\Wallet\Internal\Exceptions\RecordNotFoundException;
 use Zotel\Wallet\Internal\Exceptions\TransactionFailedException;
-use App\Models\WalletTransfer;
+use Zotel\Wallet\Models\WalletTransfer;
 use Zotel\Wallet\Services\AtomicServiceInterface;
 use Illuminate\Database\RecordsNotFoundException;
 

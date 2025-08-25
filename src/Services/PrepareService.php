@@ -13,8 +13,8 @@ use Zotel\Wallet\Internal\Assembler\TransferLazyDtoAssemblerInterface;
 use Zotel\Wallet\Internal\Dto\TransactionDtoInterface;
 use Zotel\Wallet\Internal\Dto\TransferLazyDtoInterface;
 use Zotel\Wallet\Internal\Service\MathServiceInterface;
-use App\Models\WalletTransaction;
-use App\Models\Wallet as WalletModel;
+use Zotel\Wallet\Models\WalletTransaction;
+use Zotel\Wallet\Models\Wallet as WalletModel;
 
 /**
  * @internal

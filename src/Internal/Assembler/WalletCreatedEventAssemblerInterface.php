@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Zotel\Wallet\Internal\Assembler;
 
 use Zotel\Wallet\Internal\Events\WalletCreatedEventInterface;
-use App\Models\Wallet;
+use Zotel\Wallet\Models\Wallet;
 
 interface WalletCreatedEventAssemblerInterface
 {

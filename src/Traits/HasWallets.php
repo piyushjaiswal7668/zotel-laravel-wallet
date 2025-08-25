@@ -6,7 +6,7 @@ namespace Zotel\Wallet\Traits;
 
 use function array_key_exists;
 use Zotel\Wallet\Internal\Exceptions\ModelNotFoundException;
-use App\Models\Wallet as WalletModel;
+use Zotel\Wallet\Models\Wallet as WalletModel;
 use Zotel\Wallet\Services\WalletServiceInterface;
 use function config;
 use Illuminate\Database\Eloquent\Relations\MorphMany;

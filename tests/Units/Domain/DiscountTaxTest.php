@@ -6,9 +6,9 @@ namespace Zotel\Wallet\Test\Units\Domain;
 
 use Zotel\Wallet\Exceptions\ProductEnded;
 use Zotel\Wallet\Internal\Exceptions\ExceptionInterface;
-use App\Models\WalletTransaction;
-use App\Models\WalletTransfer;
-use App\Models\Wallet;
+use Zotel\Wallet\Models\WalletTransaction;
+use Zotel\Wallet\Models\WalletTransfer;
+use Zotel\Wallet\Models\Wallet;
 use Zotel\Wallet\Services\DiscountServiceInterface;
 use Zotel\Wallet\Services\TaxServiceInterface;
 use Zotel\Wallet\Test\Infra\Factories\BuyerFactory;

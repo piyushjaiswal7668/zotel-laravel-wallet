@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Zotel\Wallet\Services;
 
 use Zotel\Wallet\Internal\Exceptions\RecordNotFoundException;
-use App\Models\Wallet;
+use Zotel\Wallet\Models\Wallet;
 
 /**
  * @api

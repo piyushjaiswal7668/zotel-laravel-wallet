@@ -7,7 +7,7 @@ namespace Zotel\Wallet\Test\Units\Domain;
 use Zotel\Wallet\External\Dto\Extra;
 use Zotel\Wallet\External\Dto\Option;
 use Zotel\Wallet\Internal\Service\IdentifierFactoryServiceInterface;
-use App\Models\WalletTransfer;
+use Zotel\Wallet\Models\WalletTransfer;
 use Zotel\Wallet\Test\Infra\Factories\BuyerFactory;
 use Zotel\Wallet\Test\Infra\Factories\UserMultiFactory;
 use Zotel\Wallet\Test\Infra\Models\Buyer;

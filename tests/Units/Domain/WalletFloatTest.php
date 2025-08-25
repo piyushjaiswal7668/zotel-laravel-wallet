@@ -9,7 +9,7 @@ use Zotel\Wallet\Exceptions\BalanceIsEmpty;
 use Zotel\Wallet\Internal\Exceptions\ExceptionInterface;
 use Zotel\Wallet\Internal\Service\DatabaseServiceInterface;
 use Zotel\Wallet\Internal\Service\MathServiceInterface;
-use App\Models\WalletTransaction;
+use Zotel\Wallet\Models\WalletTransaction;
 use Zotel\Wallet\Test\Infra\Factories\UserFloatFactory;
 use Zotel\Wallet\Test\Infra\Models\UserFloat;
 use Zotel\Wallet\Test\Infra\Models\UserFloat as User;

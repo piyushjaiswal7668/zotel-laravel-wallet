@@ -11,7 +11,7 @@ use Zotel\Wallet\Internal\Exceptions\ExceptionInterface;
 use Zotel\Wallet\Internal\Exceptions\ModelNotFoundException;
 use Zotel\Wallet\Internal\Exceptions\RecordNotFoundException;
 use Zotel\Wallet\Internal\Exceptions\TransactionFailedException;
-use App\Models\WalletTransfer;
+use Zotel\Wallet\Models\WalletTransfer;
 use Illuminate\Database\RecordsNotFoundException;
 
 interface Customer extends Wallet

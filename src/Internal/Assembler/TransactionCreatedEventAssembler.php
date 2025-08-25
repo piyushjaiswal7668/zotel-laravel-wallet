@@ -7,7 +7,7 @@ namespace Zotel\Wallet\Internal\Assembler;
 use Zotel\Wallet\Internal\Events\TransactionCreatedEvent;
 use Zotel\Wallet\Internal\Events\TransactionCreatedEventInterface;
 use Zotel\Wallet\Internal\Service\ClockServiceInterface;
-use App\Models\WalletTransaction;
+use Zotel\Wallet\Models\WalletTransaction;
 
 final readonly class TransactionCreatedEventAssembler implements TransactionCreatedEventAssemblerInterface
 {

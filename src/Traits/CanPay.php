@@ -12,7 +12,7 @@ use Zotel\Wallet\Internal\Exceptions\ExceptionInterface;
 use Zotel\Wallet\Internal\Exceptions\ModelNotFoundException;
 use Zotel\Wallet\Internal\Exceptions\RecordNotFoundException;
 use Zotel\Wallet\Internal\Exceptions\TransactionFailedException;
-use App\Models\WalletTransfer;
+use Zotel\Wallet\Models\WalletTransfer;
 use Zotel\Wallet\Objects\Cart;
 use function current;
 use Illuminate\Database\RecordsNotFoundException;

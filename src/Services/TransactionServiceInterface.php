@@ -7,7 +7,7 @@ namespace Zotel\Wallet\Services;
 use Zotel\Wallet\Interfaces\Wallet;
 use Zotel\Wallet\Internal\Dto\TransactionDtoInterface;
 use Zotel\Wallet\Internal\Exceptions\RecordNotFoundException;
-use App\Models\WalletTransaction;
+use Zotel\Wallet\Models\WalletTransaction;
 
 /**
  * @api

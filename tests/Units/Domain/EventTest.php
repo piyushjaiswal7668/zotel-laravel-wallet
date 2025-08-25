@@ -11,7 +11,7 @@ use Zotel\Wallet\Internal\Exceptions\ExceptionInterface;
 use Zotel\Wallet\Internal\Service\ClockServiceInterface;
 use Zotel\Wallet\Internal\Service\DatabaseServiceInterface;
 use Zotel\Wallet\Internal\Service\IdentifierFactoryServiceInterface;
-use App\Models\WalletTransaction;
+use Zotel\Wallet\Models\WalletTransaction;
 use Zotel\Wallet\Objects\Cart;
 use Zotel\Wallet\Services\PurchaseServiceInterface;
 use Zotel\Wallet\Test\Infra\Exceptions\UnknownEventException;

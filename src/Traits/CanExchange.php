@@ -14,7 +14,7 @@ use Zotel\Wallet\Internal\Exceptions\ExceptionInterface;
 use Zotel\Wallet\Internal\Exceptions\RecordNotFoundException;
 use Zotel\Wallet\Internal\Exceptions\TransactionFailedException;
 use Zotel\Wallet\Internal\Service\MathServiceInterface;
-use App\Models\WalletTransfer;
+use Zotel\Wallet\Models\WalletTransfer;
 use Zotel\Wallet\Services\AtomicServiceInterface;
 use Zotel\Wallet\Services\CastServiceInterface;
 use Zotel\Wallet\Services\ConsistencyServiceInterface;

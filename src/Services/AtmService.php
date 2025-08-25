@@ -10,8 +10,8 @@ use Zotel\Wallet\Internal\Dto\TransactionDtoInterface;
 use Zotel\Wallet\Internal\Dto\TransferDtoInterface;
 use Zotel\Wallet\Internal\Repository\TransactionRepositoryInterface;
 use Zotel\Wallet\Internal\Repository\TransferRepositoryInterface;
-use App\Models\WalletTransaction;
-use App\Models\WalletTransfer;
+use Zotel\Wallet\Models\WalletTransaction;
+use Zotel\Wallet\Models\WalletTransfer;
 
 /**
  * @internal

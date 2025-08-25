@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Zotel\Wallet\Services;
 
-use App\Models\Wallet;
+use Zotel\Wallet\Models\Wallet;
 
 /**
  * @api

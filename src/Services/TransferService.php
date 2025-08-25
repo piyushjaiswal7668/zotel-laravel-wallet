@@ -11,8 +11,8 @@ use Zotel\Wallet\Internal\Exceptions\RecordNotFoundException;
 use Zotel\Wallet\Internal\Exceptions\TransactionFailedException;
 use Zotel\Wallet\Internal\Repository\TransferRepositoryInterface;
 use Zotel\Wallet\Internal\Service\DatabaseServiceInterface;
-use App\Models\WalletTransaction;
-use App\Models\WalletTransfer;
+use Zotel\Wallet\Models\WalletTransaction;
+use Zotel\Wallet\Models\WalletTransfer;
 use Illuminate\Database\RecordsNotFoundException;
 
 /**

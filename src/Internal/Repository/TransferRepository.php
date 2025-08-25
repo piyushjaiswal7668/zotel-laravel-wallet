@@ -8,7 +8,7 @@ use Zotel\Wallet\Internal\Dto\TransferDtoInterface;
 use Zotel\Wallet\Internal\Query\TransferQueryInterface;
 use Zotel\Wallet\Internal\Service\JsonServiceInterface;
 use Zotel\Wallet\Internal\Transform\TransferDtoTransformerInterface;
-use App\Models\WalletTransfer;
+use Zotel\Wallet\Models\WalletTransfer;
 
 final readonly class TransferRepository implements TransferRepositoryInterface
 {

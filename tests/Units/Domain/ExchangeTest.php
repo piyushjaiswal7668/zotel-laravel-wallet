@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Zotel\Wallet\Test\Units\Domain;
 
 use Zotel\Wallet\External\Dto\Extra;
-use App\Models\WalletTransfer;
+use Zotel\Wallet\Models\WalletTransfer;
 use Zotel\Wallet\Services\ExchangeService;
 use Zotel\Wallet\Services\ExchangeServiceInterface;
 use Zotel\Wallet\Services\RegulatorServiceInterface;

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Zotel\Wallet\Test\Units\Domain;
 
 use function app;
-use App\Models\Wallet;
+use Zotel\Wallet\Models\Wallet;
 use Zotel\Wallet\Services\BookkeeperServiceInterface;
 use Zotel\Wallet\Services\RegulatorServiceInterface;
 use Zotel\Wallet\Test\Infra\Factories\BuyerFactory;

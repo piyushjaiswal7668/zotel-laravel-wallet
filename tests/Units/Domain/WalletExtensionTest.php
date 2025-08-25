@@ -40,7 +40,7 @@ final class WalletExtensionTest extends TestCase
 
     public function testTransactionMoneyAttribute(): void
     {
-        $this->app?->bind(\App\Models\WalletTransaction::class, TransactionMoney::class);
+        $this->app?->bind(\Zotel\Wallet\Models\WalletTransaction::class, TransactionMoney::class);
 
         /** @var Buyer $buyer */
         $buyer = BuyerFactory::new()->create();

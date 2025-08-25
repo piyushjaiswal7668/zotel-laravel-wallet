@@ -10,7 +10,7 @@ use Zotel\Wallet\Exceptions\InsufficientFunds;
 use Zotel\Wallet\Internal\Exceptions\ExceptionInterface;
 use Zotel\Wallet\Internal\Exceptions\TransactionFailedException;
 use Zotel\Wallet\Internal\Service\DatabaseServiceInterface;
-use App\Models\WalletTransaction;
+use Zotel\Wallet\Models\WalletTransaction;
 use Zotel\Wallet\Services\RegulatorServiceInterface;
 use Zotel\Wallet\Test\Infra\Factories\UserDynamicFactory;
 use Zotel\Wallet\Test\Infra\Factories\UserFactory;

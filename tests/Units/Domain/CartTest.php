@@ -8,7 +8,7 @@ use Zotel\Wallet\Internal\Exceptions\CartEmptyException;
 use Zotel\Wallet\Internal\Exceptions\ExceptionInterface;
 use Zotel\Wallet\Internal\Exceptions\ModelNotFoundException;
 use Zotel\Wallet\Internal\Service\MathServiceInterface;
-use App\Models\WalletTransfer;
+use Zotel\Wallet\Models\WalletTransfer;
 use Zotel\Wallet\Objects\Cart;
 use Zotel\Wallet\Services\PurchaseServiceInterface;
 use Zotel\Wallet\Test\Infra\Factories\BuyerFactory;

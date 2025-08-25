@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Zotel\Wallet\External\Api;
 
 use Zotel\Wallet\Interfaces\Wallet;
-use App\Models\WalletTransfer;
+use Zotel\Wallet\Models\WalletTransfer;
 use Zotel\Wallet\Services\AssistantServiceInterface;
 use Zotel\Wallet\Services\AtomicServiceInterface;
 use Zotel\Wallet\Services\PrepareServiceInterface;

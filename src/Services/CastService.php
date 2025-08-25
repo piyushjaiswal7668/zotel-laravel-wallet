@@ -9,7 +9,7 @@ use Zotel\Wallet\Internal\Assembler\WalletCreatedEventAssemblerInterface;
 use Zotel\Wallet\Internal\Exceptions\ExceptionInterface;
 use Zotel\Wallet\Internal\Service\DatabaseServiceInterface;
 use Zotel\Wallet\Internal\Service\DispatcherServiceInterface;
-use App\Models\Wallet as WalletModel;
+use Zotel\Wallet\Models\Wallet as WalletModel;
 use Illuminate\Database\Eloquent\Model;
 
 /**

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Zotel\Wallet\Internal\Repository;
 
 use Zotel\Wallet\Internal\Exceptions\ModelNotFoundException;
-use App\Models\Wallet;
+use Zotel\Wallet\Models\Wallet;
 
 interface WalletRepositoryInterface
 {

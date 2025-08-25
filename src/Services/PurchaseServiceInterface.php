@@ -6,7 +6,7 @@ namespace Zotel\Wallet\Services;
 
 use Zotel\Wallet\Interfaces\Customer;
 use Zotel\Wallet\Internal\Dto\BasketDtoInterface;
-use App\Models\WalletTransfer;
+use Zotel\Wallet\Models\WalletTransfer;
 
 /**
  * @api

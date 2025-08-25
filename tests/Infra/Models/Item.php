@@ -6,8 +6,8 @@ namespace Zotel\Wallet\Test\Infra\Models;
 
 use Zotel\Wallet\Interfaces\Customer;
 use Zotel\Wallet\Interfaces\ProductLimitedInterface;
-use App\Models\WalletTransfer;
-use App\Models\Wallet;
+use Zotel\Wallet\Models\WalletTransfer;
+use Zotel\Wallet\Models\Wallet;
 use Zotel\Wallet\Services\CastService;
 use Zotel\Wallet\Services\CastServiceInterface;
 use Zotel\Wallet\Test\Infra\Helpers\Config;

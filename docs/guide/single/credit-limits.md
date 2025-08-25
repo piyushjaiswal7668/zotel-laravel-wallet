@@ -10,7 +10,7 @@ An example of working with a credit limit:
 ```php
 /**
  * @var \Zotel\Wallet\Interfaces\Customer $customer
- * @var \App\Models\Wallet $wallet
+ * @var \Zotel\Wallet\Models\Wallet $wallet
  * @var \Zotel\Wallet\Interfaces\ProductInterface $product
  */
 $wallet = $customer->wallet; // get default wallet

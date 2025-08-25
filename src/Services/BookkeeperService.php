@@ -7,7 +7,7 @@ namespace Zotel\Wallet\Services;
 use Zotel\Wallet\Internal\Exceptions\RecordNotFoundException;
 use Zotel\Wallet\Internal\Service\LockServiceInterface;
 use Zotel\Wallet\Internal\Service\StorageServiceInterface;
-use App\Models\Wallet;
+use Zotel\Wallet\Models\Wallet;
 
 /**
  * @internal

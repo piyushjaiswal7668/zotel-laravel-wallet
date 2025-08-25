@@ -9,7 +9,7 @@ use Zotel\Wallet\Internal\Exceptions\ModelNotFoundException;
 use Zotel\Wallet\Internal\Repository\WalletRepositoryInterface;
 use Zotel\Wallet\Internal\Service\DispatcherServiceInterface;
 use Zotel\Wallet\Internal\Service\IdentifierFactoryServiceInterface;
-use App\Models\Wallet;
+use Zotel\Wallet\Models\Wallet;
 use Illuminate\Database\Eloquent\Model;
 
 /**

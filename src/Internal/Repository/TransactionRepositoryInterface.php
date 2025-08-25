@@ -6,7 +6,7 @@ namespace Zotel\Wallet\Internal\Repository;
 
 use Zotel\Wallet\Internal\Dto\TransactionDtoInterface;
 use Zotel\Wallet\Internal\Query\TransactionQueryInterface;
-use App\Models\WalletTransaction;
+use Zotel\Wallet\Models\WalletTransaction;
 
 interface TransactionRepositoryInterface
 {

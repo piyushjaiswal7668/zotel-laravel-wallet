@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Zotel\Wallet\External\Api;
 
 use Zotel\Wallet\Internal\Exceptions\ExceptionInterface;
-use App\Models\WalletTransaction;
+use Zotel\Wallet\Models\WalletTransaction;
 
 /**
  * @api

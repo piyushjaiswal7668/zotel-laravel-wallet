@@ -9,7 +9,7 @@ use Zotel\Wallet\External\Contracts\ExtraDtoInterface;
 use Zotel\Wallet\Interfaces\Wallet;
 use Zotel\Wallet\Internal\Dto\TransactionDtoInterface;
 use Zotel\Wallet\Internal\Dto\TransferLazyDtoInterface;
-use App\Models\Wallet as WalletModel;
+use Zotel\Wallet\Models\Wallet as WalletModel;
 
 /**
  * @api

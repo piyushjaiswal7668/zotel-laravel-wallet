@@ -11,7 +11,7 @@ use Zotel\Wallet\Internal\Service\DispatcherServiceInterface;
 use Zotel\Wallet\Internal\Service\LockServiceInterface;
 use Zotel\Wallet\Internal\Service\MathServiceInterface;
 use Zotel\Wallet\Internal\Service\StorageServiceInterface;
-use App\Models\Wallet;
+use Zotel\Wallet\Models\Wallet;
 
 /**
  * @internal

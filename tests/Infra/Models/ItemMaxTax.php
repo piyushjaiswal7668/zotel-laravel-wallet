@@ -7,7 +7,7 @@ namespace Zotel\Wallet\Test\Infra\Models;
 use Zotel\Wallet\Interfaces\Customer;
 use Zotel\Wallet\Interfaces\MaximalTaxable;
 use Zotel\Wallet\Interfaces\ProductLimitedInterface;
-use App\Models\Wallet;
+use Zotel\Wallet\Models\Wallet;
 use Zotel\Wallet\Services\CastService;
 use Zotel\Wallet\Traits\HasWallet;
 use Illuminate\Database\Eloquent\Model;
@@ -41,7 +41,7 @@ final class ItemMaxTax extends Model implements ProductLimitedInterface, Maximal
             return $result;
         }
 
-        return $result && ! $customer->paid($this) instanceof \App\Models\WalletTransfer;
+        return $result && ! $customer->paid($this) instanceof \Zotel\Wallet\Models\WalletTransfer;
     }
 
     public function getAmountProduct(Customer $customer): int

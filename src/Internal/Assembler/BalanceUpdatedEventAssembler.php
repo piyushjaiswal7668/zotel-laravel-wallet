@@ -7,7 +7,7 @@ namespace Zotel\Wallet\Internal\Assembler;
 use Zotel\Wallet\Internal\Events\BalanceUpdatedEvent;
 use Zotel\Wallet\Internal\Events\BalanceUpdatedEventInterface;
 use Zotel\Wallet\Internal\Service\ClockServiceInterface;
-use App\Models\Wallet;
+use Zotel\Wallet\Models\Wallet;
 
 final readonly class BalanceUpdatedEventAssembler implements BalanceUpdatedEventAssemblerInterface
 {

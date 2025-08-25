@@ -11,7 +11,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 final class MyUpdatedEvent implements BalanceUpdatedEventInterface, ShouldBroadcast
 {
     public function __construct(
-        private \App\Models\Wallet $wallet,
+        private \Zotel\Wallet\Models\Wallet $wallet,
         private DateTimeImmutable $updatedAt,
     ) {}
     
@@ -34,7 +34,7 @@ use Zotel\Wallet\Internal\Assembler\BalanceUpdatedEventAssemblerInterface;
 
 class MyUpdatedEventAssembler implements BalanceUpdatedEventAssemblerInterface
 {
-    public function create(\App\Models\Wallet $wallet) : \Zotel\Wallet\Internal\Events\BalanceUpdatedEventInterface
+    public function create(\Zotel\Wallet\Models\Wallet $wallet) : \Zotel\Wallet\Internal\Events\BalanceUpdatedEventInterface
     {
         return new MyUpdatedEvent($wallet, new DateTimeImmutable());
     }

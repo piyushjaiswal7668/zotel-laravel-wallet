@@ -6,7 +6,7 @@ namespace Zotel\Wallet\Test\Infra\Models;
 
 use Zotel\Wallet\Interfaces\Customer;
 use Zotel\Wallet\Interfaces\ProductLimitedInterface;
-use App\Models\Wallet;
+use Zotel\Wallet\Models\Wallet;
 use Zotel\Wallet\Services\CastService;
 use Zotel\Wallet\Traits\HasWallet;
 use Zotel\Wallet\Traits\HasWallets;
@@ -42,7 +42,7 @@ final class ItemMeta extends Model implements ProductLimitedInterface
             return $result;
         }
 
-        return $result && ! $customer->paid($this) instanceof \App\Models\WalletTransfer;
+        return $result && ! $customer->paid($this) instanceof \Zotel\Wallet\Models\WalletTransfer;
     }
 
     public function getAmountProduct(Customer $customer): int

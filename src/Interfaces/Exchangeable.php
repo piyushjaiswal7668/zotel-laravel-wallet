@@ -10,7 +10,7 @@ use Zotel\Wallet\External\Contracts\ExtraDtoInterface;
 use Zotel\Wallet\Internal\Exceptions\ExceptionInterface;
 use Zotel\Wallet\Internal\Exceptions\RecordNotFoundException;
 use Zotel\Wallet\Internal\Exceptions\TransactionFailedException;
-use App\Models\WalletTransfer;
+use Zotel\Wallet\Models\WalletTransfer;
 use Illuminate\Database\RecordsNotFoundException;
 
 interface Exchangeable

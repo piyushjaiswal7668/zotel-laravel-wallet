@@ -7,7 +7,7 @@ namespace Zotel\Wallet\Models;
 use Zotel\Wallet\Interfaces\Wallet;
 use Zotel\Wallet\Internal\Observers\TransactionObserver;
 use Zotel\Wallet\Internal\Service\MathServiceInterface;
-use App\Models\Wallet as WalletModel;
+use Zotel\Wallet\Models\Wallet as WalletModel;
 use Zotel\Wallet\Services\CastServiceInterface;
 use function config;
 use DateTimeInterface;

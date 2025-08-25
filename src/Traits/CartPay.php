@@ -15,7 +15,7 @@ use Zotel\Wallet\Internal\Exceptions\ModelNotFoundException;
 use Zotel\Wallet\Internal\Exceptions\RecordNotFoundException;
 use Zotel\Wallet\Internal\Exceptions\TransactionFailedException;
 use Zotel\Wallet\Internal\Service\TranslatorServiceInterface;
-use App\Models\WalletTransfer;
+use Zotel\Wallet\Models\WalletTransfer;
 use Zotel\Wallet\Objects\Cart;
 use Zotel\Wallet\Services\AssistantServiceInterface;
 use Zotel\Wallet\Services\AtomicServiceInterface;

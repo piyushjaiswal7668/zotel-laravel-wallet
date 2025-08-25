@@ -29,12 +29,12 @@ config/wallet.php:
 ],
 ```
 ## Extend base Wallet model
-You can extend base Wallet model by creating a new class that extends `App\Models\Wallet` and registering the new class in `config/wallet.php`.
+You can extend base Wallet model by creating a new class that extends `Zotel\Wallet\Models\Wallet` and registering the new class in `config/wallet.php`.
 Example `MyWallet.php`
 
 App/Models/MyWallet.php:
 ```php
-use App\Models\Wallet as WalletBase;
+use Zotel\Wallet\Models\Wallet as WalletBase;
 
 class MyWallet extends WalletBase {
     public function helloWorld(): string { return "hello world"; }

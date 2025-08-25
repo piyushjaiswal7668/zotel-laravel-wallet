@@ -6,7 +6,7 @@ namespace Zotel\Wallet\Test\Units\Domain;
 
 use function app;
 use Zotel\Wallet\Internal\Service\DatabaseServiceInterface;
-use App\Models\Wallet;
+use Zotel\Wallet\Models\Wallet;
 use Zotel\Wallet\Services\BookkeeperServiceInterface;
 use Zotel\Wallet\Services\RegulatorServiceInterface;
 use Zotel\Wallet\Test\Infra\Factories\BuyerFactory;

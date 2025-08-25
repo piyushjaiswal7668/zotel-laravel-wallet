@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use App\Models\WalletTransaction;
-use App\Models\Wallet;
+use Zotel\Wallet\Models\WalletTransaction;
+use Zotel\Wallet\Models\Wallet;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;

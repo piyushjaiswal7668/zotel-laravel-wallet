@@ -18,9 +18,9 @@ parameters:
         final:
             allowAbstractClasses: false
             classesNotRequiredToBeAbstractOrFinal:
-                - App\Models\Wallet
-                - App\Models\WalletTransfer
-                - App\Models\WalletTransaction
+                - Zotel\Wallet\Models\Wallet
+                - Zotel\Wallet\Models\WalletTransfer
+                - Zotel\Wallet\Models\WalletTransaction
         noExtends:
             classesAllowedToBeExtended:
                 # laravel
@@ -38,9 +38,9 @@ parameters:
                 - Zotel\Wallet\Test\Infra\TestCase
 
                 # wallet
-                - App\Models\Wallet
-                - App\Models\WalletTransfer
-                - App\Models\WalletTransaction
+                - Zotel\Wallet\Models\Wallet
+                - Zotel\Wallet\Models\WalletTransfer
+                - Zotel\Wallet\Models\WalletTransaction
 
         noParameterWithContainerTypeDeclaration:
             interfacesImplementedByContainers:
