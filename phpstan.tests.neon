@@ -18,9 +18,9 @@ parameters:
         final:
             allowAbstractClasses: false
             classesNotRequiredToBeAbstractOrFinal:
-                - Bavix\Wallet\Models\Wallet
-                - Bavix\Wallet\Models\Transfer
-                - Bavix\Wallet\Models\Transaction
+                - App\Models\Wallet
+                - App\Models\WalletTransfer
+                - App\Models\WalletTransaction
         noExtends:
             classesAllowedToBeExtended:
                 # laravel
@@ -38,9 +38,9 @@ parameters:
                 - Bavix\Wallet\Test\Infra\TestCase
 
                 # wallet
-                - Bavix\Wallet\Models\Wallet
-                - Bavix\Wallet\Models\Transfer
-                - Bavix\Wallet\Models\Transaction
+                - App\Models\Wallet
+                - App\Models\WalletTransfer
+                - App\Models\WalletTransaction
 
         noParameterWithContainerTypeDeclaration:
             interfacesImplementedByContainers:

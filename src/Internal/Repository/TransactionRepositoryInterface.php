@@ -6,7 +6,7 @@ namespace Bavix\Wallet\Internal\Repository;
 
 use Bavix\Wallet\Internal\Dto\TransactionDtoInterface;
 use Bavix\Wallet\Internal\Query\TransactionQueryInterface;
-use Bavix\Wallet\Models\Transaction;
+use App\Models\WalletTransaction;
 
 interface TransactionRepositoryInterface
 {
@@ -21,15 +21,15 @@ interface TransactionRepositoryInterface
      * Inserts a single transaction into the repository.
      *
      * @param TransactionDtoInterface $dto The transaction object to insert.
-     * @return Transaction The inserted transaction object.
+     * @return WalletTransaction The inserted transaction object.
      */
-    public function insertOne(TransactionDtoInterface $dto): Transaction;
+    public function insertOne(TransactionDtoInterface $dto): WalletTransaction;
 
     /**
      * Retrieves transactions from the repository based on the given query.
      *
      * @param TransactionQueryInterface $query The query to filter the transactions.
-     * @return Transaction[] An array of transactions that match the query.
+     * @return WalletTransaction[] An array of transactions that match the query.
      */
     public function findBy(TransactionQueryInterface $query): array;
 }

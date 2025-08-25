@@ -11,7 +11,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 final class MyUpdatedEvent implements BalanceUpdatedEventInterface, ShouldBroadcast
 {
     public function __construct(
-        private \Bavix\Wallet\Models\Wallet $wallet,
+        private \App\Models\Wallet $wallet,
         private DateTimeImmutable $updatedAt,
     ) {}
     
@@ -34,7 +34,7 @@ use Bavix\Wallet\Internal\Assembler\BalanceUpdatedEventAssemblerInterface;
 
 class MyUpdatedEventAssembler implements BalanceUpdatedEventAssemblerInterface
 {
-    public function create(\Bavix\Wallet\Models\Wallet $wallet) : \Bavix\Wallet\Internal\Events\BalanceUpdatedEventInterface
+    public function create(\App\Models\Wallet $wallet) : \Bavix\Wallet\Internal\Events\BalanceUpdatedEventInterface
     {
         return new MyUpdatedEvent($wallet, new DateTimeImmutable());
     }

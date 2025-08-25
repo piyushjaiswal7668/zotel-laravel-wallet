@@ -10,8 +10,8 @@ use Bavix\Wallet\Exceptions\InsufficientFunds;
 use Bavix\Wallet\External\Contracts\ExtraDtoInterface;
 use Bavix\Wallet\Internal\Exceptions\ExceptionInterface;
 use Bavix\Wallet\Internal\Exceptions\TransactionFailedException;
-use Bavix\Wallet\Models\Transaction;
-use Bavix\Wallet\Models\Transfer;
+use App\Models\WalletTransaction;
+use App\Models\WalletTransfer;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\RecordsNotFoundException;
@@ -24,14 +24,14 @@ interface Wallet
      * @param int|non-empty-string $amount The amount to deposit.
      * @param array<mixed>|null $meta Additional information for the transaction.
      * @param bool $confirmed Whether the transaction is confirmed or not.
-     * @return Transaction The created transaction.
+     * @return WalletTransaction The created transaction.
      *
      * @throws AmountInvalid If the amount is invalid.
      * @throws RecordsNotFoundException If the wallet is not found.
      * @throws TransactionFailedException If the transaction fails.
      * @throws ExceptionInterface If an exception occurs.
      */
-    public function deposit(int|string $amount, ?array $meta = null, bool $confirmed = true): Transaction;
+    public function deposit(int|string $amount, ?array $meta = null, bool $confirmed = true): WalletTransaction;
 
     /**
      * Withdraw the specified amount of money from the wallet.
@@ -39,7 +39,7 @@ interface Wallet
      * @param int|non-empty-string $amount The amount to withdraw.
      * @param array<mixed>|null $meta Additional information for the transaction.
      * @param bool $confirmed Whether the transaction is confirmed or not.
-     * @return Transaction The created transaction.
+     * @return WalletTransaction The created transaction.
      *
      * @throws AmountInvalid If the amount is invalid.
      * @throws BalanceIsEmpty If the balance is empty.
@@ -48,7 +48,7 @@ interface Wallet
      * @throws TransactionFailedException If the transaction fails.
      * @throws ExceptionInterface If an exception occurs.
      */
-    public function withdraw(int|string $amount, ?array $meta = null, bool $confirmed = true): Transaction;
+    public function withdraw(int|string $amount, ?array $meta = null, bool $confirmed = true): WalletTransaction;
 
     /**
      * Forced to withdraw funds from the wallet.
@@ -56,22 +56,22 @@ interface Wallet
      * @param int|non-empty-string $amount The amount to withdraw.
      * @param array<mixed>|null $meta Additional information for the transaction.
      * @param bool $confirmed Whether the transaction is confirmed or not.
-     * @return Transaction The created transaction.
+     * @return WalletTransaction The created transaction.
      *
      * @throws AmountInvalid If the amount is invalid.
      * @throws RecordsNotFoundException If the wallet is not found.
      * @throws TransactionFailedException If the transaction fails.
      * @throws ExceptionInterface If an exception occurs.
      */
-    public function forceWithdraw(int|string $amount, ?array $meta = null, bool $confirmed = true): Transaction;
+    public function forceWithdraw(int|string $amount, ?array $meta = null, bool $confirmed = true): WalletTransaction;
 
     /**
-     * Transfer funds from this wallet to another.
+     * WalletTransfer funds from this wallet to another.
      *
      * @param self $wallet The wallet to transfer funds to.
      * @param int|non-empty-string $amount The amount to transfer.
      * @param ExtraDtoInterface|array<mixed>|null $meta Additional information for the transaction.
-     * @return Transfer The created transaction.
+     * @return WalletTransfer The created transaction.
      *
      * @throws AmountInvalid If the amount is invalid.
      * @throws BalanceIsEmpty If the balance is empty.
@@ -80,7 +80,7 @@ interface Wallet
      * @throws TransactionFailedException If the transaction fails.
      * @throws ExceptionInterface If an exception occurs.
      */
-    public function transfer(self $wallet, int|string $amount, ExtraDtoInterface|array|null $meta = null): Transfer;
+    public function transfer(self $wallet, int|string $amount, ExtraDtoInterface|array|null $meta = null): WalletTransfer;
 
     /**
      * Safely transfers funds from this wallet to another.
@@ -93,7 +93,7 @@ interface Wallet
      * @param ExtraDtoInterface|array<mixed>|null $meta Additional information for the transaction.
      *                                                This can be an instance of an ExtraDtoInterface
      *                                                or an array of arbitrary data.
-     * @return null|Transfer The created transaction, or null if an error occurred.
+     * @return null|WalletTransfer The created transaction, or null if an error occurred.
      *
      * @throws AmountInvalid If the amount is invalid.
      * @throws BalanceIsEmpty If the balance is empty.
@@ -106,7 +106,7 @@ interface Wallet
         self $wallet,
         int|string $amount,
         ExtraDtoInterface|array|null $meta = null
-    ): ?Transfer;
+    ): ?WalletTransfer;
 
     /**
      * Forces a transfer of funds from this wallet to another, bypassing certain safety checks.
@@ -120,7 +120,7 @@ interface Wallet
      * @param ExtraDtoInterface|array<mixed>|null $meta Additional metadata associated with the transfer. This
      * can be used to store extra information about the transaction, such as reasons for the transfer or
      * identifiers linking to other systems.
-     * @return Transfer Returns a Transfer object representing the completed transaction.
+     * @return WalletTransfer Returns a WalletTransfer object representing the completed transaction.
      *
      * @throws AmountInvalid If the amount specified is invalid (e.g., negative values).
      * @throws RecordsNotFoundException If the target wallet cannot be found.
@@ -133,7 +133,7 @@ interface Wallet
         self $wallet,
         int|string $amount,
         ExtraDtoInterface|array|null $meta = null
-    ): Transfer;
+    ): WalletTransfer;
 
     /**
      * Checks if the wallet can safely withdraw the specified amount.
@@ -164,7 +164,7 @@ interface Wallet
     /**
      * Represents a relationship where a wallet has many transactions.
      *
-     * @return HasMany<Transaction> A collection of transactions associated with this wallet.
+     * @return HasMany<WalletTransaction> A collection of transactions associated with this wallet.
      */
     public function walletTransactions(): HasMany;
 
@@ -175,21 +175,21 @@ interface Wallet
      * associated with this wallet. The transactions may be of different types, such as
      * deposits, withdrawals, or transfers.
      *
-     * @return MorphMany<Transaction> A collection of transactions associated with this wallet.
+     * @return MorphMany<WalletTransaction> A collection of transactions associated with this wallet.
      */
     public function transactions(): MorphMany;
 
     /**
      * Returns all the transfers sent by this wallet.
      *
-     * @return HasMany<Transfer> A collection of transfers sent by this wallet.
+     * @return HasMany<WalletTransfer> A collection of transfers sent by this wallet.
      */
     public function transfers(): HasMany;
 
     /**
      * Returns all the transfers received by this wallet.
      *
-     * @return HasMany<Transfer> A collection of transfers received by this wallet.
+     * @return HasMany<WalletTransfer> A collection of transfers received by this wallet.
      */
     public function receivedTransfers(): HasMany;
 }

@@ -11,8 +11,8 @@ use Bavix\Wallet\Interfaces\Customer;
 use Bavix\Wallet\Interfaces\Wallet;
 use Bavix\Wallet\Internal\Exceptions\ExceptionInterface;
 use Bavix\Wallet\Internal\Exceptions\TransactionFailedException;
-use Bavix\Wallet\Models\Transaction;
-use Bavix\Wallet\Models\Transfer;
+use App\Models\WalletTransaction;
+use App\Models\WalletTransfer;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\RecordsNotFoundException;
 
@@ -40,7 +40,7 @@ trait CanPayFloat
          * @param float|int|string $amount The amount to deposit.
          * @param null|array<mixed> $meta Additional information for the transaction.
          * @param bool $confirmed Whether the transaction is confirmed or not.
-         * @return Transaction The created transaction.
+         * @return WalletTransaction The created transaction.
          *
          * @throws AmountInvalid If the amount is invalid.
          * @throws RecordsNotFoundException If the wallet is not found.
@@ -55,7 +55,7 @@ trait CanPayFloat
          * @param float|int|string $amount The amount to withdraw.
          * @param array<mixed>|null $meta Additional information for the transaction.
          * @param bool $confirmed Whether the transaction is confirmed or not.
-         * @return Transaction The created transaction.
+         * @return WalletTransaction The created transaction.
          *
          * @throws AmountInvalid If the amount is invalid.
          * @throws BalanceIsEmpty If the balance is empty.
@@ -80,7 +80,7 @@ trait CanPayFloat
          * @param float|int|string $amount The amount to withdraw.
          * @param null|array<mixed> $meta Additional information for the transaction.
          * @param bool $confirmed Whether the transaction is confirmed or not.
-         * @return Transaction The created transaction.
+         * @return WalletTransaction The created transaction.
          *
          * @throws AmountInvalid If the amount is invalid.
          * @throws RecordsNotFoundException If the wallet is not found.
@@ -90,12 +90,12 @@ trait CanPayFloat
         CanPay::forceWithdraw insteadof HasWalletFloat;
 
         /**
-         * Transfer the specified float amount of money from the wallet to a customer.
+         * WalletTransfer the specified float amount of money from the wallet to a customer.
          *
          * @param Customer $customer The customer to transfer to.
          * @param float|int|string $amount The amount to transfer.
          * @param null|array<mixed> $meta Additional information for the transaction.
-         * @return Transfer The created transfer.
+         * @return WalletTransfer The created transfer.
          *
          * @throws AmountInvalid If the amount is invalid.
          * @throws BalanceIsEmpty If the balance is empty.
@@ -112,7 +112,7 @@ trait CanPayFloat
          * @param Customer $customer The customer to transfer to.
          * @param float|int|string $amount The amount to transfer.
          * @param null|array<mixed> $meta Additional information for the transaction.
-         * @return Transfer|null The created transfer or null if the transfer fails.
+         * @return WalletTransfer|null The created transfer or null if the transfer fails.
          */
         CanPay::safeTransfer insteadof HasWalletFloat;
 
@@ -122,7 +122,7 @@ trait CanPayFloat
          * @param Customer $customer The customer to transfer to.
          * @param float|int|string $amount The amount to transfer.
          * @param null|array<mixed> $meta Additional information for the transaction.
-         * @return Transfer The created transfer.
+         * @return WalletTransfer The created transfer.
          *
          * @throws AmountInvalid If the amount is invalid.
          * @throws RecordsNotFoundException If the wallet is not found.

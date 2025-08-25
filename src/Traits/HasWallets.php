@@ -6,7 +6,7 @@ namespace Bavix\Wallet\Traits;
 
 use function array_key_exists;
 use Bavix\Wallet\Internal\Exceptions\ModelNotFoundException;
-use Bavix\Wallet\Models\Wallet as WalletModel;
+use App\Models\Wallet as WalletModel;
 use Bavix\Wallet\Services\WalletServiceInterface;
 use function config;
 use Illuminate\Database\Eloquent\Relations\MorphMany;

@@ -9,7 +9,7 @@ use Bavix\Wallet\External\Contracts\ExtraDtoInterface;
 use Bavix\Wallet\Interfaces\Wallet;
 use Bavix\Wallet\Internal\Dto\TransactionDtoInterface;
 use Bavix\Wallet\Internal\Dto\TransferLazyDtoInterface;
-use Bavix\Wallet\Models\Wallet as WalletModel;
+use App\Models\Wallet as WalletModel;
 
 /**
  * @api
@@ -55,7 +55,7 @@ interface PrepareServiceInterface
     ): TransactionDtoInterface;
 
     /**
-     * Transfer funds from one wallet to another.
+     * WalletTransfer funds from one wallet to another.
      *
      * This function is a shortcut for the transferExtraLazy method.
      * It does not allow to specify the wallets models explicitly.
@@ -78,7 +78,7 @@ interface PrepareServiceInterface
     ): TransferLazyDtoInterface;
 
     /**
-     * Transfer funds from one wallet to another with extra data.
+     * WalletTransfer funds from one wallet to another with extra data.
      *
      * @param Wallet $from The wallet from which funds are transferred.
      * @param WalletModel $fromWallet The model of the wallet from which funds are transferred.

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Bavix\Wallet\Test\Units\Domain;
 
-use Bavix\Wallet\Models\Transfer;
+use App\Models\WalletTransfer;
 use Bavix\Wallet\Objects\Cart;
 use Bavix\Wallet\Services\PurchaseServiceInterface;
 use Bavix\Wallet\Test\Infra\Factories\BuyerFactory;
@@ -13,7 +13,7 @@ use Bavix\Wallet\Test\Infra\Factories\ItemMetaFactory;
 use Bavix\Wallet\Test\Infra\Models\Buyer;
 use Bavix\Wallet\Test\Infra\Models\Item;
 use Bavix\Wallet\Test\Infra\Models\ItemMeta;
-use Bavix\Wallet\Test\Infra\PackageModels\Transaction;
+use Bavix\Wallet\Test\Infra\PackageModels\WalletTransaction;
 use Bavix\Wallet\Test\Infra\TestCase;
 use function count;
 use Illuminate\Database\Eloquent\Collection;
@@ -64,7 +64,7 @@ final class CartReceivingTest extends TestCase
 
         $transfer = current($transfers);
 
-        /** @var Transaction[] $transactions */
+        /** @var WalletTransaction[] $transactions */
         $transactions = [$transfer->deposit, $transfer->withdraw];
         foreach ($transactions as $transaction) {
             self::assertSame($product->price, $transaction->meta['price']);
@@ -125,7 +125,7 @@ final class CartReceivingTest extends TestCase
         self::assertSame(0, $payment->balanceInt);
 
         foreach ($transfers as $transfer) {
-            self::assertSame(Transfer::STATUS_PAID, $transfer->status);
+            self::assertSame(WalletTransfer::STATUS_PAID, $transfer->status);
             self::assertNull($transfer->status_last);
         }
 
@@ -137,8 +137,8 @@ final class CartReceivingTest extends TestCase
         self::assertTrue($payment->refundCart($cart));
         foreach ($transfers as $transfer) {
             $transfer->refresh();
-            self::assertSame(Transfer::STATUS_REFUND, $transfer->status);
-            self::assertSame(Transfer::STATUS_PAID, $transfer->status_last);
+            self::assertSame(WalletTransfer::STATUS_REFUND, $transfer->status);
+            self::assertSame(WalletTransfer::STATUS_PAID, $transfer->status_last);
         }
 
         self::assertSame(10, $payment->balanceInt);

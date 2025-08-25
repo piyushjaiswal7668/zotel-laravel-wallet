@@ -6,14 +6,14 @@ namespace Bavix\Wallet\Test\Units\Domain;
 
 use Bavix\Wallet\Exceptions\ProductEnded;
 use Bavix\Wallet\Internal\Exceptions\ExceptionInterface;
-use Bavix\Wallet\Models\Transaction;
-use Bavix\Wallet\Models\Transfer;
-use Bavix\Wallet\Models\Wallet;
+use App\Models\WalletTransaction;
+use App\Models\WalletTransfer;
+use App\Models\Wallet;
 use Bavix\Wallet\Test\Infra\Factories\BuyerFactory;
 use Bavix\Wallet\Test\Infra\Factories\ItemDiscountFactory;
 use Bavix\Wallet\Test\Infra\Models\Buyer;
 use Bavix\Wallet\Test\Infra\Models\ItemDiscount;
-use Bavix\Wallet\Test\Infra\PackageModels\Transaction as InfraTransaction;
+use Bavix\Wallet\Test\Infra\PackageModels\WalletTransaction as InfraTransaction;
 use Bavix\Wallet\Test\Infra\PackageModels\Wallet as InfraWallet;
 use Bavix\Wallet\Test\Infra\TestCase;
 
@@ -35,7 +35,7 @@ final class DiscountTest extends TestCase
         self::assertSame($buyer->balanceInt, $product->getAmountProduct($buyer));
         $transfer = $buyer->pay($product);
         self::assertNotNull($transfer);
-        self::assertSame(Transfer::STATUS_PAID, $transfer->status);
+        self::assertSame(WalletTransfer::STATUS_PAID, $transfer->status);
 
         self::assertSame($buyer->balanceInt, $product->getPersonalDiscount($buyer));
 
@@ -44,8 +44,8 @@ final class DiscountTest extends TestCase
         $withdraw = $transfer->withdraw;
         $deposit = $transfer->deposit;
 
-        self::assertInstanceOf(Transaction::class, $withdraw);
-        self::assertInstanceOf(Transaction::class, $deposit);
+        self::assertInstanceOf(WalletTransaction::class, $withdraw);
+        self::assertInstanceOf(WalletTransaction::class, $deposit);
 
         self::assertInstanceOf(Buyer::class, $withdraw->payable);
         self::assertInstanceOf(ItemDiscount::class, $deposit->payable);
@@ -77,7 +77,7 @@ final class DiscountTest extends TestCase
         self::assertSame($buyer->balanceInt, $product->getAmountProduct($buyer));
         $transfer = $buyer->pay($product);
         self::assertNotNull($transfer);
-        self::assertSame(Transfer::STATUS_PAID, $transfer->status);
+        self::assertSame(WalletTransfer::STATUS_PAID, $transfer->status);
 
         self::assertSame($buyer->balanceInt, $product->getPersonalDiscount($buyer));
 
@@ -86,12 +86,12 @@ final class DiscountTest extends TestCase
         $withdraw = $transfer->withdraw;
         $deposit = $transfer->deposit;
 
-        self::assertInstanceOf(Transaction::class, $withdraw);
-        self::assertInstanceOf(Transaction::class, $deposit);
+        self::assertInstanceOf(WalletTransaction::class, $withdraw);
+        self::assertInstanceOf(WalletTransaction::class, $deposit);
 
         self::assertTrue($withdraw->is(
             $buyer->transactions()
-                ->where('type', Transaction::TYPE_WITHDRAW)
+                ->where('type', WalletTransaction::TYPE_WITHDRAW)
                 ->latest()
                 ->first()
         ));
@@ -114,7 +114,7 @@ final class DiscountTest extends TestCase
         self::assertSame($buyer->balanceInt, $product->getAmountProduct($buyer));
         $transfer = $buyer->pay($product);
         self::assertNotNull($transfer);
-        self::assertSame(Transfer::STATUS_PAID, $transfer->status);
+        self::assertSame(WalletTransfer::STATUS_PAID, $transfer->status);
 
         self::assertSame((int) $transfer->discount, $product->getPersonalDiscount($buyer));
 
@@ -123,7 +123,7 @@ final class DiscountTest extends TestCase
         self::assertSame(0, $product->balanceInt);
 
         $transfer->refresh();
-        self::assertSame(Transfer::STATUS_REFUND, $transfer->status);
+        self::assertSame(WalletTransfer::STATUS_REFUND, $transfer->status);
 
         self::assertFalse($buyer->safeRefund($product));
         self::assertSame($buyer->balanceInt, $product->getAmountProduct($buyer));
@@ -136,14 +136,14 @@ final class DiscountTest extends TestCase
             $product->getAmountProduct($buyer) - $product->getPersonalDiscount($buyer)
         );
 
-        self::assertSame(Transfer::STATUS_PAID, $transfer->status);
+        self::assertSame(WalletTransfer::STATUS_PAID, $transfer->status);
 
         self::assertTrue($buyer->refund($product));
         self::assertSame($buyer->balanceInt, $product->getAmountProduct($buyer));
         self::assertSame(0, $product->balanceInt);
 
         $transfer->refresh();
-        self::assertSame(Transfer::STATUS_REFUND, $transfer->status);
+        self::assertSame(WalletTransfer::STATUS_REFUND, $transfer->status);
     }
 
     public function testForceRefund(): void
@@ -240,10 +240,10 @@ final class DiscountTest extends TestCase
         self::assertSame(0, $buyer->balanceInt);
 
         $transfer = $buyer->payFree($product);
-        self::assertSame(Transaction::TYPE_DEPOSIT, $transfer->deposit->type);
+        self::assertSame(WalletTransaction::TYPE_DEPOSIT, $transfer->deposit->type);
         self::assertInstanceOf(InfraTransaction::class, $transfer->deposit);
         self::assertInstanceOf(InfraWallet::class, $transfer->from);
-        self::assertSame(Transaction::TYPE_WITHDRAW, $transfer->withdraw->type);
+        self::assertSame(WalletTransaction::TYPE_WITHDRAW, $transfer->withdraw->type);
         self::assertInstanceOf(InfraTransaction::class, $transfer->withdraw);
         self::assertInstanceOf(InfraWallet::class, $transfer->to);
 
@@ -268,8 +268,8 @@ final class DiscountTest extends TestCase
         self::assertSame(-1000, $buyer->balanceInt);
 
         $transfer = $buyer->payFree($product);
-        self::assertSame(Transaction::TYPE_DEPOSIT, $transfer->deposit->type);
-        self::assertSame(Transaction::TYPE_WITHDRAW, $transfer->withdraw->type);
+        self::assertSame(WalletTransaction::TYPE_DEPOSIT, $transfer->deposit->type);
+        self::assertSame(WalletTransaction::TYPE_WITHDRAW, $transfer->withdraw->type);
 
         self::assertSame(-1000, $buyer->balanceInt);
         self::assertSame(0, $product->balanceInt);

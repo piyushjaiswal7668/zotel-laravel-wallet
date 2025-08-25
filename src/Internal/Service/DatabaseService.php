@@ -45,7 +45,7 @@ final readonly class DatabaseService implements DatabaseServiceInterface
             throw $exception;
         } catch (Throwable $throwable) {
             throw new TransactionFailedException(
-                'Transaction failed. Message: '.$throwable->getMessage(),
+                'WalletTransaction failed. Message: '.$throwable->getMessage(),
                 ExceptionInterface::TRANSACTION_FAILED,
                 $throwable
             );

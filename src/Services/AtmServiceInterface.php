@@ -6,8 +6,8 @@ namespace Bavix\Wallet\Services;
 
 use Bavix\Wallet\Internal\Dto\TransactionDtoInterface;
 use Bavix\Wallet\Internal\Dto\TransferDtoInterface;
-use Bavix\Wallet\Models\Transaction;
-use Bavix\Wallet\Models\Transfer;
+use App\Models\WalletTransaction;
+use App\Models\WalletTransfer;
 
 /**
  * @api
@@ -26,7 +26,7 @@ interface AtmServiceInterface
      *
      * @param non-empty-array<array-key, TransactionDtoInterface> $objects
      *      The array of objects that represent the transactions.
-     * @return non-empty-array<string, Transaction>
+     * @return non-empty-array<string, WalletTransaction>
      *      An array of transaction objects. The keys are the transaction UUIDs and the values are the transaction
      *      objects.
      *
@@ -47,7 +47,7 @@ interface AtmServiceInterface
      *
      * @param non-empty-array<array-key, TransferDtoInterface> $objects
      *      The array of objects that represent the transfers.
-     * @return non-empty-array<string, Transfer>
+     * @return non-empty-array<string, WalletTransfer>
      *      An array of transfer objects. The keys are the transfer UUIDs and the values are the transfer
      *      objects.
      *

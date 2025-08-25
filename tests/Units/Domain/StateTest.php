@@ -6,7 +6,7 @@ namespace Bavix\Wallet\Test\Units\Domain;
 
 use function app;
 use Bavix\Wallet\Internal\Service\DatabaseServiceInterface;
-use Bavix\Wallet\Models\Wallet;
+use App\Models\Wallet;
 use Bavix\Wallet\Services\BookkeeperServiceInterface;
 use Bavix\Wallet\Services\RegulatorServiceInterface;
 use Bavix\Wallet\Test\Infra\Factories\BuyerFactory;

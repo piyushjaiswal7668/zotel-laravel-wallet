@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Bavix\Wallet\Test\Units\Domain;
 
 use Bavix\Wallet\Internal\Service\DatabaseServiceInterface;
-use Bavix\Wallet\Models\Transaction;
+use App\Models\WalletTransaction;
 use Bavix\Wallet\Test\Infra\Factories\BuyerFactory;
 use Bavix\Wallet\Test\Infra\Models\Buyer;
 use Bavix\Wallet\Test\Infra\PackageModels\Wallet;
@@ -108,7 +108,7 @@ final class TransactionsFilterTest extends TestCase
 
         self::assertSame(21, $buyer->transactions()->count());
 
-        $query = Transaction::with('wallet')
+        $query = WalletTransaction::with('wallet')
             ->where('payable_id', $buyer->getKey())
             ->where('wallet_id', '=', $buyer->wallet->getKey())
             ->orderBy('created_at', 'desc');
@@ -143,9 +143,9 @@ final class TransactionsFilterTest extends TestCase
         self::assertSame(21, $buyer->transactions()->count());
 
         $walletTableName = (new Wallet())->getTable();
-        $transactionTableName = (new Transaction())->getTable();
+        $transactionTableName = (new WalletTransaction())->getTable();
 
-        $query = Transaction::query()
+        $query = WalletTransaction::query()
             ->where(function ($query) use ($buyer, $walletTableName, $transactionTableName) {
                 $query
                     ->where('payable_type', '=', $buyer->getMorphClass())

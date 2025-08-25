@@ -9,7 +9,7 @@ use Bavix\Wallet\Internal\Assembler\TransactionCreatedEventAssemblerInterface;
 use Bavix\Wallet\Internal\Dto\TransactionDtoInterface;
 use Bavix\Wallet\Internal\Exceptions\RecordNotFoundException;
 use Bavix\Wallet\Internal\Service\DispatcherServiceInterface;
-use Bavix\Wallet\Models\Transaction;
+use App\Models\WalletTransaction;
 
 /**
  * @internal
@@ -36,10 +36,10 @@ final readonly class TransactionService implements TransactionServiceInterface
         float|int|string $amount,
         ?array $meta,
         bool $confirmed = true
-    ): Transaction {
-        assert(in_array($type, [Transaction::TYPE_DEPOSIT, Transaction::TYPE_WITHDRAW], true));
+    ): WalletTransaction {
+        assert(in_array($type, [WalletTransaction::TYPE_DEPOSIT, WalletTransaction::TYPE_WITHDRAW], true));
 
-        $dto = $type === Transaction::TYPE_DEPOSIT
+        $dto = $type === WalletTransaction::TYPE_DEPOSIT
             ? $this->prepareService->deposit($wallet, (string) $amount, $meta, $confirmed)
             : $this->prepareService->withdraw($wallet, (string) $amount, $meta, $confirmed);
 
@@ -53,7 +53,7 @@ final readonly class TransactionService implements TransactionServiceInterface
     /**
      * @param non-empty-array<int, Wallet> $wallets
      * @param non-empty-array<int, TransactionDtoInterface> $objects
-     * @return non-empty-array<string, Transaction>
+     * @return non-empty-array<string, WalletTransaction>
      *
      * @throws RecordNotFoundException
      */

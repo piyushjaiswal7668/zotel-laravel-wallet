@@ -7,7 +7,7 @@ namespace Bavix\Wallet\Internal\Assembler;
 use Bavix\Wallet\Internal\Events\TransactionCreatedEvent;
 use Bavix\Wallet\Internal\Events\TransactionCreatedEventInterface;
 use Bavix\Wallet\Internal\Service\ClockServiceInterface;
-use Bavix\Wallet\Models\Transaction;
+use App\Models\WalletTransaction;
 
 final readonly class TransactionCreatedEventAssembler implements TransactionCreatedEventAssemblerInterface
 {
@@ -16,7 +16,7 @@ final readonly class TransactionCreatedEventAssembler implements TransactionCrea
     ) {
     }
 
-    public function create(Transaction $transaction): TransactionCreatedEventInterface
+    public function create(WalletTransaction $transaction): TransactionCreatedEventInterface
     {
         return new TransactionCreatedEvent(
             $transaction->getKey(),

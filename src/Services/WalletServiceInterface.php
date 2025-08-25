@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Bavix\Wallet\Services;
 
 use Bavix\Wallet\Internal\Exceptions\ModelNotFoundException;
-use Bavix\Wallet\Models\Wallet;
+use App\Models\Wallet;
 use Illuminate\Database\Eloquent\Model;
 
 /**

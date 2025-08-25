@@ -35,7 +35,7 @@ final readonly class AtomicService implements AtomicServiceInterface
      */
     public function blocks(array $objects, callable $callback): mixed
     {
-        /** @var array<string, \Bavix\Wallet\Models\Wallet> $blockObjects */
+        /** @var array<string, \App\Models\Wallet> $blockObjects */
         $blockObjects = [];
         foreach ($objects as $object) {
             $wallet = $this->castService->getWallet($object);

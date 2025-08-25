@@ -9,7 +9,7 @@ use Bavix\Wallet\Exceptions\WalletOwnerInvalid;
 use Bavix\Wallet\Internal\Exceptions\ExceptionInterface;
 use Bavix\Wallet\Internal\Exceptions\RecordNotFoundException;
 use Bavix\Wallet\Internal\Exceptions\TransactionFailedException;
-use Bavix\Wallet\Models\Transfer;
+use App\Models\WalletTransfer;
 use Bavix\Wallet\Services\AtomicServiceInterface;
 use Illuminate\Database\RecordsNotFoundException;
 
@@ -21,12 +21,12 @@ final readonly class TransferObserver
     }
 
     /**
-     * Handle the deleting event for the Transfer model.
+     * Handle the deleting event for the WalletTransfer model.
      *
      * This method is called when a transfer is being deleted.
      * It safely resets the confirmation of the transfer.
      *
-     * @param Transfer $model The transfer model being deleted.
+     * @param WalletTransfer $model The transfer model being deleted.
      * @return bool Returns true if the confirmation was reset, false otherwise.
      *
      * @throws UnconfirmedInvalid If the transfer is not confirmed.
@@ -36,7 +36,7 @@ final readonly class TransferObserver
      * @throws TransactionFailedException If the transfer failed.
      * @throws ExceptionInterface If an exception occurred.
      */
-    public function deleting(Transfer $model): bool
+    public function deleting(WalletTransfer $model): bool
     {
         // Reset confirmation.
         // This method removes the confirmation of the transfer only if it is already confirmed.

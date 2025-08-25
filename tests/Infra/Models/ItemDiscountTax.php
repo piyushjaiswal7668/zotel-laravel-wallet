@@ -8,7 +8,7 @@ use Bavix\Wallet\Interfaces\Customer;
 use Bavix\Wallet\Interfaces\Discount;
 use Bavix\Wallet\Interfaces\ProductLimitedInterface;
 use Bavix\Wallet\Interfaces\Taxable;
-use Bavix\Wallet\Models\Wallet;
+use App\Models\Wallet;
 use Bavix\Wallet\Services\CastService;
 use Bavix\Wallet\Traits\HasWallet;
 use Illuminate\Database\Eloquent\Model;
@@ -42,7 +42,7 @@ final class ItemDiscountTax extends Model implements ProductLimitedInterface, Di
             return $result;
         }
 
-        return $result && ! $customer->paid($this) instanceof \Bavix\Wallet\Models\Transfer;
+        return $result && ! $customer->paid($this) instanceof \App\Models\WalletTransfer;
     }
 
     public function getAmountProduct(Customer $customer): int

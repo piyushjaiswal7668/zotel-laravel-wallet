@@ -13,8 +13,8 @@ use Bavix\Wallet\Internal\Assembler\TransferLazyDtoAssemblerInterface;
 use Bavix\Wallet\Internal\Dto\TransactionDtoInterface;
 use Bavix\Wallet\Internal\Dto\TransferLazyDtoInterface;
 use Bavix\Wallet\Internal\Service\MathServiceInterface;
-use Bavix\Wallet\Models\Transaction;
-use Bavix\Wallet\Models\Wallet as WalletModel;
+use App\Models\WalletTransaction;
+use App\Models\Wallet as WalletModel;
 
 /**
  * @internal
@@ -49,7 +49,7 @@ final readonly class PrepareService implements PrepareServiceInterface
             $this->castService->getHolder($wallet),
             $this->castService->getWallet($wallet)
                 ->getKey(),
-            Transaction::TYPE_DEPOSIT,
+            WalletTransaction::TYPE_DEPOSIT,
             $amount,
             $confirmed,
             $meta,
@@ -73,7 +73,7 @@ final readonly class PrepareService implements PrepareServiceInterface
             $this->castService->getHolder($wallet),
             $this->castService->getWallet($wallet)
                 ->getKey(),
-            Transaction::TYPE_WITHDRAW,
+            WalletTransaction::TYPE_WITHDRAW,
             $this->mathService->negative($amount),
             $confirmed,
             $meta,

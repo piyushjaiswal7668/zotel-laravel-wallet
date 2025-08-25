@@ -6,7 +6,7 @@ namespace Bavix\Wallet\Internal\Repository;
 
 use Bavix\Wallet\Internal\Dto\TransferDtoInterface;
 use Bavix\Wallet\Internal\Query\TransferQueryInterface;
-use Bavix\Wallet\Models\Transfer;
+use App\Models\WalletTransfer;
 
 interface TransferRepositoryInterface
 {
@@ -21,15 +21,15 @@ interface TransferRepositoryInterface
      * Inserts a single transfer into the repository.
      *
      * @param TransferDtoInterface $dto The transfer object to insert.
-     * @return Transfer The inserted transfer.
+     * @return WalletTransfer The inserted transfer.
      */
-    public function insertOne(TransferDtoInterface $dto): Transfer;
+    public function insertOne(TransferDtoInterface $dto): WalletTransfer;
 
     /**
      * Retrieves transfers from the repository based on the given query.
      *
      * @param TransferQueryInterface $query The query used to filter the transfers.
-     * @return Transfer[] The array of transfers that match the query.
+     * @return WalletTransfer[] The array of transfers that match the query.
      */
     public function findBy(TransferQueryInterface $query): array;
 

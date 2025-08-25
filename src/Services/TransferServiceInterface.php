@@ -8,7 +8,7 @@ use Bavix\Wallet\Internal\Dto\TransferLazyDtoInterface;
 use Bavix\Wallet\Internal\Exceptions\ExceptionInterface;
 use Bavix\Wallet\Internal\Exceptions\RecordNotFoundException;
 use Bavix\Wallet\Internal\Exceptions\TransactionFailedException;
-use Bavix\Wallet\Models\Transfer;
+use App\Models\WalletTransfer;
 use Illuminate\Database\RecordsNotFoundException;
 
 /**
@@ -37,7 +37,7 @@ interface TransferServiceInterface
      * creating transfers and corresponding transactions.
      *
      * @param non-empty-array<TransferLazyDtoInterface> $objects The array of transfer operations to apply.
-     * @return non-empty-array<string, Transfer> An array of created transfers, indexed by their IDs.
+     * @return non-empty-array<string, WalletTransfer> An array of created transfers, indexed by their IDs.
      *
      * @throws RecordNotFoundException If a wallet referenced in the transfer operations is not found.
      * @throws RecordsNotFoundException If a wallet referenced in the transfer operations is not found.

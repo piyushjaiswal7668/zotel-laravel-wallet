@@ -7,11 +7,11 @@ namespace Bavix\Wallet\Test\Infra\PackageModels;
 use Bavix\Wallet\Test\Infra\Values\Money;
 
 /**
- * Class Transaction.
+ * Class WalletTransaction.
  *
  * @property Money $currency
  */
-final class TransactionMoney extends \Bavix\Wallet\Models\Transaction
+final class TransactionMoney extends \App\Models\WalletTransaction
 {
     private ?Money $currency = null;
 

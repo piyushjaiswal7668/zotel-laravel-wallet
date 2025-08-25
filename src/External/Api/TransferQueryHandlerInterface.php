@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Bavix\Wallet\External\Api;
 
 use Bavix\Wallet\Internal\Exceptions\ExceptionInterface;
-use Bavix\Wallet\Models\Transfer;
+use App\Models\WalletTransfer;
 
 /**
  * @api
@@ -18,7 +18,7 @@ interface TransferQueryHandlerInterface
      * and check the correctness of the balance manually.
      *
      * @param non-empty-array<TransferQueryInterface> $objects
-     * @return non-empty-array<string, Transfer>
+     * @return non-empty-array<string, WalletTransfer>
      *
      * @throws ExceptionInterface
      */

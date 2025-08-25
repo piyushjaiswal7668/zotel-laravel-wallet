@@ -5,15 +5,15 @@ declare(strict_types=1);
 namespace Bavix\Wallet\Internal\Assembler;
 
 use Bavix\Wallet\Internal\Events\TransactionCreatedEventInterface;
-use Bavix\Wallet\Models\Transaction;
+use App\Models\WalletTransaction;
 
 interface TransactionCreatedEventAssemblerInterface
 {
     /**
-     * Creates a new instance of the TransactionCreatedEventInterface from the given Transaction model.
+     * Creates a new instance of the TransactionCreatedEventInterface from the given WalletTransaction model.
      *
-     * @param Transaction $transaction The transaction model to create the event from.
+     * @param WalletTransaction $transaction The transaction model to create the event from.
      * @return TransactionCreatedEventInterface The created event.
      */
-    public function create(Transaction $transaction): TransactionCreatedEventInterface;
+    public function create(WalletTransaction $transaction): TransactionCreatedEventInterface;
 }

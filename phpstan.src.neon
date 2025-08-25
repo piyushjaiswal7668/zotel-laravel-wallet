@@ -16,9 +16,9 @@ parameters:
         final:
             allowAbstractClasses: true
             classesNotRequiredToBeAbstractOrFinal:
-                - Bavix\Wallet\Models\Wallet
-                - Bavix\Wallet\Models\Transfer
-                - Bavix\Wallet\Models\Transaction
+                - App\Models\Wallet
+                - App\Models\WalletTransfer
+                - App\Models\WalletTransaction
         noExtends:
             classesAllowedToBeExtended:
                 # laravel

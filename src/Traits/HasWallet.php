@@ -13,9 +13,9 @@ use Bavix\Wallet\Interfaces\Wallet;
 use Bavix\Wallet\Internal\Exceptions\ExceptionInterface;
 use Bavix\Wallet\Internal\Exceptions\TransactionFailedException;
 use Bavix\Wallet\Internal\Service\MathServiceInterface;
-use Bavix\Wallet\Models\Transaction;
-use Bavix\Wallet\Models\Transfer;
-use Bavix\Wallet\Models\Wallet as WalletModel;
+use App\Models\WalletTransaction;
+use App\Models\WalletTransfer;
+use App\Models\Wallet as WalletModel;
 use Bavix\Wallet\Services\AtomicServiceInterface;
 use Bavix\Wallet\Services\CastServiceInterface;
 use Bavix\Wallet\Services\ConsistencyServiceInterface;
@@ -53,21 +53,21 @@ trait HasWallet
      * information about the type of deposit, the source of the funds, or any other relevant details.
      * @param bool $confirmed Whether the transaction is confirmed. This can be used to indicate whether the
      * transaction has been verified and is considered final. Defaults to true.
-     * @return Transaction The transaction object representing the deposit.
+     * @return WalletTransaction The transaction object representing the deposit.
      *
      * @throws AmountInvalid If the amount is invalid (e.g. negative, not a number, too large).
      * @throws RecordsNotFoundException If the wallet is not found.
      * @throws TransactionFailedException If the transaction fails for any reason (e.g. network issues, insufficient funds).
      * @throws ExceptionInterface If an exception occurs during the transaction process.
      */
-    public function deposit(int|string $amount, ?array $meta = null, bool $confirmed = true): Transaction
+    public function deposit(int|string $amount, ?array $meta = null, bool $confirmed = true): WalletTransaction
     {
         // Execute the deposit transaction within an atomic block to ensure data consistency.
         return app(AtomicServiceInterface::class)->block(
             $this,
             // Create a new deposit transaction.
             fn () => app(TransactionServiceInterface::class)
-                ->makeOne($this, Transaction::TYPE_DEPOSIT, $amount, $meta, $confirmed)
+                ->makeOne($this, WalletTransaction::TYPE_DEPOSIT, $amount, $meta, $confirmed)
         );
     }
 
@@ -138,10 +138,10 @@ trait HasWallet
      * It uses the `getWallet` method of the `CastServiceInterface` to retrieve the wallet instance.
      * The `false` parameter indicates that the wallet should not be saved if it does not exist.
      * The method then uses the `hasMany` method on the wallet instance to retrieve all transactions related to the wallet.
-     * The transaction model class is retrieved from the configuration using `config('wallet.transaction.model', Transaction::class)`.
+     * The transaction model class is retrieved from the configuration using `config('wallet.transaction.model', WalletTransaction::class)`.
      * The relationship is defined using the `wallet_id` foreign key.
      *
-     * @return HasMany<Transaction> Returns a `HasMany` relationship of transactions related to the wallet.
+     * @return HasMany<WalletTransaction> Returns a `HasMany` relationship of transactions related to the wallet.
      */
     public function walletTransactions(): HasMany
     {
@@ -150,9 +150,9 @@ trait HasWallet
         $wallet = app(CastServiceInterface::class)->getWallet($this, false);
 
         // Retrieve all transactions related to the wallet using the `hasMany` method on the wallet instance.
-        // The transaction model class is retrieved from the configuration using `config('wallet.transaction.model', Transaction::class)`.
+        // The transaction model class is retrieved from the configuration using `config('wallet.transaction.model', WalletTransaction::class)`.
         // The relationship is defined using the `wallet_id` foreign key.
-        $transactions = $wallet->hasMany(config('wallet.transaction.model', Transaction::class), 'wallet_id');
+        $transactions = $wallet->hasMany(config('wallet.transaction.model', WalletTransaction::class), 'wallet_id');
 
         return $transactions;
     }
@@ -163,10 +163,10 @@ trait HasWallet
      * This method returns a `MorphMany` relationship object that represents all transactions and transfers
      * associated with the wallet. It fetches the wallet instance using the `getWallet` method of the
      * `CastServiceInterface` and defines the relationship using the `morphMany` method on the wallet instance.
-     * The transaction model class is retrieved from the configuration using `config('wallet.transaction.model', Transaction::class)`.
+     * The transaction model class is retrieved from the configuration using `config('wallet.transaction.model', WalletTransaction::class)`.
      * The relationship is defined using the `payable` foreign key.
      *
-     * @return MorphMany<Transaction> The `MorphMany` relationship object representing all user actions on the wallet.
+     * @return MorphMany<WalletTransaction> The `MorphMany` relationship object representing all user actions on the wallet.
      */
     public function transactions(): MorphMany
     {
@@ -177,11 +177,11 @@ trait HasWallet
         // Define the relationship between the wallet and the transactions using the `morphMany` method.
         // The `morphMany` method is used to define a polymorphic one-to-many relationship.
         // In this case, it represents the relationship between the wallet and the transactions.
-        // The transaction model class is retrieved from the configuration using `config('wallet.transaction.model', Transaction::class)`.
+        // The transaction model class is retrieved from the configuration using `config('wallet.transaction.model', WalletTransaction::class)`.
         // The relationship is defined using the `payable` foreign key.
         // The `payable` foreign key is used to associate the transactions with the wallet.
         return $wallet->morphMany(
-            config('wallet.transaction.model', Transaction::class),
+            config('wallet.transaction.model', WalletTransaction::class),
             'payable' // The name of the polymorphic relation column.
         );
     }
@@ -197,7 +197,7 @@ trait HasWallet
      * @param ExtraDtoInterface|array<mixed>|null $meta Additional information for the transaction.
      *                                                This can be an instance of an ExtraDtoInterface
      *                                                or an array of arbitrary data.
-     * @return null|Transfer The created transaction, or null if an error occurred.
+     * @return null|WalletTransfer The created transaction, or null if an error occurred.
      *
      * @throws AmountInvalid If the amount is invalid.
      * @throws BalanceIsEmpty If the balance is empty.
@@ -210,7 +210,7 @@ trait HasWallet
         Wallet $wallet,
         int|string $amount,
         ExtraDtoInterface|array|null $meta = null
-    ): ?Transfer {
+    ): ?WalletTransfer {
         // Attempt to transfer the funds from this wallet to the specified wallet.
         try {
             // Use the `transfer` method to transfer the funds.
@@ -234,7 +234,7 @@ trait HasWallet
      * @param ExtraDtoInterface|array<mixed>|null $meta Additional information for the transaction.
      *                                                This can be an instance of an ExtraDtoInterface
      *                                                or an array of arbitrary data.
-     * @return Transfer The created transaction.
+     * @return WalletTransfer The created transaction.
      *
      * @throws AmountInvalid If the amount is invalid.
      * @throws BalanceIsEmpty If the balance is empty.
@@ -251,10 +251,10 @@ trait HasWallet
      * @see InsufficientFunds
      * @see RecordsNotFoundException
      */
-    public function transfer(Wallet $wallet, int|string $amount, ExtraDtoInterface|array|null $meta = null): Transfer
+    public function transfer(Wallet $wallet, int|string $amount, ExtraDtoInterface|array|null $meta = null): WalletTransfer
     {
         // Wrap the transfer in an atomic block to ensure consistency and prevent race conditions.
-        return app(AtomicServiceInterface::class)->block($this, function () use ($wallet, $amount, $meta): Transfer {
+        return app(AtomicServiceInterface::class)->block($this, function () use ($wallet, $amount, $meta): WalletTransfer {
             /** @var Wallet $this */
             // Check if the transfer is possible before attempting it.
             app(ConsistencyServiceInterface::class)->checkPotential($this, $amount);
@@ -273,7 +273,7 @@ trait HasWallet
      * @param int|string $amount The amount to withdraw.
      * @param array<mixed>|null $meta Additional information for the transaction.
      * @param bool $confirmed Whether the withdrawal is confirmed.
-     * @return Transaction The created transaction.
+     * @return WalletTransaction The created transaction.
      *
      * @throws AmountInvalid If the amount is invalid.
      * @throws BalanceIsEmpty If the balance is empty.
@@ -290,14 +290,14 @@ trait HasWallet
      * @see InsufficientFunds
      * @see RecordsNotFoundException
      */
-    public function withdraw(int|string $amount, ?array $meta = null, bool $confirmed = true): Transaction
+    public function withdraw(int|string $amount, ?array $meta = null, bool $confirmed = true): WalletTransaction
     {
         // Wrap the withdrawal in an atomic block to ensure consistency and prevent race conditions.
         return app(AtomicServiceInterface::class)->block($this, function () use (
             $amount,
             $meta,
             $confirmed
-        ): Transaction {
+        ): WalletTransaction {
             /** @var Wallet $this */
             // Check if the withdrawal is possible before attempting it.
             app(ConsistencyServiceInterface::class)->checkPotential($this, $amount);
@@ -340,14 +340,14 @@ trait HasWallet
      * @param int|string $amount The amount to withdraw.
      * @param array<mixed>|null $meta Additional information for the transaction.
      * @param bool $confirmed Whether the transaction is confirmed. Defaults to true.
-     * @return Transaction The created transaction.
+     * @return WalletTransaction The created transaction.
      *
      * @throws AmountInvalid If the amount is invalid.
      * @throws RecordsNotFoundException If the wallet is not found.
      * @throws TransactionFailedException If the transaction fails.
      * @throws ExceptionInterface If an exception occurs.
      */
-    public function forceWithdraw(int|string $amount, ?array $meta = null, bool $confirmed = true): Transaction
+    public function forceWithdraw(int|string $amount, ?array $meta = null, bool $confirmed = true): WalletTransaction
     {
         // Wrap the transaction creation in an atomic block to ensure atomicity and consistency.
         // The atomic block ensures that the creation of the transaction is atomic,
@@ -355,13 +355,13 @@ trait HasWallet
         return app(AtomicServiceInterface::class)->block(
         // The wallet instance
             $this,
-            function () use ($amount, $meta, $confirmed): Transaction {
+            function () use ($amount, $meta, $confirmed): WalletTransaction {
                 // Create a new withdrawal transaction.
                 return app(TransactionServiceInterface::class)->makeOne(
                 // The wallet instance
                     $this,
                     // The transaction type
-                    Transaction::TYPE_WITHDRAW,
+                    WalletTransaction::TYPE_WITHDRAW,
                     // The amount to withdraw
                     $amount,
                     // Additional information for the transaction
@@ -385,7 +385,7 @@ trait HasWallet
      * @param ExtraDtoInterface|array<mixed>|null $meta Additional information for the transaction.
      *                                                This can be an instance of an ExtraDtoInterface
      *                                                or an array of arbitrary data.
-     * @return Transfer The created transfer.
+     * @return WalletTransfer The created transfer.
      *
      * @throws AmountInvalid If the amount is invalid.
      * @throws RecordsNotFoundException If the wallet is not found.
@@ -396,18 +396,18 @@ trait HasWallet
         Wallet $wallet,
         int|string $amount,
         ExtraDtoInterface|array|null $meta = null
-    ): Transfer {
+    ): WalletTransfer {
         // Wrap the transfer creation in an atomic block to ensure atomicity and consistency.
         // The atomic block ensures that the creation of the transfer is atomic,
         // meaning that either the entire transfer is created or none of it is.
-        return app(AtomicServiceInterface::class)->block($this, function () use ($wallet, $amount, $meta): Transfer {
+        return app(AtomicServiceInterface::class)->block($this, function () use ($wallet, $amount, $meta): WalletTransfer {
             // Create a new transfer transaction.
             // The transfer transaction is created using the PrepareServiceInterface.
-            // The transfer status is set to Transfer::STATUS_TRANSFER.
+            // The transfer status is set to WalletTransfer::STATUS_TRANSFER.
             // The additional information for the transaction is passed as an argument.
             // The created transfer transaction is stored in the $transferLazyDto variable.
             $transferLazyDto = app(PrepareServiceInterface::class)
-                ->transferLazy($this, $wallet, Transfer::STATUS_TRANSFER, $amount, $meta);
+                ->transferLazy($this, $wallet, WalletTransfer::STATUS_TRANSFER, $amount, $meta);
 
             // Apply the transfer transaction.
             // The transfer transaction is applied using the TransferServiceInterface.
@@ -429,10 +429,10 @@ trait HasWallet
      * It uses the `getWallet` method of the `CastServiceInterface` to retrieve the wallet instance.
      * The `false` parameter indicates that the wallet should not be saved if it does not exist.
      * The method then uses the `hasMany` method on the wallet instance to retrieve all transfers related to the wallet.
-     * The transfer model class is retrieved from the configuration using `config('wallet.transfer.model', Transfer::class)`.
+     * The transfer model class is retrieved from the configuration using `config('wallet.transfer.model', WalletTransfer::class)`.
      * The relationship is defined using the `from_id` foreign key.
      *
-     * @return HasMany<Transfer> The `HasMany` relationship object representing all transfers related to the wallet.
+     * @return HasMany<WalletTransfer> The `HasMany` relationship object representing all transfers related to the wallet.
      */
     public function transfers(): HasMany
     {
@@ -444,13 +444,13 @@ trait HasWallet
 
         // Retrieve all transfers associated with the wallet.
         // The `hasMany` method is used on the wallet instance to retrieve all transfers related to the wallet.
-        // The transfer model class is retrieved from the configuration using `config('wallet.transfer.model', Transfer::class)`.
+        // The transfer model class is retrieved from the configuration using `config('wallet.transfer.model', WalletTransfer::class)`.
         // The relationship is defined using the `from_id` foreign key.
         return $wallet
             ->hasMany(
             // Retrieve the transfer model class from the configuration.
-            // The default value is `Transfer::class`.
-                config('wallet.transfer.model', Transfer::class),
+            // The default value is `WalletTransfer::class`.
+                config('wallet.transfer.model', WalletTransfer::class),
                 // Define the foreign key for the relationship.
                 // The foreign key is `from_id`.
                 'from_id'
@@ -464,10 +464,10 @@ trait HasWallet
      * It uses the `getWallet` method of the `CastServiceInterface` to retrieve the wallet instance.
      * The `false` parameter indicates that the wallet should not be saved if it does not exist.
      * The method then uses the `hasMany` method on the wallet instance to retrieve all receiving transfers related to the wallet.
-     * The transfer model class is retrieved from the configuration using `config('wallet.transfer.model', Transfer::class)`.
+     * The transfer model class is retrieved from the configuration using `config('wallet.transfer.model', WalletTransfer::class)`.
      * The relationship is defined using the `to_id` foreign key.
      *
-     * @return HasMany<Transfer> The `HasMany` relationship object representing all receiving transfers related to the wallet.
+     * @return HasMany<WalletTransfer> The `HasMany` relationship object representing all receiving transfers related to the wallet.
      */
     public function receivedTransfers(): HasMany
     {
@@ -479,13 +479,13 @@ trait HasWallet
 
         // Retrieve all receiving transfers associated with the wallet.
         // The `hasMany` method is used on the wallet instance to retrieve all receiving transfers related to the wallet.
-        // The transfer model class is retrieved from the configuration using `config('wallet.transfer.model', Transfer::class)`.
+        // The transfer model class is retrieved from the configuration using `config('wallet.transfer.model', WalletTransfer::class)`.
         // The relationship is defined using the `to_id` foreign key.
         return $wallet
             ->hasMany(
             // Retrieve the transfer model class from the configuration.
-            // The default value is `Transfer::class`.
-                config('wallet.transfer.model', Transfer::class),
+            // The default value is `WalletTransfer::class`.
+                config('wallet.transfer.model', WalletTransfer::class),
                 // Define the foreign key for the relationship.
                 // The foreign key is `to_id`.
                 'to_id'

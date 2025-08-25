@@ -11,7 +11,7 @@ use Bavix\Wallet\Internal\Exceptions\ExceptionInterface;
 use Bavix\Wallet\Internal\Service\ClockServiceInterface;
 use Bavix\Wallet\Internal\Service\DatabaseServiceInterface;
 use Bavix\Wallet\Internal\Service\IdentifierFactoryServiceInterface;
-use Bavix\Wallet\Models\Transaction;
+use App\Models\WalletTransaction;
 use Bavix\Wallet\Objects\Cart;
 use Bavix\Wallet\Services\PurchaseServiceInterface;
 use Bavix\Wallet\Test\Infra\Exceptions\UnknownEventException;
@@ -187,7 +187,7 @@ final class EventTest extends TestCase
             ->now()
             ->format(DateTimeInterface::ATOM);
 
-        $message = hash('sha256', Transaction::TYPE_DEPOSIT.$createdAt);
+        $message = hash('sha256', WalletTransaction::TYPE_DEPOSIT.$createdAt);
 
         // unit
         $this->expectException(UnknownEventException::class);

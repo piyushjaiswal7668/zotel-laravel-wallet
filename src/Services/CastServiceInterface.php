@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Bavix\Wallet\Services;
 
 use Bavix\Wallet\Interfaces\Wallet;
-use Bavix\Wallet\Models\Wallet as WalletModel;
+use App\Models\Wallet as WalletModel;
 use Illuminate\Database\Eloquent\Model;
 
 /**

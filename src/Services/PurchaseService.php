@@ -6,7 +6,7 @@ namespace Bavix\Wallet\Services;
 
 use Bavix\Wallet\Interfaces\Customer;
 use Bavix\Wallet\Internal\Dto\BasketDtoInterface;
-use Bavix\Wallet\Models\Transfer;
+use App\Models\WalletTransfer;
 
 /**
  * @internal
@@ -21,8 +21,8 @@ final readonly class PurchaseService implements PurchaseServiceInterface
     public function already(Customer $customer, BasketDtoInterface $basketDto, bool $gifts = false): array
     {
         $status = $gifts
-            ? [Transfer::STATUS_PAID, Transfer::STATUS_GIFT]
-            : [Transfer::STATUS_PAID];
+            ? [WalletTransfer::STATUS_PAID, WalletTransfer::STATUS_GIFT]
+            : [WalletTransfer::STATUS_PAID];
 
         $arrays = [];
         $wallets = [];

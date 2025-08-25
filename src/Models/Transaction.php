@@ -7,7 +7,7 @@ namespace Bavix\Wallet\Models;
 use Bavix\Wallet\Interfaces\Wallet;
 use Bavix\Wallet\Internal\Observers\TransactionObserver;
 use Bavix\Wallet\Internal\Service\MathServiceInterface;
-use Bavix\Wallet\Models\Wallet as WalletModel;
+use App\Models\Wallet as WalletModel;
 use Bavix\Wallet\Services\CastServiceInterface;
 use function config;
 use DateTimeInterface;
@@ -17,7 +17,7 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class Transaction.
+ * Class WalletTransaction.
  *
  * @property class-string $payable_type
  * @property int|string $payable_id
@@ -37,7 +37,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  *
  * @method int getKey()
  */
-class Transaction extends Model
+class WalletTransaction extends Model
 {
     use SoftDeletes;
 

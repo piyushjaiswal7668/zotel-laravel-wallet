@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Bavix\Wallet\Test\Units\Domain;
 
-use Bavix\Wallet\Models\Transfer;
-use Bavix\Wallet\Models\Wallet;
+use App\Models\WalletTransfer;
+use App\Models\Wallet;
 use Bavix\Wallet\Test\Infra\Factories\ItemFactory;
 use Bavix\Wallet\Test\Infra\Factories\UserMultiFactory;
 use Bavix\Wallet\Test\Infra\Models\Item;
@@ -50,7 +50,7 @@ final class MultiWalletGiftTest extends TestCase
         self::assertSame($wallet->balanceInt, 0);
         self::assertSame($first->balanceInt, 1);
         self::assertSame($second->balanceInt, 2);
-        self::assertSame($transfer->status, Transfer::STATUS_GIFT);
+        self::assertSame($transfer->status, WalletTransfer::STATUS_GIFT);
 
         /** @var string $holderKey */
         $holderKey = $transfer->withdraw->wallet->holder->getKey();

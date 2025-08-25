@@ -14,7 +14,7 @@ use Bavix\Wallet\Internal\Exceptions\ExceptionInterface;
 use Bavix\Wallet\Internal\Exceptions\RecordNotFoundException;
 use Bavix\Wallet\Internal\Exceptions\TransactionFailedException;
 use Bavix\Wallet\Internal\Service\MathServiceInterface;
-use Bavix\Wallet\Models\Transfer;
+use App\Models\WalletTransfer;
 use Bavix\Wallet\Services\AtomicServiceInterface;
 use Bavix\Wallet\Services\CastServiceInterface;
 use Bavix\Wallet\Services\ConsistencyServiceInterface;
@@ -39,7 +39,7 @@ trait CanExchange
      * @param Wallet $to The wallet to exchange the currency to.
      * @param int|string $amount The amount to exchange.
      * @param ExtraDtoInterface|array<mixed>|null $meta The extra data for the transaction.
-     * @return Transfer The created transfer.
+     * @return WalletTransfer The created transfer.
      *
      * @throws BalanceIsEmpty             if the wallet does not have enough funds to make the exchange.
      * @throws InsufficientFunds          if the wallet does not have enough funds to make the exchange.
@@ -48,12 +48,12 @@ trait CanExchange
      * @throws TransactionFailedException if the transaction fails.
      * @throws ExceptionInterface         if an unexpected error occurs.
      */
-    public function exchange(Wallet $to, int|string $amount, ExtraDtoInterface|array|null $meta = null): Transfer
+    public function exchange(Wallet $to, int|string $amount, ExtraDtoInterface|array|null $meta = null): WalletTransfer
     {
         // Execute the exchange operation atomically
         // AtomicServiceInterface ensures that the exchange operation is performed as a single, indivisible action
         // to prevent race conditions and ensure consistency.
-        return app(AtomicServiceInterface::class)->block($this, function () use ($to, $amount, $meta): Transfer {
+        return app(AtomicServiceInterface::class)->block($this, function () use ($to, $amount, $meta): WalletTransfer {
             // Check if the exchange is possible before attempting it
             // ConsistencyServiceInterface checks if the exchange is possible before attempting it.
             // This helps to avoid unnecessary failures and ensures that the exchange is valid.
@@ -75,11 +75,11 @@ trait CanExchange
      * @param Wallet $to The wallet to exchange the currency to.
      * @param int|string $amount The amount to exchange.
      * @param ExtraDtoInterface|array<mixed>|null $meta The extra data for the transaction.
-     * @return null|Transfer The created transfer, or null if an error occurred.
+     * @return null|WalletTransfer The created transfer, or null if an error occurred.
      *
      * @throws ExceptionInterface If an unexpected error occurs.
      */
-    public function safeExchange(Wallet $to, int|string $amount, ExtraDtoInterface|array|null $meta = null): ?Transfer
+    public function safeExchange(Wallet $to, int|string $amount, ExtraDtoInterface|array|null $meta = null): ?WalletTransfer
     {
         try {
             // Execute the exchange operation and return the created transfer.
@@ -99,14 +99,14 @@ trait CanExchange
      * @param Wallet $to The wallet to exchange the currency to.
      * @param int|string $amount The amount to exchange.
      * @param ExtraDtoInterface|array<mixed>|null $meta The extra data for the transaction.
-     * @return Transfer The created transfer.
+     * @return WalletTransfer The created transfer.
      *
      * @throws RecordNotFoundException If the wallet does not exist.
      * @throws RecordsNotFoundException If the wallet does not exist.
      * @throws TransactionFailedException If the transaction fails.
      * @throws ExceptionInterface If an unexpected error occurs.
      */
-    public function forceExchange(Wallet $to, int|string $amount, ExtraDtoInterface|array|null $meta = null): Transfer
+    public function forceExchange(Wallet $to, int|string $amount, ExtraDtoInterface|array|null $meta = null): WalletTransfer
     {
         // Get the atomic service to execute the exchange operation as a single, indivisible action.
         $atomicService = app(AtomicServiceInterface::class);
@@ -148,7 +148,7 @@ trait CanExchange
             $exchangeService,
             $transferLazyDtoAssembler,
             $transferService
-        ): Transfer {
+        ): WalletTransfer {
             // Assemble the extra data for the transaction.
             $extraDto = $extraAssembler->create($meta);
 
@@ -196,7 +196,7 @@ trait CanExchange
                 $fee,
                 $withdrawDto,
                 $depositDto,
-                Transfer::STATUS_EXCHANGE,
+                WalletTransfer::STATUS_EXCHANGE,
                 $extraDto->getUuid(),
                 $extraDto->getExtra()
             );

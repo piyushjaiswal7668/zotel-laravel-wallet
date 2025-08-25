@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Bavix\Wallet\Models\Transfer;
+use App\Models\WalletTransfer;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -34,6 +34,6 @@ return new class() extends Migration
 
     private function table(): string
     {
-        return (new Transfer())->getTable();
+        return (new WalletTransfer())->getTable();
     }
 };

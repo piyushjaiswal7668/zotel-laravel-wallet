@@ -8,14 +8,14 @@ use Bavix\Wallet\Internal\Dto\TransferDtoInterface;
 use Bavix\Wallet\Internal\Query\TransferQueryInterface;
 use Bavix\Wallet\Internal\Service\JsonServiceInterface;
 use Bavix\Wallet\Internal\Transform\TransferDtoTransformerInterface;
-use Bavix\Wallet\Models\Transfer;
+use App\Models\WalletTransfer;
 
 final readonly class TransferRepository implements TransferRepositoryInterface
 {
     public function __construct(
         private TransferDtoTransformerInterface $transformer,
         private JsonServiceInterface $jsonService,
-        private Transfer $transfer
+        private WalletTransfer $transfer
     ) {
     }
 
@@ -36,7 +36,7 @@ final readonly class TransferRepository implements TransferRepositoryInterface
             ->insert($values);
     }
 
-    public function insertOne(TransferDtoInterface $dto): Transfer
+    public function insertOne(TransferDtoInterface $dto): WalletTransfer
     {
         $attributes = $this->transformer->extract($dto);
         $instance = $this->transfer->newInstance($attributes);
@@ -46,7 +46,7 @@ final readonly class TransferRepository implements TransferRepositoryInterface
     }
 
     /**
-     * @return Transfer[]
+     * @return WalletTransfer[]
      */
     public function findBy(TransferQueryInterface $query): array
     {

@@ -11,7 +11,7 @@ use Bavix\Wallet\Internal\Service\DispatcherServiceInterface;
 use Bavix\Wallet\Internal\Service\LockServiceInterface;
 use Bavix\Wallet\Internal\Service\MathServiceInterface;
 use Bavix\Wallet\Internal\Service\StorageServiceInterface;
-use Bavix\Wallet\Models\Wallet;
+use App\Models\Wallet;
 
 /**
  * @internal

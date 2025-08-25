@@ -7,7 +7,7 @@ namespace Bavix\Wallet\Test\Units\Domain;
 use Bavix\Wallet\Internal\Transform\TransactionDtoTransformerInterface;
 use Bavix\Wallet\Test\Infra\Factories\BuyerFactory;
 use Bavix\Wallet\Test\Infra\Models\Buyer;
-use Bavix\Wallet\Test\Infra\PackageModels\Transaction;
+use Bavix\Wallet\Test\Infra\PackageModels\WalletTransaction;
 use Bavix\Wallet\Test\Infra\PackageModels\TransactionMoney;
 use Bavix\Wallet\Test\Infra\TestCase;
 use Bavix\Wallet\Test\Infra\Transform\TransactionDtoTransformerCustom;
@@ -34,13 +34,13 @@ final class WalletExtensionTest extends TestCase
 
         self::assertTrue($transaction->getKey() > 0);
         self::assertSame($transaction->amountInt, $buyer->balanceInt);
-        self::assertInstanceOf(Transaction::class, $transaction);
+        self::assertInstanceOf(WalletTransaction::class, $transaction);
         self::assertSame('VietComBank', $transaction->bank_method);
     }
 
     public function testTransactionMoneyAttribute(): void
     {
-        $this->app?->bind(\Bavix\Wallet\Models\Transaction::class, TransactionMoney::class);
+        $this->app?->bind(\App\Models\WalletTransaction::class, TransactionMoney::class);
 
         /** @var Buyer $buyer */
         $buyer = BuyerFactory::new()->create();
@@ -65,7 +65,7 @@ final class WalletExtensionTest extends TestCase
         $transaction = $buyer->deposit(1000);
 
         self::assertSame($transaction->amountInt, $buyer->balanceInt);
-        self::assertInstanceOf(Transaction::class, $transaction);
+        self::assertInstanceOf(WalletTransaction::class, $transaction);
         self::assertNull($transaction->bank_method);
     }
 }

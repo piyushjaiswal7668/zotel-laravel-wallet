@@ -12,8 +12,8 @@ use Bavix\Wallet\Interfaces\Wallet;
 use Bavix\Wallet\Internal\Exceptions\ExceptionInterface;
 use Bavix\Wallet\Internal\Exceptions\TransactionFailedException;
 use Bavix\Wallet\Internal\Service\MathServiceInterface;
-use Bavix\Wallet\Models\Transaction;
-use Bavix\Wallet\Models\Transfer;
+use App\Models\WalletTransaction;
+use App\Models\WalletTransfer;
 use Bavix\Wallet\Services\CastServiceInterface;
 use Bavix\Wallet\Services\FormatterServiceInterface;
 use Illuminate\Database\RecordsNotFoundException;
@@ -38,7 +38,7 @@ trait HasWalletFloat
      * @param float|int|string $amount The amount to withdraw.
      * @param null|array<mixed> $meta Additional information for the transaction.
      * @param bool $confirmed Whether the transaction is confirmed or not.
-     * @return Transaction The created transaction.
+     * @return WalletTransaction The created transaction.
      *
      * @throws AmountInvalid If the amount is invalid.
      * @throws RecordsNotFoundException If the wallet is not found.
@@ -49,7 +49,7 @@ trait HasWalletFloat
         float|int|string $amount,
         ?array $meta = null,
         bool $confirmed = true
-    ): Transaction {
+    ): WalletTransaction {
         // Get the math service.
         $math = app(MathServiceInterface::class);
 
@@ -78,14 +78,14 @@ trait HasWalletFloat
      * @param float|int|string $amount The amount to deposit.
      * @param null|array<mixed> $meta Additional information for the transaction.
      * @param bool $confirmed Whether the transaction is confirmed or not.
-     * @return Transaction The created transaction.
+     * @return WalletTransaction The created transaction.
      *
      * @throws AmountInvalid If the amount is invalid.
      * @throws RecordsNotFoundException If the wallet is not found.
      * @throws TransactionFailedException If the transaction fails.
      * @throws ExceptionInterface If an exception occurs.
      */
-    public function depositFloat(float|int|string $amount, ?array $meta = null, bool $confirmed = true): Transaction
+    public function depositFloat(float|int|string $amount, ?array $meta = null, bool $confirmed = true): WalletTransaction
     {
         // Get the math service.
         $math = app(MathServiceInterface::class);
@@ -116,7 +116,7 @@ trait HasWalletFloat
      * @param float|int|string $amount The amount to withdraw.
      * @param null|array<mixed> $meta Additional information for the transaction.
      * @param bool $confirmed Whether the transaction is confirmed or not.
-     * @return Transaction The created transaction.
+     * @return WalletTransaction The created transaction.
      *
      * @throws AmountInvalid If the amount is invalid.
      * @throws BalanceIsEmpty If the balance is empty.
@@ -125,7 +125,7 @@ trait HasWalletFloat
      * @throws TransactionFailedException If the transaction fails.
      * @throws ExceptionInterface If an exception occurs.
      */
-    public function withdrawFloat(float|int|string $amount, ?array $meta = null, bool $confirmed = true): Transaction
+    public function withdrawFloat(float|int|string $amount, ?array $meta = null, bool $confirmed = true): WalletTransaction
     {
         // Get the math service.
         $math = app(MathServiceInterface::class);
@@ -187,7 +187,7 @@ trait HasWalletFloat
      * @param ExtraDtoInterface|array<mixed>|null $meta Additional metadata associated with the transfer. This can be
      *                                                 used to store extra information about the transaction, such as
      *                                                 reasons for the transfer or identifiers linking to other systems.
-     * @return Transfer Returns a Transfer object representing the completed transaction.
+     * @return WalletTransfer Returns a WalletTransfer object representing the completed transaction.
      *
      * @throws AmountInvalid If the amount specified is invalid (e.g., negative values).
      * @throws BalanceIsEmpty If the balance of this wallet is empty.
@@ -202,7 +202,7 @@ trait HasWalletFloat
         Wallet $wallet,
         float|int|string $amount,
         ExtraDtoInterface|array|null $meta = null
-    ): Transfer {
+    ): WalletTransfer {
         // Get the math service.
         $math = app(MathServiceInterface::class);
 
@@ -230,7 +230,7 @@ trait HasWalletFloat
      * @param ExtraDtoInterface|array<mixed>|null $meta Additional information for the transaction.
      *                                                This can be an instance of an ExtraDtoInterface
      *                                                or an array of arbitrary data.
-     * @return Transfer|null The created transaction, or null if the transfer fails.
+     * @return WalletTransfer|null The created transaction, or null if the transfer fails.
      *
      * @throws AmountInvalid If the amount is invalid.
      */
@@ -238,7 +238,7 @@ trait HasWalletFloat
         Wallet $wallet,
         float|int|string $amount,
         ExtraDtoInterface|array|null $meta = null
-    ): ?Transfer {
+    ): ?WalletTransfer {
         // Get the math service.
         $math = app(MathServiceInterface::class);
 
@@ -271,7 +271,7 @@ trait HasWalletFloat
      * @param ExtraDtoInterface|array<mixed>|null $meta Additional metadata associated with the transfer. This
      * can be used to store extra information about the transaction, such as reasons for the transfer or
      * identifiers linking to other systems.
-     * @return Transfer Returns a Transfer object representing the completed transaction.
+     * @return WalletTransfer Returns a WalletTransfer object representing the completed transaction.
      *
      * @throws AmountInvalid If the amount specified is invalid (e.g., negative values).
      * @throws RecordsNotFoundException If the target wallet cannot be found.
@@ -284,7 +284,7 @@ trait HasWalletFloat
         Wallet $wallet,
         float|int|string $amount,
         ExtraDtoInterface|array|null $meta = null
-    ): Transfer {
+    ): WalletTransfer {
         // Get the math service.
         $math = app(MathServiceInterface::class);
 

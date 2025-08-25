@@ -7,7 +7,7 @@ namespace Bavix\Wallet\Internal\Assembler;
 use Bavix\Wallet\Internal\Events\WalletCreatedEvent;
 use Bavix\Wallet\Internal\Events\WalletCreatedEventInterface;
 use Bavix\Wallet\Internal\Service\ClockServiceInterface;
-use Bavix\Wallet\Models\Wallet;
+use App\Models\Wallet;
 
 final readonly class WalletCreatedEventAssembler implements WalletCreatedEventAssemblerInterface
 {

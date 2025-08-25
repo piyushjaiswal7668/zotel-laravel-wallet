@@ -1,10 +1,10 @@
 {
-    "name": "bavix/laravel-wallet",
+    "name": "zotel/laravel-wallet",
     "description": "It's easy to work with a virtual wallet.",
     "keywords": [
         "laravel",
         "credits",
-        "bavix",
+        "zotel",
         "currency",
         "laravel-wallet",
         "laravel-package",
@@ -17,8 +17,14 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Babichev Maxim",
-            "email": "info@babichev.net"
+            "name": "Piyush Jaiswal",
+            "email": "piyush.jaiswal@zotel.ai"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/zotel/laravel-wallet"
         }
     ],
     "require": {
@@ -50,12 +56,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Bavix\\Wallet\\": "src/"
+            "Zotel\\Wallet\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Bavix\\Wallet\\Test\\": "tests/"
+            "Zotel\\Wallet\\Test\\": "tests/"
         }
     },
     "scripts": {
@@ -82,7 +88,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Bavix\\Wallet\\WalletServiceProvider"
+                "Zotel\\Wallet\\WalletServiceProvider"
             ]
         }
     },

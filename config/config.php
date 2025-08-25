@@ -32,9 +32,9 @@ use Bavix\Wallet\Internal\Service\TranslatorService;
 use Bavix\Wallet\Internal\Service\UuidFactoryService;
 use Bavix\Wallet\Internal\Transform\TransactionDtoTransformer;
 use Bavix\Wallet\Internal\Transform\TransferDtoTransformer;
-use Bavix\Wallet\Models\Transaction;
-use Bavix\Wallet\Models\Transfer;
-use Bavix\Wallet\Models\Wallet;
+use App\Models\WalletTransaction;
+use App\Models\WalletTransfer;
+use App\Models\Wallet;
 use Bavix\Wallet\Services\AssistantService;
 use Bavix\Wallet\Services\AtmService;
 use Bavix\Wallet\Services\AtomicService;
@@ -280,7 +280,7 @@ return [
      *
      * @see \Bavix\Wallet\Interfaces\Wallet
      * @see \Bavix\Wallet\Interfaces\Transaction
-     * @see \Bavix\Wallet\Interfaces\Transfer
+     * @see \Bavix\Wallet\Interfaces\WalletTransfer
      */
     'repositories' => [
         /**
@@ -292,7 +292,7 @@ return [
         /**
          * Repository for fetching transfer data.
          *
-         * @see \Bavix\Wallet\Interfaces\Transfer
+         * @see \Bavix\Wallet\Interfaces\WalletTransfer
          */
         'transfer' => TransferRepository::class,
         /**
@@ -304,7 +304,7 @@ return [
     ],
 
     /**
-     * Defines the mapping of DTO (Data Transfer Object) types to their respective transformer classes.
+     * Defines the mapping of DTO (Data WalletTransfer Object) types to their respective transformer classes.
      * Transformers are used to convert DTOs into a structured array format, suitable for further processing
      * or output. This allows for a clean separation between the internal data representation and the format
      * required by clients or external systems.
@@ -351,11 +351,11 @@ return [
          */
         'transaction' => TransactionDtoAssembler::class,
         /**
-         * Assembler for creating Transfer Lazy DTO.
+         * Assembler for creating WalletTransfer Lazy DTO.
          */
         'transfer_lazy' => TransferLazyDtoAssembler::class,
         /**
-         * Assembler for creating Transfer DTO.
+         * Assembler for creating WalletTransfer DTO.
          */
         'transfer' => TransferDtoAssembler::class,
         /**
@@ -367,7 +367,7 @@ return [
          */
         'transaction_query' => TransactionQueryAssembler::class,
         /**
-         * Assembler for creating Transfer Query DTO.
+         * Assembler for creating WalletTransfer Query DTO.
          */
         'transfer_query' => TransferQueryAssembler::class,
     ],
@@ -424,7 +424,7 @@ return [
      *
      * Contains the configuration for the transfer model.
      *
-     * @see Transfer
+     * @see WalletTransfer
      */
     'transfer' => [
         /**
@@ -432,7 +432,7 @@ return [
          *
          * This value is used to store transfers in a database.
          *
-         * @see Transfer
+         * @see WalletTransfer
          */
         'table' => env('WALLET_TRANSFER_TABLE_NAME', 'transfers'),
 
@@ -441,9 +441,9 @@ return [
          *
          * This value is used to create new transfers.
          *
-         * @see Transfer
+         * @see WalletTransfer
          */
-        'model' => Transfer::class,
+        'model' => WalletTransfer::class,
     ],
 
     /**

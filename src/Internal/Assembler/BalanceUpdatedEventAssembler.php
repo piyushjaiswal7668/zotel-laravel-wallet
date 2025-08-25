@@ -7,7 +7,7 @@ namespace Bavix\Wallet\Internal\Assembler;
 use Bavix\Wallet\Internal\Events\BalanceUpdatedEvent;
 use Bavix\Wallet\Internal\Events\BalanceUpdatedEventInterface;
 use Bavix\Wallet\Internal\Service\ClockServiceInterface;
-use Bavix\Wallet\Models\Wallet;
+use App\Models\Wallet;
 
 final readonly class BalanceUpdatedEventAssembler implements BalanceUpdatedEventAssemblerInterface
 {

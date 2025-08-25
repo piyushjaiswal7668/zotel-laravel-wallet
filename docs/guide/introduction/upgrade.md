@@ -16,17 +16,17 @@ Replace `calculateBalance` to `refreshBalance`
 
 ## 2.4.x → 3.0.x
 
-Replace path `bavix.wallet::transaction` to `Bavix\Wallet\Models\Transaction::class`
+Replace path `bavix.wallet::transaction` to `App\Models\WalletTransaction::class`
 
-Replace path `bavix.wallet::transfer` to `Bavix\Wallet\Models\Transfer::class`
+Replace path `bavix.wallet::transfer` to `App\Models\WalletTransfer::class`
 
-Replace path `bavix.wallet::wallet` to `Bavix\Wallet\Models\Wallet::class`
+Replace path `bavix.wallet::wallet` to `App\Models\Wallet::class`
 
 ```php
 // old
 app('bavix.wallet::transaction'); 
 // new
-app(Bavix\Wallet\Models\Transaction::class); 
+app(App\Models\WalletTransaction::class); 
 ```
 
 Add the `$quantity` parameter to the `canBuy` method.

@@ -10,7 +10,7 @@ An example of working with a credit limit:
 ```php
 /**
  * @var \Bavix\Wallet\Interfaces\Customer $customer
- * @var \Bavix\Wallet\Models\Wallet $wallet
+ * @var \App\Models\Wallet $wallet
  * @var \Bavix\Wallet\Interfaces\ProductInterface $product
  */
 $wallet = $customer->wallet; // get default wallet

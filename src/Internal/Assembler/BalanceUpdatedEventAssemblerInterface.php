@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Bavix\Wallet\Internal\Assembler;
 
 use Bavix\Wallet\Internal\Events\BalanceUpdatedEventInterface;
-use Bavix\Wallet\Models\Wallet;
+use App\Models\Wallet;
 
 interface BalanceUpdatedEventAssemblerInterface
 {

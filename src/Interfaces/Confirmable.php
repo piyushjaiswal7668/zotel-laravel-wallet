@@ -12,7 +12,7 @@ use Bavix\Wallet\Exceptions\WalletOwnerInvalid;
 use Bavix\Wallet\Internal\Exceptions\ExceptionInterface;
 use Bavix\Wallet\Internal\Exceptions\RecordNotFoundException;
 use Bavix\Wallet\Internal\Exceptions\TransactionFailedException;
-use Bavix\Wallet\Models\Transaction;
+use App\Models\WalletTransaction;
 use Illuminate\Database\RecordsNotFoundException;
 
 interface Confirmable
@@ -22,7 +22,7 @@ interface Confirmable
      *
      * This method confirms the given transaction if it is not already confirmed.
      *
-     * @param Transaction $transaction The transaction to confirm.
+     * @param WalletTransaction $transaction The transaction to confirm.
      * @return bool Returns true if the transaction was confirmed, false otherwise.
      *
      * @throws BalanceIsEmpty          If the balance is empty.
@@ -34,7 +34,7 @@ interface Confirmable
      * @throws TransactionFailedException If the transaction failed.
      * @throws ExceptionInterface       If an exception occurred.
      */
-    public function confirm(Transaction $transaction): bool;
+    public function confirm(WalletTransaction $transaction): bool;
 
     /**
      * Safely confirms the transaction.
@@ -43,7 +43,7 @@ interface Confirmable
      * it will be caught and handled. If the confirmation is successful, true will be returned. If an exception occurs,
      * false will be returned.
      *
-     * @param Transaction $transaction The transaction to confirm.
+     * @param WalletTransaction $transaction The transaction to confirm.
      * @return bool Returns true if the transaction was confirmed, false otherwise.
      *
      * @throws BalanceIsEmpty          If the balance is empty.
@@ -55,7 +55,7 @@ interface Confirmable
      * @throws TransactionFailedException If the transaction failed.
      * @throws ExceptionInterface       If an exception occurred.
      */
-    public function safeConfirm(Transaction $transaction): bool;
+    public function safeConfirm(WalletTransaction $transaction): bool;
 
     /**
      * Reset the confirmation of the transaction.
@@ -65,7 +65,7 @@ interface Confirmable
      * If the transaction does not belong to the wallet, a `WalletOwnerInvalid` exception will be thrown.
      * If the transaction was not found, a `RecordNotFoundException` will be thrown.
      *
-     * @param Transaction $transaction The transaction to reset.
+     * @param WalletTransaction $transaction The transaction to reset.
      * @return bool Returns true if the confirmation was reset, false otherwise.
      *
      * @throws UnconfirmedInvalid       If the transaction is not confirmed.
@@ -75,7 +75,7 @@ interface Confirmable
      * @throws TransactionFailedException If the transaction failed.
      * @throws ExceptionInterface        If an exception occurred.
      */
-    public function resetConfirm(Transaction $transaction): bool;
+    public function resetConfirm(WalletTransaction $transaction): bool;
 
     /**
      * Safely reset the confirmation of the transaction.
@@ -85,10 +85,10 @@ interface Confirmable
      * If the transaction does not belong to the wallet, a `WalletOwnerInvalid` exception will be thrown.
      * If the transaction was not found, a `RecordNotFoundException` will be thrown.
      *
-     * @param Transaction $transaction The transaction to reset.
+     * @param WalletTransaction $transaction The transaction to reset.
      * @return bool Returns true if the confirmation was reset, false otherwise.
      */
-    public function safeResetConfirm(Transaction $transaction): bool;
+    public function safeResetConfirm(WalletTransaction $transaction): bool;
 
     /**
      * Force confirm the transaction.
@@ -98,7 +98,7 @@ interface Confirmable
      * If the transaction does not belong to the wallet, a `WalletOwnerInvalid` exception will be thrown.
      * If the transaction was not found, a `RecordNotFoundException` will be thrown.
      *
-     * @param Transaction $transaction The transaction to confirm.
+     * @param WalletTransaction $transaction The transaction to confirm.
      * @return bool Returns true if the transaction was confirmed, false otherwise.
      *
      * @throws ConfirmedInvalid         If the transaction is already confirmed.
@@ -108,5 +108,5 @@ interface Confirmable
      * @throws TransactionFailedException If the transaction failed.
      * @throws ExceptionInterface       If an exception occurred.
      */
-    public function forceConfirm(Transaction $transaction): bool;
+    public function forceConfirm(WalletTransaction $transaction): bool;
 }

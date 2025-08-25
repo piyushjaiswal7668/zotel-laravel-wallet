@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 use Bavix\Wallet\Internal\Service\IdentifierFactoryServiceInterface;
-use Bavix\Wallet\Models\Wallet;
+use App\Models\Wallet;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Collection;

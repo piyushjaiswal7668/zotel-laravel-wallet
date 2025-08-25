@@ -9,7 +9,7 @@ use Bavix\Wallet\Internal\Assembler\WalletCreatedEventAssemblerInterface;
 use Bavix\Wallet\Internal\Exceptions\ExceptionInterface;
 use Bavix\Wallet\Internal\Service\DatabaseServiceInterface;
 use Bavix\Wallet\Internal\Service\DispatcherServiceInterface;
-use Bavix\Wallet\Models\Wallet as WalletModel;
+use App\Models\Wallet as WalletModel;
 use Illuminate\Database\Eloquent\Model;
 
 /**

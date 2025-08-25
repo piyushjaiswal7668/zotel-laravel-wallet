@@ -7,7 +7,7 @@ namespace Bavix\Wallet\Services;
 use Bavix\Wallet\Interfaces\Customer;
 use Bavix\Wallet\Internal\Dto\BasketDtoInterface;
 use Bavix\Wallet\Internal\Repository\WalletRepositoryInterface;
-use Bavix\Wallet\Models\Wallet;
+use App\Models\Wallet;
 
 /**
  * @internal

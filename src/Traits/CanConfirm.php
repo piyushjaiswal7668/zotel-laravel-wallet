@@ -14,7 +14,7 @@ use Bavix\Wallet\Internal\Exceptions\RecordNotFoundException;
 use Bavix\Wallet\Internal\Exceptions\TransactionFailedException;
 use Bavix\Wallet\Internal\Service\MathServiceInterface;
 use Bavix\Wallet\Internal\Service\TranslatorServiceInterface;
-use Bavix\Wallet\Models\Transaction;
+use App\Models\WalletTransaction;
 use Bavix\Wallet\Services\AtomicServiceInterface;
 use Bavix\Wallet\Services\CastServiceInterface;
 use Bavix\Wallet\Services\ConsistencyServiceInterface;
@@ -31,7 +31,7 @@ trait CanConfirm
      *
      * This method confirms the given transaction if it is not already confirmed.
      *
-     * @param Transaction $transaction The transaction to confirm.
+     * @param WalletTransaction $transaction The transaction to confirm.
      * @return bool Returns true if the transaction was confirmed, false otherwise.
      *
      * @throws BalanceIsEmpty          If the balance is empty.
@@ -43,7 +43,7 @@ trait CanConfirm
      * @throws TransactionFailedException If the transaction failed.
      * @throws ExceptionInterface       If an exception occurred.
      */
-    public function confirm(Transaction $transaction): bool
+    public function confirm(WalletTransaction $transaction): bool
     {
         // Execute the confirmation process within an atomic block to ensure data consistency.
         return app(AtomicServiceInterface::class)->block($this, function () use ($transaction): bool {
@@ -61,7 +61,7 @@ trait CanConfirm
             }
 
             // Check if the transaction type is withdrawal.
-            if ($transaction->type === Transaction::TYPE_WITHDRAW) {
+            if ($transaction->type === WalletTransaction::TYPE_WITHDRAW) {
                 // Check if the wallet has enough money to cover the withdrawal amount.
                 app(ConsistencyServiceInterface::class)->checkPotential(
                     // Get the wallet.
@@ -84,7 +84,7 @@ trait CanConfirm
      * If the transaction does not belong to the wallet, a `WalletOwnerInvalid` exception will be thrown.
      * If the transaction was not found, a `RecordNotFoundException` will be thrown.
      *
-     * @param Transaction $transaction The transaction to confirm.
+     * @param WalletTransaction $transaction The transaction to confirm.
      * @return bool Returns true if the transaction was confirmed, false otherwise.
      *
      * @throws ConfirmedInvalid         If the transaction is already confirmed.
@@ -94,7 +94,7 @@ trait CanConfirm
      * @throws TransactionFailedException If the transaction failed.
      * @throws ExceptionInterface       If an exception occurred.
      */
-    public function safeConfirm(Transaction $transaction): bool
+    public function safeConfirm(WalletTransaction $transaction): bool
     {
         try {
             // Attempt to confirm the transaction
@@ -117,7 +117,7 @@ trait CanConfirm
      * If the transaction was not found, a `RecordNotFoundException` will be thrown.
      * If an exception occurred, a `TransactionFailedException` or `ExceptionInterface` will be thrown.
      *
-     * @param Transaction $transaction The transaction to reset.
+     * @param WalletTransaction $transaction The transaction to reset.
      * @return bool Returns true if the confirmation was reset, false otherwise.
      *
      * @throws UnconfirmedInvalid       If the transaction is not confirmed.
@@ -127,7 +127,7 @@ trait CanConfirm
      * @throws TransactionFailedException If the transaction failed.
      * @throws ExceptionInterface        If an exception occurred.
      */
-    public function resetConfirm(Transaction $transaction): bool
+    public function resetConfirm(WalletTransaction $transaction): bool
     {
         // Reset the confirmation of the transaction in a single database transaction
         return app(AtomicServiceInterface::class)->block($this, function () use ($transaction) {
@@ -169,10 +169,10 @@ trait CanConfirm
      * confirmation process, it will be caught and handled. If the confirmation is successfully reset, true will be
      * returned. If an exception occurs, false will be returned.
      *
-     * @param Transaction $transaction The transaction to reset.
+     * @param WalletTransaction $transaction The transaction to reset.
      * @return bool Returns true if the confirmation was reset, false otherwise.
      */
-    public function safeResetConfirm(Transaction $transaction): bool
+    public function safeResetConfirm(WalletTransaction $transaction): bool
     {
         try {
             // Attempt to reset the confirmation of the transaction
@@ -194,7 +194,7 @@ trait CanConfirm
      * If the confirmation is successfully reset, true will be returned. If an exception occurs, false will be
      * returned.
      *
-     * @param Transaction $transaction The transaction to confirm.
+     * @param WalletTransaction $transaction The transaction to confirm.
      * @return bool Returns true if the confirmation was reset, false otherwise.
      *
      * @throws ConfirmedInvalid If the transaction is already confirmed.
@@ -204,7 +204,7 @@ trait CanConfirm
      * @throws TransactionFailedException If the transaction failed.
      * @throws ExceptionInterface If an exception occurred.
      */
-    public function forceConfirm(Transaction $transaction): bool
+    public function forceConfirm(WalletTransaction $transaction): bool
     {
         // Attempt to confirm the transaction in a single database transaction
         return app(AtomicServiceInterface::class)->block($this, function () use ($transaction) {

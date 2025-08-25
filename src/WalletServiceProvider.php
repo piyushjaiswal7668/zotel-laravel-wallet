@@ -71,9 +71,9 @@ use Bavix\Wallet\Internal\Transform\TransactionDtoTransformer;
 use Bavix\Wallet\Internal\Transform\TransactionDtoTransformerInterface;
 use Bavix\Wallet\Internal\Transform\TransferDtoTransformer;
 use Bavix\Wallet\Internal\Transform\TransferDtoTransformerInterface;
-use Bavix\Wallet\Models\Transaction;
-use Bavix\Wallet\Models\Transfer;
-use Bavix\Wallet\Models\Wallet;
+use App\Models\WalletTransaction;
+use App\Models\WalletTransfer;
+use App\Models\Wallet;
 use Bavix\Wallet\Services\AssistantService;
 use Bavix\Wallet\Services\AssistantServiceInterface;
 use Bavix\Wallet\Services\AtmService;
@@ -432,8 +432,8 @@ final class WalletServiceProvider extends ServiceProvider implements DeferrableP
      */
     private function bindObjects(array $configure): void
     {
-        $this->app->bind(Transaction::class, $configure['transaction']['model'] ?? null);
-        $this->app->bind(Transfer::class, $configure['transfer']['model'] ?? null);
+        $this->app->bind(WalletTransaction::class, $configure['transaction']['model'] ?? null);
+        $this->app->bind(WalletTransfer::class, $configure['transfer']['model'] ?? null);
         $this->app->bind(Wallet::class, $configure['wallet']['model'] ?? null);
 
         // api

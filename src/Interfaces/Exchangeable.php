@@ -10,7 +10,7 @@ use Bavix\Wallet\External\Contracts\ExtraDtoInterface;
 use Bavix\Wallet\Internal\Exceptions\ExceptionInterface;
 use Bavix\Wallet\Internal\Exceptions\RecordNotFoundException;
 use Bavix\Wallet\Internal\Exceptions\TransactionFailedException;
-use Bavix\Wallet\Models\Transfer;
+use App\Models\WalletTransfer;
 use Illuminate\Database\RecordsNotFoundException;
 
 interface Exchangeable
@@ -21,7 +21,7 @@ interface Exchangeable
      * @param Wallet $to The wallet to exchange the currency to.
      * @param int|non-empty-string $amount The amount to exchange.
      * @param ExtraDtoInterface|array<mixed>|null $meta The extra data for the transaction.
-     * @return Transfer The created transfer.
+     * @return WalletTransfer The created transfer.
      *
      * @throws BalanceIsEmpty             if the wallet does not have enough funds to make the exchange.
      * @throws InsufficientFunds          if the wallet does not have enough funds to make the exchange.
@@ -30,7 +30,7 @@ interface Exchangeable
      * @throws TransactionFailedException if the transaction fails.
      * @throws ExceptionInterface         if an unexpected error occurs.
      */
-    public function exchange(Wallet $to, int|string $amount, ExtraDtoInterface|array|null $meta = null): Transfer;
+    public function exchange(Wallet $to, int|string $amount, ExtraDtoInterface|array|null $meta = null): WalletTransfer;
 
     /**
      * Safely exchanges currency from this wallet to another wallet.
@@ -40,13 +40,13 @@ interface Exchangeable
      * @param Wallet $to The wallet to exchange the currency to.
      * @param int|non-empty-string $amount The amount to exchange.
      * @param ExtraDtoInterface|array<mixed>|null $meta The extra data for the transaction.
-     * @return null|Transfer The created transfer, or null if an error occurred.
+     * @return null|WalletTransfer The created transfer, or null if an error occurred.
      */
     public function safeExchange(
         Wallet $to,
         int|string $amount,
         ExtraDtoInterface|array|null $meta = null
-    ): ?Transfer;
+    ): ?WalletTransfer;
 
     /**
      * Force exchange currency from this wallet to another wallet.
@@ -56,7 +56,7 @@ interface Exchangeable
      * @param Wallet $to The wallet to exchange the currency to.
      * @param int|non-empty-string $amount The amount to exchange.
      * @param ExtraDtoInterface|array<mixed>|null $meta The extra data for the transaction.
-     * @return Transfer The created transfer.
+     * @return WalletTransfer The created transfer.
      *
      * @throws RecordNotFoundException If the wallet does not exist.
      * @throws RecordsNotFoundException If the wallet does not exist.
@@ -69,5 +69,5 @@ interface Exchangeable
         Wallet $to,
         int|string $amount,
         ExtraDtoInterface|array|null $meta = null
-    ): Transfer;
+    ): WalletTransfer;
 }

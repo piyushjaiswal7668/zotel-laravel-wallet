@@ -7,7 +7,7 @@ namespace Bavix\Wallet\Services;
 use Bavix\Wallet\Internal\Exceptions\RecordNotFoundException;
 use Bavix\Wallet\Internal\Service\LockServiceInterface;
 use Bavix\Wallet\Internal\Service\StorageServiceInterface;
-use Bavix\Wallet\Models\Wallet;
+use App\Models\Wallet;
 
 /**
  * @internal

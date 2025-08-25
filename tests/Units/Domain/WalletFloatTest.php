@@ -9,7 +9,7 @@ use Bavix\Wallet\Exceptions\BalanceIsEmpty;
 use Bavix\Wallet\Internal\Exceptions\ExceptionInterface;
 use Bavix\Wallet\Internal\Service\DatabaseServiceInterface;
 use Bavix\Wallet\Internal\Service\MathServiceInterface;
-use Bavix\Wallet\Models\Transaction;
+use App\Models\WalletTransaction;
 use Bavix\Wallet\Test\Infra\Factories\UserFloatFactory;
 use Bavix\Wallet\Test\Infra\Models\UserFloat;
 use Bavix\Wallet\Test\Infra\Models\UserFloat as User;
@@ -201,7 +201,7 @@ final class WalletFloatTest extends TestCase
         $transaction = $user->withdrawFloat(2556.72);
         self::assertSame($transaction->amountInt, -255672);
         self::assertSame((float) $transaction->getAmountFloatAttribute(), -2556.72);
-        self::assertSame($transaction->type, Transaction::TYPE_WITHDRAW);
+        self::assertSame($transaction->type, WalletTransaction::TYPE_WITHDRAW);
 
         self::assertSame($user->balanceInt, 1_000_000 - 255672);
         self::assertSame((float) $user->balanceFloat, 7443.28);
@@ -209,7 +209,7 @@ final class WalletFloatTest extends TestCase
         $transaction = $user->depositFloat(2556.72 * 2);
         self::assertSame($transaction->amountInt, 255672 * 2);
         self::assertSame((float) $transaction->amountFloat, 2556.72 * 2);
-        self::assertSame($transaction->type, Transaction::TYPE_DEPOSIT);
+        self::assertSame($transaction->type, WalletTransaction::TYPE_DEPOSIT);
 
         self::assertSame($user->balanceInt, 1_000_000 + 255672);
         self::assertSame((float) $user->balanceFloat, 10000.00 + 2556.72);
@@ -228,9 +228,9 @@ final class WalletFloatTest extends TestCase
         $transaction = $user->withdrawFloat(2556.72);
         self::assertSame(-255672, $transaction->amountInt);
         self::assertSame(-2556.72, (float) $transaction->amountFloat);
-        self::assertSame(Transaction::TYPE_WITHDRAW, $transaction->type);
+        self::assertSame(WalletTransaction::TYPE_WITHDRAW, $transaction->type);
 
-        $transaction->type = Transaction::TYPE_DEPOSIT;
+        $transaction->type = WalletTransaction::TYPE_DEPOSIT;
         $transaction->setAmountFloatAttribute(2556.72);
 
         self::assertTrue($transaction->save());
@@ -238,7 +238,7 @@ final class WalletFloatTest extends TestCase
 
         self::assertSame(255672, $transaction->amountInt);
         self::assertSame(2556.72, (float) $transaction->amountFloat);
-        self::assertSame(Transaction::TYPE_DEPOSIT, $transaction->type);
+        self::assertSame(WalletTransaction::TYPE_DEPOSIT, $transaction->type);
 
         self::assertSame($user->balanceInt, 1_000_000 + 255672);
         self::assertSame((float) $user->balanceFloat, 10000.00 + 2556.72);
@@ -256,15 +256,15 @@ final class WalletFloatTest extends TestCase
 
         $transaction = $user->withdrawFloat(0.2 + 0.1);
         self::assertSame($transaction->amountInt, -30);
-        self::assertSame($transaction->type, Transaction::TYPE_WITHDRAW);
+        self::assertSame($transaction->type, WalletTransaction::TYPE_WITHDRAW);
 
         $transaction = $user->withdrawFloat(0.2 + 0.105);
         self::assertSame($transaction->amountInt, -31);
-        self::assertSame($transaction->type, Transaction::TYPE_WITHDRAW);
+        self::assertSame($transaction->type, WalletTransaction::TYPE_WITHDRAW);
 
         $transaction = $user->withdrawFloat(0.2 + 0.104);
         self::assertSame($transaction->amountInt, -30);
-        self::assertSame($transaction->type, Transaction::TYPE_WITHDRAW);
+        self::assertSame($transaction->type, WalletTransaction::TYPE_WITHDRAW);
     }
 
     public function testEther(): void

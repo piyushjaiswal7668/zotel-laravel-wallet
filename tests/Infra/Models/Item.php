@@ -6,8 +6,8 @@ namespace Bavix\Wallet\Test\Infra\Models;
 
 use Bavix\Wallet\Interfaces\Customer;
 use Bavix\Wallet\Interfaces\ProductLimitedInterface;
-use Bavix\Wallet\Models\Transfer;
-use Bavix\Wallet\Models\Wallet;
+use App\Models\WalletTransfer;
+use App\Models\Wallet;
 use Bavix\Wallet\Services\CastService;
 use Bavix\Wallet\Services\CastServiceInterface;
 use Bavix\Wallet\Test\Infra\Helpers\Config;
@@ -41,7 +41,7 @@ final class Item extends Model implements ProductLimitedInterface
             return $result;
         }
 
-        return $result && ! $customer->paid($this) instanceof Transfer;
+        return $result && ! $customer->paid($this) instanceof WalletTransfer;
     }
 
     public function getAmountProduct(Customer $customer): int
@@ -59,14 +59,14 @@ final class Item extends Model implements ProductLimitedInterface
 
     /**
      * @param int[] $walletIds
-     * @return HasMany<Transfer>
+     * @return HasMany<WalletTransfer>
      */
     public function boughtGoods(array $walletIds): HasMany
     {
         return app(CastServiceInterface::class)
             ->getWallet($this)
-            ->hasMany(Config::classString('wallet.transfer.model', Transfer::class), 'to_id')
-            ->where('status', Transfer::STATUS_PAID)
+            ->hasMany(Config::classString('wallet.transfer.model', WalletTransfer::class), 'to_id')
+            ->where('status', WalletTransfer::STATUS_PAID)
             ->whereIn('from_id', $walletIds);
     }
 }

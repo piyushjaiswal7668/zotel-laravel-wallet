@@ -15,7 +15,7 @@ use Bavix\Wallet\Internal\Exceptions\ModelNotFoundException;
 use Bavix\Wallet\Internal\Exceptions\RecordNotFoundException;
 use Bavix\Wallet\Internal\Exceptions\TransactionFailedException;
 use Bavix\Wallet\Internal\Service\TranslatorServiceInterface;
-use Bavix\Wallet\Models\Transfer;
+use App\Models\WalletTransfer;
 use Bavix\Wallet\Objects\Cart;
 use Bavix\Wallet\Services\AssistantServiceInterface;
 use Bavix\Wallet\Services\AtomicServiceInterface;
@@ -42,10 +42,10 @@ trait CartPay
      * Pay for all products in the cart without any payment.
      *
      * This method performs the payment for all products in the cart without any payment.
-     * It returns an array of Transfer instances representing the successfully paid items.
+     * It returns an array of WalletTransfer instances representing the successfully paid items.
      *
      * @param CartInterface $cart The cart containing the products to be paid.
-     * @return non-empty-array<Transfer> An array of Transfer instances representing the successfully paid items.
+     * @return non-empty-array<WalletTransfer> An array of WalletTransfer instances representing the successfully paid items.
      *
      * @throws ProductEnded If the product is ended.
      * @throws BalanceIsEmpty If the balance of the wallet is empty.
@@ -113,7 +113,7 @@ trait CartPay
                         $castService->getWallet(
                             $item->getReceiving() ?? $product
                         ), // The wallet to receive the payment.
-                        Transfer::STATUS_PAID, // The status of the transfer.
+                        WalletTransfer::STATUS_PAID, // The status of the transfer.
                         0, // The amount of the transfer.
                         $assistantService->getMeta($basketDto, $product) // The metadata of the transfer.
                     );
@@ -138,17 +138,17 @@ trait CartPay
      * Safely pays for the items in the given cart.
      *
      * This method attempts to pay for all items in the provided cart. If the payment is successful,
-     * the method returns an array of Transfer instances. If the payment fails, an empty array is returned.
+     * the method returns an array of WalletTransfer instances. If the payment fails, an empty array is returned.
      *
      * @param CartInterface $cart The cart containing the items to be purchased.
      * @param bool $force Whether to force the purchase. Defaults to false.
-     * @return Transfer[] An array of Transfer instances representing the successfully paid items, or an empty array if the payment failed.
+     * @return WalletTransfer[] An array of WalletTransfer instances representing the successfully paid items, or an empty array if the payment failed.
      */
     public function safePayCart(CartInterface $cart, bool $force = false): array
     {
         // Attempt to pay for all items in the provided cart.
         try {
-            // If the payment is successful, return the array of Transfer instances.
+            // If the payment is successful, return the array of WalletTransfer instances.
             return $this->payCart($cart, $force);
         } catch (ExceptionInterface $exception) {
             // If the payment fails, return an empty array.
@@ -160,11 +160,11 @@ trait CartPay
      * Pays for the items in the given cart.
      *
      * This method pays for all items in the provided cart. If the payment is successful,
-     * the method returns an array of Transfer instances. If the payment fails, the method throws an exception.
+     * the method returns an array of WalletTransfer instances. If the payment fails, the method throws an exception.
      *
      * @param CartInterface $cart The cart containing the items to be purchased.
      * @param bool $force Whether to force the purchase. Defaults to false.
-     * @return non-empty-array<Transfer> An array of Transfer instances representing the successfully paid items.
+     * @return non-empty-array<WalletTransfer> An array of WalletTransfer instances representing the successfully paid items.
      *
      * @throws ProductEnded If the product is ended.
      * @throws BalanceIsEmpty If the balance of the wallet is empty.
@@ -236,7 +236,7 @@ trait CartPay
                         $castService->getWallet(
                             $item->getReceiving() ?? $product
                         ), // The wallet to receive the payment.
-                        Transfer::STATUS_PAID, // The status of the transfer.
+                        WalletTransfer::STATUS_PAID, // The status of the transfer.
                         $pricePerItem, // The amount of the transfer.
                         $assistantService->getMeta($basketDto, $product) // The metadata of the transfer.
                     );
@@ -261,11 +261,11 @@ trait CartPay
      * Forcefully pays for the items in the given cart.
      *
      * This method attempts to pay for all items in the provided cart by calling the payCart method with force set to true.
-     * If the payment is successful, an array of Transfer instances is returned.
+     * If the payment is successful, an array of WalletTransfer instances is returned.
      * If the payment fails, appropriate exceptions are thrown.
      *
      * @param CartInterface $cart The cart to pay for.
-     * @return non-empty-array<Transfer> Array of Transfer instances if payment is successful.
+     * @return non-empty-array<WalletTransfer> Array of WalletTransfer instances if payment is successful.
      *
      * @throws ProductEnded If a product has ended.
      * @throws RecordNotFoundException If a record is not found.
@@ -277,7 +277,7 @@ trait CartPay
     {
         // Call the payCart method with force set to true.
         // This method attempts to pay for all items in the provided cart.
-        // If the payment is successful, an array of Transfer instances is returned.
+        // If the payment is successful, an array of WalletTransfer instances is returned.
         // If the payment fails, appropriate exceptions are thrown.
         return $this->payCart($cart, true);
     }
@@ -382,7 +382,7 @@ trait CartPay
                         $castService->getWallet($itemDto->getReceiving() ?? $product),
                         $transfers[$index]->withdraw->wallet,
                         $transfers[$index]->withdraw->wallet,
-                        Transfer::STATUS_TRANSFER,
+                        WalletTransfer::STATUS_TRANSFER,
                         $transfers[$index]->deposit->amount,
                         $assistantService->getMeta($basketDto, $product)
                     );
@@ -409,7 +409,7 @@ trait CartPay
 
             // Update transfer status to refund.
             return $transferService
-                ->updateStatusByIds(Transfer::STATUS_REFUND, $transferIds);
+                ->updateStatusByIds(WalletTransfer::STATUS_REFUND, $transferIds);
         });
     }
 
@@ -532,18 +532,18 @@ trait CartPay
      *
      * @param ProductInterface $product The product to check.
      * @param bool $gifts Whether to include gifts in the search.
-     * @return Transfer|null The associated Transfer object, or null if none exists.
+     * @return WalletTransfer|null The associated WalletTransfer object, or null if none exists.
      *
      * @deprecated The method is slow and will be removed in the future.
      * @see PurchaseServiceInterface
      */
-    public function paid(ProductInterface $product, bool $gifts = false): ?Transfer
+    public function paid(ProductInterface $product, bool $gifts = false): ?WalletTransfer
     {
         // Retrieve the cart with the given product.
         // The withItem method adds the given product to the cart.
         $cart = app(Cart::class)->withItem($product);
 
-        // Use the PurchaseServiceInterface to find the associated Transfer object.
+        // Use the PurchaseServiceInterface to find the associated WalletTransfer object.
         // The PurchaseServiceInterface is responsible for finding the transfers associated
         // with a given basket.
         // The already method is used to find the transfers that are already done.
@@ -552,7 +552,7 @@ trait CartPay
         $purchases = app(PurchaseServiceInterface::class)
             ->already($this, $cart->getBasketDto(), $gifts);
 
-        // Return the first Transfer object in the array of purchases, or null if the array is empty.
+        // Return the first WalletTransfer object in the array of purchases, or null if the array is empty.
         // This is a convenience method and will be removed in the future.
         return current($purchases) ?: null;
     }

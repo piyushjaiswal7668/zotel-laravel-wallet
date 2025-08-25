@@ -11,7 +11,7 @@ use Bavix\Wallet\Internal\Exceptions\ExceptionInterface;
 use Bavix\Wallet\Internal\Exceptions\ModelNotFoundException;
 use Bavix\Wallet\Internal\Exceptions\RecordNotFoundException;
 use Bavix\Wallet\Internal\Exceptions\TransactionFailedException;
-use Bavix\Wallet\Models\Transfer;
+use App\Models\WalletTransfer;
 use Illuminate\Database\RecordsNotFoundException;
 
 interface Customer extends Wallet
@@ -23,7 +23,7 @@ interface Customer extends Wallet
      * If the purchase is successful, the method returns the transfer object representing the purchase.
      *
      * @param ProductInterface $product The product to be purchased.
-     * @return Transfer The transfer object representing the purchase.
+     * @return WalletTransfer The transfer object representing the purchase.
      *
      * @throws ProductEnded If the product is ended.
      * @throws BalanceIsEmpty If the balance of the wallet is empty.
@@ -34,7 +34,7 @@ interface Customer extends Wallet
      * @throws ModelNotFoundException If the wallet or the product is not found.
      * @throws ExceptionInterface If an exception occurs.
      */
-    public function payFree(ProductInterface $product): Transfer;
+    public function payFree(ProductInterface $product): WalletTransfer;
 
     /**
      * Attempts to purchase a product without payment.
@@ -46,7 +46,7 @@ interface Customer extends Wallet
      *
      * @param ProductInterface $product The product to be purchased.
      * @param bool $force [optional] Whether to force the purchase. Defaults to false.
-     * @return Transfer|null The transfer object representing the purchase, or null if the purchase fails.
+     * @return WalletTransfer|null The transfer object representing the purchase, or null if the purchase fails.
      *
      * @throws ProductEnded If the product is ended.
      * @throws BalanceIsEmpty If the balance of the wallet is empty.
@@ -56,7 +56,7 @@ interface Customer extends Wallet
      * @throws TransactionFailedException If the transaction fails.
      * @throws ExceptionInterface If an exception occurs.
      */
-    public function safePay(ProductInterface $product, bool $force = false): ?Transfer;
+    public function safePay(ProductInterface $product, bool $force = false): ?WalletTransfer;
 
     /**
      * Pays for the given product.
@@ -68,7 +68,7 @@ interface Customer extends Wallet
      *
      * @param ProductInterface $product The product to pay for.
      * @param bool $force [optional] Whether to force the payment. Defaults to false.
-     * @return Transfer The transfer object representing the payment.
+     * @return WalletTransfer The transfer object representing the payment.
      *
      * @throws ProductEnded If the product is ended.
      * @throws BalanceIsEmpty If the balance of the wallet is empty.
@@ -78,7 +78,7 @@ interface Customer extends Wallet
      * @throws TransactionFailedException If the transaction fails.
      * @throws ExceptionInterface If an exception occurs.
      */
-    public function pay(ProductInterface $product, bool $force = false): Transfer;
+    public function pay(ProductInterface $product, bool $force = false): WalletTransfer;
 
     /**
      * Forces the payment of the given product.
@@ -94,7 +94,7 @@ interface Customer extends Wallet
      * @throws TransactionFailedException If the payment transaction fails.
      * @throws ExceptionInterface If the payment fails for any other reason.
      */
-    public function forcePay(ProductInterface $product): Transfer;
+    public function forcePay(ProductInterface $product): WalletTransfer;
 
     /**
      * Safely refunds the given product.
@@ -209,10 +209,10 @@ interface Customer extends Wallet
      * Pay for all items in the given cart.
      *
      * This method pays for all items in the provided cart. If the payment is successful,
-     * the method returns an array of Transfer instances representing the successfully paid items.
+     * the method returns an array of WalletTransfer instances representing the successfully paid items.
      * If the payment fails, an empty array is returned.
      *
-     * @return non-empty-array<Transfer> An array of Transfer instances representing the successfully paid items.
+     * @return non-empty-array<WalletTransfer> An array of WalletTransfer instances representing the successfully paid items.
      *
      * @throws ProductEnded If any of the items in the cart has expired.
      * @throws BalanceIsEmpty If the customer's balance is empty.
@@ -228,9 +228,9 @@ interface Customer extends Wallet
      * Safely pays for the items in the given cart.
      *
      * This method attempts to pay for all items in the provided cart. If the payment is successful,
-     * the method returns an array of Transfer instances. If the payment fails, an empty array is returned.
+     * the method returns an array of WalletTransfer instances. If the payment fails, an empty array is returned.
      *
-     * @return Transfer[] An array of Transfer instances representing the successfully paid items, or an empty array if the payment failed.
+     * @return WalletTransfer[] An array of WalletTransfer instances representing the successfully paid items, or an empty array if the payment failed.
      */
     public function safePayCart(CartInterface $cart, bool $force = false): array;
 
@@ -238,9 +238,9 @@ interface Customer extends Wallet
      * Pays for the items in the given cart.
      *
      * This method pays for all items in the provided cart. If the payment is successful,
-     * the method returns an array of Transfer instances. If the payment fails, the method throws an exception.
+     * the method returns an array of WalletTransfer instances. If the payment fails, the method throws an exception.
      *
-     * @return non-empty-array<Transfer>
+     * @return non-empty-array<WalletTransfer>
      *
      * @throws ProductEnded
      * @throws BalanceIsEmpty
@@ -257,13 +257,13 @@ interface Customer extends Wallet
      *
      * This method attempts to pay for all items in the provided cart.
      * If the payment is successful, the method returns an array of
-     * Transfer instances. If the payment fails, the method throws
+     * WalletTransfer instances. If the payment fails, the method throws
      * an exception.
      *
      * Please note that paying for a cart is a complex process and may
      * involve multiple transactions and database queries.
      *
-     * @return non-empty-array<Transfer>
+     * @return non-empty-array<WalletTransfer>
      *
      * @throws ProductEnded
      * @throws RecordNotFoundException
@@ -381,5 +381,5 @@ interface Customer extends Wallet
      *
      * @see PurchaseServiceInterface
      */
-    public function paid(ProductInterface $product, bool $gifts = false): ?Transfer;
+    public function paid(ProductInterface $product, bool $gifts = false): ?WalletTransfer;
 }

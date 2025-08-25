@@ -9,7 +9,7 @@ use Bavix\Wallet\Internal\Exceptions\ModelNotFoundException;
 use Bavix\Wallet\Internal\Repository\WalletRepositoryInterface;
 use Bavix\Wallet\Internal\Service\DispatcherServiceInterface;
 use Bavix\Wallet\Internal\Service\IdentifierFactoryServiceInterface;
-use Bavix\Wallet\Models\Wallet;
+use App\Models\Wallet;
 use Illuminate\Database\Eloquent\Model;
 
 /**

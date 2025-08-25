@@ -12,7 +12,7 @@ use Bavix\Wallet\Internal\Exceptions\ExceptionInterface;
 use Bavix\Wallet\Internal\Exceptions\ModelNotFoundException;
 use Bavix\Wallet\Internal\Exceptions\RecordNotFoundException;
 use Bavix\Wallet\Internal\Exceptions\TransactionFailedException;
-use Bavix\Wallet\Models\Transfer;
+use App\Models\WalletTransfer;
 use Bavix\Wallet\Objects\Cart;
 use function current;
 use Illuminate\Database\RecordsNotFoundException;
@@ -30,7 +30,7 @@ trait CanPay
      * Perform a free payment for a product.
      *
      * @param ProductInterface $product The product for which the payment should be made.
-     * @return Transfer The Transfer instance representing the successfully paid item.
+     * @return WalletTransfer The WalletTransfer instance representing the successfully paid item.
      *
      * @throws ProductEnded If the product is ended.
      * @throws BalanceIsEmpty If the balance of the wallet is empty.
@@ -42,7 +42,7 @@ trait CanPay
      *
      * @see \Bavix\Wallet\Interfaces\Customer::payFreeCart
      */
-    public function payFree(ProductInterface $product): Transfer
+    public function payFree(ProductInterface $product): WalletTransfer
     {
         // Create a cart with the specified product.
         $cart = app(Cart::class)->withItem($product);
@@ -56,12 +56,12 @@ trait CanPay
      * Safely pays for a product.
      *
      * Attempts to pay for the specified product. If the payment is successful,
-     * the method returns the first Transfer instance from the result of the payment.
+     * the method returns the first WalletTransfer instance from the result of the payment.
      * If the payment fails, the method returns null.
      *
      * @param ProductInterface $product The product for which the payment should be made.
      * @param bool $force Whether to force the purchase. Defaults to false.
-     * @return Transfer|null The first Transfer instance representing the successfully paid item, or null if the payment failed.
+     * @return WalletTransfer|null The first WalletTransfer instance representing the successfully paid item, or null if the payment failed.
      *
      * @throws ProductEnded If the product is ended.
      * @throws BalanceIsEmpty If the balance of the wallet is empty.
@@ -73,7 +73,7 @@ trait CanPay
      *
      * @see \Bavix\Wallet\Interfaces\Customer::safePayCart
      */
-    public function safePay(ProductInterface $product, bool $force = false): ?Transfer
+    public function safePay(ProductInterface $product, bool $force = false): ?WalletTransfer
     {
         // Create a cart with the specified product.
         $cart = app(Cart::class)->withItem($product);
@@ -94,7 +94,7 @@ trait CanPay
      *
      * @param ProductInterface $product The product to pay for.
      * @param bool $force [optional] Whether to force the payment. Defaults to false.
-     * @return Transfer The transfer object representing the payment.
+     * @return WalletTransfer The transfer object representing the payment.
      *
      * @throws ProductEnded If the product is ended.
      * @throws BalanceIsEmpty If the balance of the wallet is empty.
@@ -104,7 +104,7 @@ trait CanPay
      * @throws TransactionFailedException If the transaction fails.
      * @throws ExceptionInterface If an exception occurs.
      */
-    public function pay(ProductInterface $product, bool $force = false): Transfer
+    public function pay(ProductInterface $product, bool $force = false): WalletTransfer
     {
         // Create a cart with the specified product.
         $cart = app(Cart::class)->withItem($product);
@@ -123,7 +123,7 @@ trait CanPay
      * other than the above, it throws a more specific exception.
      *
      * @param ProductInterface $product The product for which the payment should be made.
-     * @return Transfer The transfer object representing the successfully paid item.
+     * @return WalletTransfer The transfer object representing the successfully paid item.
      *
      * @throws ProductEnded If the product is ended.
      * @throws RecordNotFoundException If the record is not found.
@@ -131,7 +131,7 @@ trait CanPay
      * @throws TransactionFailedException If the payment transaction fails.
      * @throws ExceptionInterface If an exception occurs.
      */
-    public function forcePay(ProductInterface $product): Transfer
+    public function forcePay(ProductInterface $product): WalletTransfer
     {
         // Create a cart with the specified product.
         $cart = app(Cart::class)->withItem($product);

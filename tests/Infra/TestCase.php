@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Bavix\Wallet\Test\Infra;
 
-use Bavix\Wallet\Test\Infra\PackageModels\Transaction;
-use Bavix\Wallet\Test\Infra\PackageModels\Transfer;
+use Bavix\Wallet\Test\Infra\PackageModels\WalletTransaction;
+use Bavix\Wallet\Test\Infra\PackageModels\WalletTransfer;
 use Bavix\Wallet\Test\Infra\PackageModels\Wallet;
 use Bavix\Wallet\Test\Infra\Services\MyExchangeService;
 use Bavix\Wallet\WalletServiceProvider;
@@ -43,8 +43,8 @@ abstract class TestCase extends OrchestraTestCase
     {
         // Bind eloquent models to IoC container
         $app['config']->set('wallet.services.exchange', MyExchangeService::class);
-        $app['config']->set('wallet.transaction.model', Transaction::class);
-        $app['config']->set('wallet.transfer.model', Transfer::class);
+        $app['config']->set('wallet.transaction.model', WalletTransaction::class);
+        $app['config']->set('wallet.transfer.model', WalletTransfer::class);
         $app['config']->set('wallet.wallet.model', Wallet::class);
 
         return [WalletServiceProvider::class, TestServiceProvider::class];

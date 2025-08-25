@@ -13,8 +13,8 @@ use Bavix\Wallet\Internal\Assembler\TransferDtoAssemblerInterface;
 use Bavix\Wallet\Internal\Exceptions\ExceptionInterface;
 use Bavix\Wallet\Internal\Exceptions\TransactionFailedException;
 use Bavix\Wallet\Internal\Service\MathServiceInterface;
-use Bavix\Wallet\Models\Transaction;
-use Bavix\Wallet\Models\Transfer;
+use App\Models\WalletTransaction;
+use App\Models\WalletTransfer;
 use Bavix\Wallet\Services\AtmServiceInterface;
 use Bavix\Wallet\Services\AtomicServiceInterface;
 use Bavix\Wallet\Services\CastServiceInterface;
@@ -40,11 +40,11 @@ trait HasGift
      * @param Wallet $to The wallet to which the goods will be given.
      * @param ProductInterface $product The goods to be given.
      * @param bool $force [optional] Whether to force the gift. Defaults to `false`.
-     * @return Transfer|null The transfer object representing the gift, or `null` if the gift fails.
+     * @return WalletTransfer|null The transfer object representing the gift, or `null` if the gift fails.
      *
      * @throws ExceptionInterface If an exception occurs during the process of giving the goods.
      */
-    public function safeGift(Wallet $to, ProductInterface $product, bool $force = false): ?Transfer
+    public function safeGift(Wallet $to, ProductInterface $product, bool $force = false): ?WalletTransfer
     {
         try {
             // Attempt to give the goods to the specified wallet
@@ -65,7 +65,7 @@ trait HasGift
      * @param Wallet $to The wallet to which the goods will be given.
      * @param ProductInterface $product The goods to be given.
      * @param bool $force [optional] Whether to force the gift. Defaults to `false`.
-     * @return Transfer The transfer object representing the gift.
+     * @return WalletTransfer The transfer object representing the gift.
      *
      * @throws BalanceIsEmpty If the balance of the wallet is empty.
      * @throws InsufficientFunds If there are insufficient funds in the wallet.
@@ -73,7 +73,7 @@ trait HasGift
      * @throws TransactionFailedException If the transaction fails.
      * @throws ExceptionInterface If an exception occurs.
      */
-    public function gift(Wallet $to, ProductInterface $product, bool $force = false): Transfer
+    public function gift(Wallet $to, ProductInterface $product, bool $force = false): WalletTransfer
     {
         // Execute the gift operation atomically
         $atomicService = app(AtomicServiceInterface::class);
@@ -98,7 +98,7 @@ trait HasGift
             $consistencyService,
             $atmService,
             $transferDtoAssembler
-        ): Transfer {
+        ): WalletTransfer {
             // Get the discount for the product
             $discount = $discountService->getDiscount($this, $product);
 
@@ -117,13 +117,13 @@ trait HasGift
             // Create withdraw and deposit transactions
             $withdraw = $transactionService->makeOne(
                 $this,
-                Transaction::TYPE_WITHDRAW,
+                WalletTransaction::TYPE_WITHDRAW,
                 $mathService->add($amount, $fee),
                 $product->getMetaProduct()
             );
             $deposit = $transactionService->makeOne(
                 $product,
-                Transaction::TYPE_DEPOSIT,
+                WalletTransaction::TYPE_DEPOSIT,
                 $amount,
                 $product->getMetaProduct()
             );
@@ -132,7 +132,7 @@ trait HasGift
             $transfer = $transferDtoAssembler->create(
                 $deposit->getKey(),
                 $withdraw->getKey(),
-                Transfer::STATUS_GIFT,
+                WalletTransfer::STATUS_GIFT,
                 $castService->getWallet($to),
                 $castService->getWallet($product),
                 $discount,
@@ -158,13 +158,13 @@ trait HasGift
      *
      * @param Wallet $to The wallet to which the gift will be given.
      * @param ProductInterface $product The product to be given.
-     * @return Transfer The transfer object representing the gift.
+     * @return WalletTransfer The transfer object representing the gift.
      *
      * @throws RecordsNotFoundException If the record is not found.
      * @throws TransactionFailedException If the transaction fails.
      * @throws ExceptionInterface If an exception occurs.
      */
-    public function forceGift(Wallet $to, ProductInterface $product): Transfer
+    public function forceGift(Wallet $to, ProductInterface $product): WalletTransfer
     {
         // Call the gift method with force true
         return $this->gift($to, $product, true);

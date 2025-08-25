@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class Transfer.
+ * Class WalletTransfer.
  *
  * @property string $status
  * @property string $status_last
@@ -26,15 +26,15 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property non-empty-string $uuid
  * @property non-empty-string $fee
  * @property ?array<mixed> $extra
- * @property Transaction $deposit
- * @property Transaction $withdraw
+ * @property WalletTransaction $deposit
+ * @property WalletTransaction $withdraw
  * @property DateTimeInterface $created_at
  * @property DateTimeInterface $updated_at
  * @property DateTimeInterface $deleted_at
  *
  * @method int getKey()
  */
-class Transfer extends Model
+class WalletTransfer extends Model
 {
     use SoftDeletes;
 
@@ -103,19 +103,19 @@ class Transfer extends Model
     }
 
     /**
-     * @return BelongsTo<Transaction, self>
+     * @return BelongsTo<WalletTransaction, self>
      */
     public function deposit(): BelongsTo
     {
-        return $this->belongsTo(config('wallet.transaction.model', Transaction::class), 'deposit_id');
+        return $this->belongsTo(config('wallet.transaction.model', WalletTransaction::class), 'deposit_id');
     }
 
     /**
-     * @return BelongsTo<Transaction, self>
+     * @return BelongsTo<WalletTransaction, self>
      */
     public function withdraw(): BelongsTo
     {
-        return $this->belongsTo(config('wallet.transaction.model', Transaction::class), 'withdraw_id');
+        return $this->belongsTo(config('wallet.transaction.model', WalletTransaction::class), 'withdraw_id');
     }
 
     protected static function boot(): void

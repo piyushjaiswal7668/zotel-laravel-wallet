@@ -7,7 +7,7 @@ namespace Bavix\Wallet\Test\Units\Domain;
 use Bavix\Wallet\External\Dto\Extra;
 use Bavix\Wallet\External\Dto\Option;
 use Bavix\Wallet\Internal\Service\IdentifierFactoryServiceInterface;
-use Bavix\Wallet\Models\Transaction;
+use App\Models\WalletTransaction;
 use Bavix\Wallet\Test\Infra\Factories\BuyerFactory;
 use Bavix\Wallet\Test\Infra\Models\Buyer;
 use Bavix\Wallet\Test\Infra\TestCase;
@@ -54,7 +54,7 @@ final class BlockTest extends TestCase
         self::assertSame(500, $transfer->deposit->amountInt);
         self::assertFalse($transfer->deposit->confirmed);
 
-        /** @var Transaction $transaction */
+        /** @var WalletTransaction $transaction */
         $transaction = $buyer2->wallet->walletTransactions()
             ->where('meta->type', 'block')
             ->where('confirmed', false)

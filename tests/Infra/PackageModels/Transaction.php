@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace Bavix\Wallet\Test\Infra\PackageModels;
 
 /**
- * Class Transaction.
+ * Class WalletTransaction.
  *
  * @property null|string $bank_method
  */
-final class Transaction extends \Bavix\Wallet\Models\Transaction
+final class WalletTransaction extends \App\Models\WalletTransaction
 {
     public function getFillable(): array
     {
