@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Services;
+namespace Zotel\Wallet\Services;
 
 /**
  * Currency exchange contract between wallets.

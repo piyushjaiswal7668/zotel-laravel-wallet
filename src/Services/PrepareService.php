@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Services;
+namespace Zotel\Wallet\Services;
 
-use Bavix\Wallet\Exceptions\AmountInvalid;
-use Bavix\Wallet\External\Contracts\ExtraDtoInterface;
-use Bavix\Wallet\Interfaces\Wallet;
-use Bavix\Wallet\Internal\Assembler\ExtraDtoAssemblerInterface;
-use Bavix\Wallet\Internal\Assembler\TransactionDtoAssemblerInterface;
-use Bavix\Wallet\Internal\Assembler\TransferLazyDtoAssemblerInterface;
-use Bavix\Wallet\Internal\Dto\TransactionDtoInterface;
-use Bavix\Wallet\Internal\Dto\TransferLazyDtoInterface;
-use Bavix\Wallet\Internal\Service\MathServiceInterface;
+use Zotel\Wallet\Exceptions\AmountInvalid;
+use Zotel\Wallet\External\Contracts\ExtraDtoInterface;
+use Zotel\Wallet\Interfaces\Wallet;
+use Zotel\Wallet\Internal\Assembler\ExtraDtoAssemblerInterface;
+use Zotel\Wallet\Internal\Assembler\TransactionDtoAssemblerInterface;
+use Zotel\Wallet\Internal\Assembler\TransferLazyDtoAssemblerInterface;
+use Zotel\Wallet\Internal\Dto\TransactionDtoInterface;
+use Zotel\Wallet\Internal\Dto\TransferLazyDtoInterface;
+use Zotel\Wallet\Internal\Service\MathServiceInterface;
 use App\Models\WalletTransaction;
 use App\Models\Wallet as WalletModel;
 

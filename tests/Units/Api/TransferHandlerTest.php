@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Test\Units\Api;
+namespace Zotel\Wallet\Test\Units\Api;
 
 use function app;
-use Bavix\Wallet\External\Api\TransferFloatQuery;
-use Bavix\Wallet\External\Api\TransferQuery;
-use Bavix\Wallet\External\Api\TransferQueryHandlerInterface;
-use Bavix\Wallet\External\Dto\Extra;
-use Bavix\Wallet\Test\Infra\Factories\BuyerFactory;
-use Bavix\Wallet\Test\Infra\Models\Buyer;
-use Bavix\Wallet\Test\Infra\TestCase;
+use Zotel\Wallet\External\Api\TransferFloatQuery;
+use Zotel\Wallet\External\Api\TransferQuery;
+use Zotel\Wallet\External\Api\TransferQueryHandlerInterface;
+use Zotel\Wallet\External\Dto\Extra;
+use Zotel\Wallet\Test\Infra\Factories\BuyerFactory;
+use Zotel\Wallet\Test\Infra\Models\Buyer;
+use Zotel\Wallet\Test\Infra\TestCase;
 
 /**
  * @internal

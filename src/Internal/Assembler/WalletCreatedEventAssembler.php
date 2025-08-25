@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Internal\Assembler;
+namespace Zotel\Wallet\Internal\Assembler;
 
-use Bavix\Wallet\Internal\Events\WalletCreatedEvent;
-use Bavix\Wallet\Internal\Events\WalletCreatedEventInterface;
-use Bavix\Wallet\Internal\Service\ClockServiceInterface;
+use Zotel\Wallet\Internal\Events\WalletCreatedEvent;
+use Zotel\Wallet\Internal\Events\WalletCreatedEventInterface;
+use Zotel\Wallet\Internal\Service\ClockServiceInterface;
 use App\Models\Wallet;
 
 final readonly class WalletCreatedEventAssembler implements WalletCreatedEventAssemblerInterface

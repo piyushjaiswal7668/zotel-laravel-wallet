@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Internal\Observers;
+namespace Zotel\Wallet\Internal\Observers;
 
-use Bavix\Wallet\Exceptions\UnconfirmedInvalid;
-use Bavix\Wallet\Exceptions\WalletOwnerInvalid;
-use Bavix\Wallet\Internal\Exceptions\ExceptionInterface;
-use Bavix\Wallet\Internal\Exceptions\RecordNotFoundException;
-use Bavix\Wallet\Internal\Exceptions\TransactionFailedException;
+use Zotel\Wallet\Exceptions\UnconfirmedInvalid;
+use Zotel\Wallet\Exceptions\WalletOwnerInvalid;
+use Zotel\Wallet\Internal\Exceptions\ExceptionInterface;
+use Zotel\Wallet\Internal\Exceptions\RecordNotFoundException;
+use Zotel\Wallet\Internal\Exceptions\TransactionFailedException;
 use App\Models\WalletTransfer;
-use Bavix\Wallet\Services\AtomicServiceInterface;
+use Zotel\Wallet\Services\AtomicServiceInterface;
 use Illuminate\Database\RecordsNotFoundException;
 
 final readonly class TransferObserver

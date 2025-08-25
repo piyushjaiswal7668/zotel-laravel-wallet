@@ -46,8 +46,8 @@ Telegram: [@laravel_wallet](https://t.me/laravel_wallet)
 ### Usage
 Add the `HasWallet` trait and `Wallet` interface to model.
 ```php
-use Bavix\Wallet\Traits\HasWallet;
-use Bavix\Wallet\Interfaces\Wallet;
+use Zotel\Wallet\Traits\HasWallet;
+use Zotel\Wallet\Interfaces\Wallet;
 
 class User extends Model implements Wallet
 {
@@ -76,8 +76,8 @@ $user->balance; // -191
 
 Add the `CanPay` trait and `Customer` interface to your `User` model.
 ```php
-use Bavix\Wallet\Traits\CanPay;
-use Bavix\Wallet\Interfaces\Customer;
+use Zotel\Wallet\Traits\CanPay;
+use Zotel\Wallet\Interfaces\Customer;
 
 class User extends Model implements Customer
 {
@@ -93,9 +93,9 @@ Starting from version 9.x there are two product interfaces:
 
 An example with an unlimited number of products:
 ```php
-use Bavix\Wallet\Traits\HasWallet;
-use Bavix\Wallet\Interfaces\Customer;
-use Bavix\Wallet\Interfaces\ProductInterface;
+use Zotel\Wallet\Traits\HasWallet;
+use Zotel\Wallet\Interfaces\Customer;
+use Zotel\Wallet\Interfaces\ProductInterface;
 
 class Item extends Model implements ProductInterface
 {
@@ -118,9 +118,9 @@ class Item extends Model implements ProductInterface
 
 Example with a limited number of products:
 ```php
-use Bavix\Wallet\Traits\HasWallet;
-use Bavix\Wallet\Interfaces\Customer;
-use Bavix\Wallet\Interfaces\ProductLimitedInterface;
+use Zotel\Wallet\Traits\HasWallet;
+use Zotel\Wallet\Interfaces\Customer;
+use Zotel\Wallet\Interfaces\ProductLimitedInterface;
 
 class Item extends Model implements ProductLimitedInterface
 {
@@ -189,9 +189,9 @@ User::with('wallets');
 ### How to work with fractional numbers?
 Add the `HasWalletFloat` trait and `WalletFloat` interface to model.
 ```php
-use Bavix\Wallet\Traits\HasWalletFloat;
-use Bavix\Wallet\Interfaces\WalletFloat;
-use Bavix\Wallet\Interfaces\Wallet;
+use Zotel\Wallet\Traits\HasWalletFloat;
+use Zotel\Wallet\Interfaces\WalletFloat;
+use Zotel\Wallet\Interfaces\Wallet;
 
 class User extends Model implements Wallet, WalletFloat
 {

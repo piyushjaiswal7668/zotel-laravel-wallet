@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Internal\Service;
+namespace Zotel\Wallet\Internal\Service;
 
-use Bavix\Wallet\Internal\Exceptions\RecordNotFoundException;
+use Zotel\Wallet\Internal\Exceptions\RecordNotFoundException;
 
 interface StorageServiceInterface
 {

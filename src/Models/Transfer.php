@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Models;
+namespace Zotel\Wallet\Models;
 
-use Bavix\Wallet\Internal\Observers\TransferObserver;
+use Zotel\Wallet\Internal\Observers\TransferObserver;
 use function config;
 use DateTimeInterface;
 use Illuminate\Database\Eloquent\Model;

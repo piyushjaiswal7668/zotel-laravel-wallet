@@ -2,23 +2,23 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Test\Units\Domain;
+namespace Zotel\Wallet\Test\Units\Domain;
 
-use Bavix\Wallet\Internal\Exceptions\CartEmptyException;
-use Bavix\Wallet\Internal\Exceptions\ExceptionInterface;
-use Bavix\Wallet\Internal\Exceptions\ModelNotFoundException;
-use Bavix\Wallet\Internal\Service\MathServiceInterface;
+use Zotel\Wallet\Internal\Exceptions\CartEmptyException;
+use Zotel\Wallet\Internal\Exceptions\ExceptionInterface;
+use Zotel\Wallet\Internal\Exceptions\ModelNotFoundException;
+use Zotel\Wallet\Internal\Service\MathServiceInterface;
 use App\Models\WalletTransfer;
-use Bavix\Wallet\Objects\Cart;
-use Bavix\Wallet\Services\PurchaseServiceInterface;
-use Bavix\Wallet\Test\Infra\Factories\BuyerFactory;
-use Bavix\Wallet\Test\Infra\Factories\ItemFactory;
-use Bavix\Wallet\Test\Infra\Factories\ItemMetaFactory;
-use Bavix\Wallet\Test\Infra\Models\Buyer;
-use Bavix\Wallet\Test\Infra\Models\Item;
-use Bavix\Wallet\Test\Infra\Models\ItemMeta;
-use Bavix\Wallet\Test\Infra\PackageModels\WalletTransaction;
-use Bavix\Wallet\Test\Infra\TestCase;
+use Zotel\Wallet\Objects\Cart;
+use Zotel\Wallet\Services\PurchaseServiceInterface;
+use Zotel\Wallet\Test\Infra\Factories\BuyerFactory;
+use Zotel\Wallet\Test\Infra\Factories\ItemFactory;
+use Zotel\Wallet\Test\Infra\Factories\ItemMetaFactory;
+use Zotel\Wallet\Test\Infra\Models\Buyer;
+use Zotel\Wallet\Test\Infra\Models\Item;
+use Zotel\Wallet\Test\Infra\Models\ItemMeta;
+use Zotel\Wallet\Test\Infra\PackageModels\WalletTransaction;
+use Zotel\Wallet\Test\Infra\TestCase;
 use function count;
 use Illuminate\Database\Eloquent\Collection;
 

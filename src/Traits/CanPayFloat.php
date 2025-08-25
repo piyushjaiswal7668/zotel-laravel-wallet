@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Traits;
+namespace Zotel\Wallet\Traits;
 
-use Bavix\Wallet\Exceptions\AmountInvalid;
-use Bavix\Wallet\Exceptions\BalanceIsEmpty;
-use Bavix\Wallet\Exceptions\InsufficientFunds;
-use Bavix\Wallet\Interfaces\Customer;
-use Bavix\Wallet\Interfaces\Wallet;
-use Bavix\Wallet\Internal\Exceptions\ExceptionInterface;
-use Bavix\Wallet\Internal\Exceptions\TransactionFailedException;
+use Zotel\Wallet\Exceptions\AmountInvalid;
+use Zotel\Wallet\Exceptions\BalanceIsEmpty;
+use Zotel\Wallet\Exceptions\InsufficientFunds;
+use Zotel\Wallet\Interfaces\Customer;
+use Zotel\Wallet\Interfaces\Wallet;
+use Zotel\Wallet\Internal\Exceptions\ExceptionInterface;
+use Zotel\Wallet\Internal\Exceptions\TransactionFailedException;
 use App\Models\WalletTransaction;
 use App\Models\WalletTransfer;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
@@ -19,7 +19,7 @@ use Illuminate\Database\RecordsNotFoundException;
 /**
  * @psalm-require-extends \Illuminate\Database\Eloquent\Model
  *
- * @psalm-require-implements \Bavix\Wallet\Interfaces\Customer
+ * @psalm-require-implements \Zotel\Wallet\Interfaces\Customer
  */
 trait CanPayFloat
 {

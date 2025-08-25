@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Test\Units\Service;
+namespace Zotel\Wallet\Test\Units\Service;
 
-use Bavix\Wallet\Internal\Exceptions\ExceptionInterface;
-use Bavix\Wallet\Services\FormatterServiceInterface;
-use Bavix\Wallet\Test\Infra\TestCase;
+use Zotel\Wallet\Internal\Exceptions\ExceptionInterface;
+use Zotel\Wallet\Services\FormatterServiceInterface;
+use Zotel\Wallet\Test\Infra\TestCase;
 
 /**
  * @internal

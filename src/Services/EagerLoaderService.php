@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Services;
+namespace Zotel\Wallet\Services;
 
-use Bavix\Wallet\Interfaces\Customer;
-use Bavix\Wallet\Internal\Dto\BasketDtoInterface;
-use Bavix\Wallet\Internal\Repository\WalletRepositoryInterface;
+use Zotel\Wallet\Interfaces\Customer;
+use Zotel\Wallet\Internal\Dto\BasketDtoInterface;
+use Zotel\Wallet\Internal\Repository\WalletRepositoryInterface;
 use App\Models\Wallet;
 
 /**
@@ -27,7 +27,7 @@ final readonly class EagerLoaderService implements EagerLoaderServiceInterface
         $productGroupIds = [];
         foreach ($basketDto->items() as $index => $item) {
             // If the wallet is installed, then there is no need for lazy loading
-            if ($item->getReceiving() instanceof \Bavix\Wallet\Interfaces\Wallet) {
+            if ($item->getReceiving() instanceof \Zotel\Wallet\Interfaces\Wallet) {
                 continue;
             }
 

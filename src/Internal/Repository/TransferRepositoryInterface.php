@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Internal\Repository;
+namespace Zotel\Wallet\Internal\Repository;
 
-use Bavix\Wallet\Internal\Dto\TransferDtoInterface;
-use Bavix\Wallet\Internal\Query\TransferQueryInterface;
+use Zotel\Wallet\Internal\Dto\TransferDtoInterface;
+use Zotel\Wallet\Internal\Query\TransferQueryInterface;
 use App\Models\WalletTransfer;
 
 interface TransferRepositoryInterface

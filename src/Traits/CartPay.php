@@ -2,37 +2,37 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Traits;
+namespace Zotel\Wallet\Traits;
 
-use Bavix\Wallet\Exceptions\BalanceIsEmpty;
-use Bavix\Wallet\Exceptions\InsufficientFunds;
-use Bavix\Wallet\Exceptions\ProductEnded;
-use Bavix\Wallet\Interfaces\CartInterface;
-use Bavix\Wallet\Interfaces\ProductInterface;
-use Bavix\Wallet\Internal\Assembler\AvailabilityDtoAssemblerInterface;
-use Bavix\Wallet\Internal\Exceptions\ExceptionInterface;
-use Bavix\Wallet\Internal\Exceptions\ModelNotFoundException;
-use Bavix\Wallet\Internal\Exceptions\RecordNotFoundException;
-use Bavix\Wallet\Internal\Exceptions\TransactionFailedException;
-use Bavix\Wallet\Internal\Service\TranslatorServiceInterface;
+use Zotel\Wallet\Exceptions\BalanceIsEmpty;
+use Zotel\Wallet\Exceptions\InsufficientFunds;
+use Zotel\Wallet\Exceptions\ProductEnded;
+use Zotel\Wallet\Interfaces\CartInterface;
+use Zotel\Wallet\Interfaces\ProductInterface;
+use Zotel\Wallet\Internal\Assembler\AvailabilityDtoAssemblerInterface;
+use Zotel\Wallet\Internal\Exceptions\ExceptionInterface;
+use Zotel\Wallet\Internal\Exceptions\ModelNotFoundException;
+use Zotel\Wallet\Internal\Exceptions\RecordNotFoundException;
+use Zotel\Wallet\Internal\Exceptions\TransactionFailedException;
+use Zotel\Wallet\Internal\Service\TranslatorServiceInterface;
 use App\Models\WalletTransfer;
-use Bavix\Wallet\Objects\Cart;
-use Bavix\Wallet\Services\AssistantServiceInterface;
-use Bavix\Wallet\Services\AtomicServiceInterface;
-use Bavix\Wallet\Services\BasketServiceInterface;
-use Bavix\Wallet\Services\CastServiceInterface;
-use Bavix\Wallet\Services\ConsistencyServiceInterface;
-use Bavix\Wallet\Services\EagerLoaderServiceInterface;
-use Bavix\Wallet\Services\PrepareServiceInterface;
-use Bavix\Wallet\Services\PurchaseServiceInterface;
-use Bavix\Wallet\Services\TransferServiceInterface;
+use Zotel\Wallet\Objects\Cart;
+use Zotel\Wallet\Services\AssistantServiceInterface;
+use Zotel\Wallet\Services\AtomicServiceInterface;
+use Zotel\Wallet\Services\BasketServiceInterface;
+use Zotel\Wallet\Services\CastServiceInterface;
+use Zotel\Wallet\Services\ConsistencyServiceInterface;
+use Zotel\Wallet\Services\EagerLoaderServiceInterface;
+use Zotel\Wallet\Services\PrepareServiceInterface;
+use Zotel\Wallet\Services\PurchaseServiceInterface;
+use Zotel\Wallet\Services\TransferServiceInterface;
 use function count;
 use Illuminate\Database\RecordsNotFoundException;
 
 /**
  * @psalm-require-extends \Illuminate\Database\Eloquent\Model
  *
- * @psalm-require-implements \Bavix\Wallet\Interfaces\Customer
+ * @psalm-require-implements \Zotel\Wallet\Interfaces\Customer
  */
 trait CartPay
 {

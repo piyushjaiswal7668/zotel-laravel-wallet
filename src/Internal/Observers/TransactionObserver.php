@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Internal\Observers;
+namespace Zotel\Wallet\Internal\Observers;
 
-use Bavix\Wallet\Exceptions\UnconfirmedInvalid;
-use Bavix\Wallet\Exceptions\WalletOwnerInvalid;
-use Bavix\Wallet\Internal\Exceptions\ExceptionInterface;
-use Bavix\Wallet\Internal\Exceptions\RecordNotFoundException;
-use Bavix\Wallet\Internal\Exceptions\TransactionFailedException;
+use Zotel\Wallet\Exceptions\UnconfirmedInvalid;
+use Zotel\Wallet\Exceptions\WalletOwnerInvalid;
+use Zotel\Wallet\Internal\Exceptions\ExceptionInterface;
+use Zotel\Wallet\Internal\Exceptions\RecordNotFoundException;
+use Zotel\Wallet\Internal\Exceptions\TransactionFailedException;
 use App\Models\WalletTransaction;
 use Illuminate\Database\RecordsNotFoundException;
 

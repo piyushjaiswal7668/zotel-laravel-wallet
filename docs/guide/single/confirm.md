@@ -9,10 +9,10 @@ You create a transaction without confirmation, and a little later you confirm it
 Add the `CanConfirm` trait and `Confirmable` interface to your User model.
 
 ```php
-use Bavix\Wallet\Interfaces\Confirmable;
-use Bavix\Wallet\Interfaces\Wallet;
-use Bavix\Wallet\Traits\CanConfirm;
-use Bavix\Wallet\Traits\HasWallet;
+use Zotel\Wallet\Interfaces\Confirmable;
+use Zotel\Wallet\Interfaces\Wallet;
+use Zotel\Wallet\Traits\CanConfirm;
+use Zotel\Wallet\Traits\HasWallet;
 
 class UserConfirm extends Model implements Wallet, Confirmable
 {

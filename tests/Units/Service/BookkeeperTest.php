@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Test\Units\Service;
+namespace Zotel\Wallet\Test\Units\Service;
 
-use Bavix\Wallet\Services\BookkeeperService;
-use Bavix\Wallet\Test\Infra\Factories\BuyerFactory;
-use Bavix\Wallet\Test\Infra\Models\Buyer;
-use Bavix\Wallet\Test\Infra\TestCase;
+use Zotel\Wallet\Services\BookkeeperService;
+use Zotel\Wallet\Test\Infra\Factories\BuyerFactory;
+use Zotel\Wallet\Test\Infra\Models\Buyer;
+use Zotel\Wallet\Test\Infra\TestCase;
 
 /**
  * @internal

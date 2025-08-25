@@ -2,27 +2,27 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Traits;
+namespace Zotel\Wallet\Traits;
 
 use function app;
-use Bavix\Wallet\Exceptions\AmountInvalid;
-use Bavix\Wallet\Exceptions\BalanceIsEmpty;
-use Bavix\Wallet\Exceptions\InsufficientFunds;
-use Bavix\Wallet\External\Contracts\ExtraDtoInterface;
-use Bavix\Wallet\Interfaces\Wallet;
-use Bavix\Wallet\Internal\Exceptions\ExceptionInterface;
-use Bavix\Wallet\Internal\Exceptions\TransactionFailedException;
-use Bavix\Wallet\Internal\Service\MathServiceInterface;
+use Zotel\Wallet\Exceptions\AmountInvalid;
+use Zotel\Wallet\Exceptions\BalanceIsEmpty;
+use Zotel\Wallet\Exceptions\InsufficientFunds;
+use Zotel\Wallet\External\Contracts\ExtraDtoInterface;
+use Zotel\Wallet\Interfaces\Wallet;
+use Zotel\Wallet\Internal\Exceptions\ExceptionInterface;
+use Zotel\Wallet\Internal\Exceptions\TransactionFailedException;
+use Zotel\Wallet\Internal\Service\MathServiceInterface;
 use App\Models\WalletTransaction;
 use App\Models\WalletTransfer;
 use App\Models\Wallet as WalletModel;
-use Bavix\Wallet\Services\AtomicServiceInterface;
-use Bavix\Wallet\Services\CastServiceInterface;
-use Bavix\Wallet\Services\ConsistencyServiceInterface;
-use Bavix\Wallet\Services\PrepareServiceInterface;
-use Bavix\Wallet\Services\RegulatorServiceInterface;
-use Bavix\Wallet\Services\TransactionServiceInterface;
-use Bavix\Wallet\Services\TransferServiceInterface;
+use Zotel\Wallet\Services\AtomicServiceInterface;
+use Zotel\Wallet\Services\CastServiceInterface;
+use Zotel\Wallet\Services\ConsistencyServiceInterface;
+use Zotel\Wallet\Services\PrepareServiceInterface;
+use Zotel\Wallet\Services\RegulatorServiceInterface;
+use Zotel\Wallet\Services\TransactionServiceInterface;
+use Zotel\Wallet\Services\TransferServiceInterface;
 use function config;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
@@ -37,7 +37,7 @@ use Illuminate\Database\RecordsNotFoundException;
  *
  * @psalm-require-extends \Illuminate\Database\Eloquent\Model
  *
- * @psalm-require-implements \Bavix\Wallet\Interfaces\Wallet
+ * @psalm-require-implements \Zotel\Wallet\Interfaces\Wallet
  */
 trait HasWallet
 {
@@ -79,7 +79,7 @@ trait HasWallet
      *
      * @return non-empty-string The current balance of the wallet as a string.
      *
-     * @throws \Bavix\Wallet\Internal\Exceptions\ModelNotFoundException If the wallet does not exist and `$save` is set to `false`.
+     * @throws \Zotel\Wallet\Internal\Exceptions\ModelNotFoundException If the wallet does not exist and `$save` is set to `false`.
      *
      * @see Wallet
      * @see WalletModel
@@ -111,7 +111,7 @@ trait HasWallet
      *
      * @return int The current balance of the wallet as an integer.
      *
-     * @throws \Bavix\Wallet\Internal\Exceptions\ModelNotFoundException If the wallet does not exist and `$save` is set to `false`.
+     * @throws \Zotel\Wallet\Internal\Exceptions\ModelNotFoundException If the wallet does not exist and `$save` is set to `false`.
      *
      * @see Wallet
      * @see WalletModel

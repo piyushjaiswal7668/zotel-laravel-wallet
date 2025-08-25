@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Internal\Repository;
+namespace Zotel\Wallet\Internal\Repository;
 
-use Bavix\Wallet\Internal\Dto\TransferDtoInterface;
-use Bavix\Wallet\Internal\Query\TransferQueryInterface;
-use Bavix\Wallet\Internal\Service\JsonServiceInterface;
-use Bavix\Wallet\Internal\Transform\TransferDtoTransformerInterface;
+use Zotel\Wallet\Internal\Dto\TransferDtoInterface;
+use Zotel\Wallet\Internal\Query\TransferQueryInterface;
+use Zotel\Wallet\Internal\Service\JsonServiceInterface;
+use Zotel\Wallet\Internal\Transform\TransferDtoTransformerInterface;
 use App\Models\WalletTransfer;
 
 final readonly class TransferRepository implements TransferRepositoryInterface

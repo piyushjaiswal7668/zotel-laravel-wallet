@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Test\Units\Domain;
+namespace Zotel\Wallet\Test\Units\Domain;
 
 use function app;
-use Bavix\Wallet\Internal\Service\DatabaseServiceInterface;
+use Zotel\Wallet\Internal\Service\DatabaseServiceInterface;
 use App\Models\Wallet;
-use Bavix\Wallet\Services\BookkeeperServiceInterface;
-use Bavix\Wallet\Services\RegulatorServiceInterface;
-use Bavix\Wallet\Test\Infra\Factories\BuyerFactory;
-use Bavix\Wallet\Test\Infra\Models\Buyer;
-use Bavix\Wallet\Test\Infra\TestCase;
+use Zotel\Wallet\Services\BookkeeperServiceInterface;
+use Zotel\Wallet\Services\RegulatorServiceInterface;
+use Zotel\Wallet\Test\Infra\Factories\BuyerFactory;
+use Zotel\Wallet\Test\Infra\Models\Buyer;
+use Zotel\Wallet\Test\Infra\TestCase;
 
 /**
  * @internal

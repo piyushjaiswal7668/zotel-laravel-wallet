@@ -2,22 +2,22 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Test\Units\Domain;
+namespace Zotel\Wallet\Test\Units\Domain;
 
-use Bavix\Wallet\Exceptions\ProductEnded;
-use Bavix\Wallet\Internal\Exceptions\ExceptionInterface;
-use Bavix\Wallet\Internal\Service\DatabaseServiceInterface;
+use Zotel\Wallet\Exceptions\ProductEnded;
+use Zotel\Wallet\Internal\Exceptions\ExceptionInterface;
+use Zotel\Wallet\Internal\Service\DatabaseServiceInterface;
 use App\Models\WalletTransaction;
 use App\Models\WalletTransfer;
 use App\Models\Wallet;
-use Bavix\Wallet\Objects\Cart;
-use Bavix\Wallet\Test\Infra\Factories\BuyerFactory;
-use Bavix\Wallet\Test\Infra\Factories\ItemFactory;
-use Bavix\Wallet\Test\Infra\Factories\ItemWalletFactory;
-use Bavix\Wallet\Test\Infra\Models\Buyer;
-use Bavix\Wallet\Test\Infra\Models\Item;
-use Bavix\Wallet\Test\Infra\Models\ItemWallet;
-use Bavix\Wallet\Test\Infra\TestCase;
+use Zotel\Wallet\Objects\Cart;
+use Zotel\Wallet\Test\Infra\Factories\BuyerFactory;
+use Zotel\Wallet\Test\Infra\Factories\ItemFactory;
+use Zotel\Wallet\Test\Infra\Factories\ItemWalletFactory;
+use Zotel\Wallet\Test\Infra\Models\Buyer;
+use Zotel\Wallet\Test\Infra\Models\Item;
+use Zotel\Wallet\Test\Infra\Models\ItemWallet;
+use Zotel\Wallet\Test\Infra\TestCase;
 
 /**
  * @internal

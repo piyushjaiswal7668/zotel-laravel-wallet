@@ -2,26 +2,26 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Traits;
+namespace Zotel\Wallet\Traits;
 
-use Bavix\Wallet\Exceptions\BalanceIsEmpty;
-use Bavix\Wallet\Exceptions\InsufficientFunds;
-use Bavix\Wallet\External\Contracts\ExtraDtoInterface;
-use Bavix\Wallet\Interfaces\Wallet;
-use Bavix\Wallet\Internal\Assembler\ExtraDtoAssemblerInterface;
-use Bavix\Wallet\Internal\Assembler\TransferLazyDtoAssemblerInterface;
-use Bavix\Wallet\Internal\Exceptions\ExceptionInterface;
-use Bavix\Wallet\Internal\Exceptions\RecordNotFoundException;
-use Bavix\Wallet\Internal\Exceptions\TransactionFailedException;
-use Bavix\Wallet\Internal\Service\MathServiceInterface;
+use Zotel\Wallet\Exceptions\BalanceIsEmpty;
+use Zotel\Wallet\Exceptions\InsufficientFunds;
+use Zotel\Wallet\External\Contracts\ExtraDtoInterface;
+use Zotel\Wallet\Interfaces\Wallet;
+use Zotel\Wallet\Internal\Assembler\ExtraDtoAssemblerInterface;
+use Zotel\Wallet\Internal\Assembler\TransferLazyDtoAssemblerInterface;
+use Zotel\Wallet\Internal\Exceptions\ExceptionInterface;
+use Zotel\Wallet\Internal\Exceptions\RecordNotFoundException;
+use Zotel\Wallet\Internal\Exceptions\TransactionFailedException;
+use Zotel\Wallet\Internal\Service\MathServiceInterface;
 use App\Models\WalletTransfer;
-use Bavix\Wallet\Services\AtomicServiceInterface;
-use Bavix\Wallet\Services\CastServiceInterface;
-use Bavix\Wallet\Services\ConsistencyServiceInterface;
-use Bavix\Wallet\Services\ExchangeServiceInterface;
-use Bavix\Wallet\Services\PrepareServiceInterface;
-use Bavix\Wallet\Services\TaxServiceInterface;
-use Bavix\Wallet\Services\TransferServiceInterface;
+use Zotel\Wallet\Services\AtomicServiceInterface;
+use Zotel\Wallet\Services\CastServiceInterface;
+use Zotel\Wallet\Services\ConsistencyServiceInterface;
+use Zotel\Wallet\Services\ExchangeServiceInterface;
+use Zotel\Wallet\Services\PrepareServiceInterface;
+use Zotel\Wallet\Services\TaxServiceInterface;
+use Zotel\Wallet\Services\TransferServiceInterface;
 use Illuminate\Database\RecordsNotFoundException;
 
 /**

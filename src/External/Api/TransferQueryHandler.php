@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\External\Api;
+namespace Zotel\Wallet\External\Api;
 
-use Bavix\Wallet\Interfaces\Wallet;
+use Zotel\Wallet\Interfaces\Wallet;
 use App\Models\WalletTransfer;
-use Bavix\Wallet\Services\AssistantServiceInterface;
-use Bavix\Wallet\Services\AtomicServiceInterface;
-use Bavix\Wallet\Services\PrepareServiceInterface;
-use Bavix\Wallet\Services\TransferServiceInterface;
+use Zotel\Wallet\Services\AssistantServiceInterface;
+use Zotel\Wallet\Services\AtomicServiceInterface;
+use Zotel\Wallet\Services\PrepareServiceInterface;
+use Zotel\Wallet\Services\TransferServiceInterface;
 
 /**
  * @internal

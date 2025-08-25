@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Test\Units\Domain;
+namespace Zotel\Wallet\Test\Units\Domain;
 
-use Bavix\Wallet\External\Dto\Extra;
+use Zotel\Wallet\External\Dto\Extra;
 use App\Models\WalletTransfer;
-use Bavix\Wallet\Services\ExchangeService;
-use Bavix\Wallet\Services\ExchangeServiceInterface;
-use Bavix\Wallet\Services\RegulatorServiceInterface;
-use Bavix\Wallet\Test\Infra\Factories\UserMultiFactory;
-use Bavix\Wallet\Test\Infra\Models\UserMulti;
-use Bavix\Wallet\Test\Infra\Services\ExchangeUsdToBtcService;
-use Bavix\Wallet\Test\Infra\TestCase;
+use Zotel\Wallet\Services\ExchangeService;
+use Zotel\Wallet\Services\ExchangeServiceInterface;
+use Zotel\Wallet\Services\RegulatorServiceInterface;
+use Zotel\Wallet\Test\Infra\Factories\UserMultiFactory;
+use Zotel\Wallet\Test\Infra\Models\UserMulti;
+use Zotel\Wallet\Test\Infra\Services\ExchangeUsdToBtcService;
+use Zotel\Wallet\Test\Infra\TestCase;
 use Illuminate\Support\Str;
 
 /**

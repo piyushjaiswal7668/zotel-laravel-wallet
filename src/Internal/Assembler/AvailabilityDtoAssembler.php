@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Internal\Assembler;
+namespace Zotel\Wallet\Internal\Assembler;
 
-use Bavix\Wallet\Interfaces\Customer;
-use Bavix\Wallet\Internal\Dto\AvailabilityDto;
-use Bavix\Wallet\Internal\Dto\AvailabilityDtoInterface;
-use Bavix\Wallet\Internal\Dto\BasketDtoInterface;
+use Zotel\Wallet\Interfaces\Customer;
+use Zotel\Wallet\Internal\Dto\AvailabilityDto;
+use Zotel\Wallet\Internal\Dto\AvailabilityDtoInterface;
+use Zotel\Wallet\Internal\Dto\BasketDtoInterface;
 
 final class AvailabilityDtoAssembler implements AvailabilityDtoAssemblerInterface
 {

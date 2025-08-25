@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Services;
+namespace Zotel\Wallet\Services;
 
-use Bavix\Wallet\Internal\Exceptions\RecordNotFoundException;
+use Zotel\Wallet\Internal\Exceptions\RecordNotFoundException;
 use App\Models\Wallet;
 
 /**

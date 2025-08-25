@@ -35,7 +35,7 @@ parameters:
 
                 # phpunit
                 - Orchestra\Testbench\TestCase
-                - Bavix\Wallet\Test\Infra\TestCase
+                - Zotel\Wallet\Test\Infra\TestCase
 
                 # wallet
                 - App\Models\Wallet

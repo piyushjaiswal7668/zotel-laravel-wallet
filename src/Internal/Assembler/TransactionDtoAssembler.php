@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Internal\Assembler;
+namespace Zotel\Wallet\Internal\Assembler;
 
-use Bavix\Wallet\Internal\Dto\TransactionDto;
-use Bavix\Wallet\Internal\Dto\TransactionDtoInterface;
-use Bavix\Wallet\Internal\Service\ClockServiceInterface;
-use Bavix\Wallet\Internal\Service\IdentifierFactoryServiceInterface;
+use Zotel\Wallet\Internal\Dto\TransactionDto;
+use Zotel\Wallet\Internal\Dto\TransactionDtoInterface;
+use Zotel\Wallet\Internal\Service\ClockServiceInterface;
+use Zotel\Wallet\Internal\Service\IdentifierFactoryServiceInterface;
 use Illuminate\Database\Eloquent\Model;
 
 final readonly class TransactionDtoAssembler implements TransactionDtoAssemblerInterface

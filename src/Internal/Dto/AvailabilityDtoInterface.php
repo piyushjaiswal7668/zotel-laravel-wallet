@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Internal\Dto;
+namespace Zotel\Wallet\Internal\Dto;
 
-use Bavix\Wallet\Interfaces\Customer;
+use Zotel\Wallet\Interfaces\Customer;
 
 interface AvailabilityDtoInterface
 {

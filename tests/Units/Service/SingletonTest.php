@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Test\Units\Service;
+namespace Zotel\Wallet\Test\Units\Service;
 
-use Bavix\Wallet\Internal\Service\DatabaseServiceInterface;
-use Bavix\Wallet\Internal\Service\MathServiceInterface;
-use Bavix\Wallet\Objects\Cart;
-use Bavix\Wallet\Test\Infra\PackageModels\WalletTransaction;
-use Bavix\Wallet\Test\Infra\PackageModels\WalletTransfer;
-use Bavix\Wallet\Test\Infra\PackageModels\Wallet;
-use Bavix\Wallet\Test\Infra\TestCase;
+use Zotel\Wallet\Internal\Service\DatabaseServiceInterface;
+use Zotel\Wallet\Internal\Service\MathServiceInterface;
+use Zotel\Wallet\Objects\Cart;
+use Zotel\Wallet\Test\Infra\PackageModels\WalletTransaction;
+use Zotel\Wallet\Test\Infra\PackageModels\WalletTransfer;
+use Zotel\Wallet\Test\Infra\PackageModels\Wallet;
+use Zotel\Wallet\Test\Infra\TestCase;
 
 /**
  * @internal

@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Services;
+namespace Zotel\Wallet\Services;
 
-use Bavix\Wallet\Interfaces\Wallet;
-use Bavix\Wallet\Internal\Assembler\WalletCreatedEventAssemblerInterface;
-use Bavix\Wallet\Internal\Exceptions\ExceptionInterface;
-use Bavix\Wallet\Internal\Service\DatabaseServiceInterface;
-use Bavix\Wallet\Internal\Service\DispatcherServiceInterface;
+use Zotel\Wallet\Interfaces\Wallet;
+use Zotel\Wallet\Internal\Assembler\WalletCreatedEventAssemblerInterface;
+use Zotel\Wallet\Internal\Exceptions\ExceptionInterface;
+use Zotel\Wallet\Internal\Service\DatabaseServiceInterface;
+use Zotel\Wallet\Internal\Service\DispatcherServiceInterface;
 use App\Models\Wallet as WalletModel;
 use Illuminate\Database\Eloquent\Model;
 

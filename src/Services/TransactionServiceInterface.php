@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Services;
+namespace Zotel\Wallet\Services;
 
-use Bavix\Wallet\Interfaces\Wallet;
-use Bavix\Wallet\Internal\Dto\TransactionDtoInterface;
-use Bavix\Wallet\Internal\Exceptions\RecordNotFoundException;
+use Zotel\Wallet\Interfaces\Wallet;
+use Zotel\Wallet\Internal\Dto\TransactionDtoInterface;
+use Zotel\Wallet\Internal\Exceptions\RecordNotFoundException;
 use App\Models\WalletTransaction;
 
 /**

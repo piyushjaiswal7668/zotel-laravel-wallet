@@ -2,25 +2,25 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Traits;
+namespace Zotel\Wallet\Traits;
 
-use Bavix\Wallet\Exceptions\BalanceIsEmpty;
-use Bavix\Wallet\Exceptions\InsufficientFunds;
-use Bavix\Wallet\Exceptions\ProductEnded;
-use Bavix\Wallet\Interfaces\ProductInterface;
-use Bavix\Wallet\Internal\Exceptions\ExceptionInterface;
-use Bavix\Wallet\Internal\Exceptions\ModelNotFoundException;
-use Bavix\Wallet\Internal\Exceptions\RecordNotFoundException;
-use Bavix\Wallet\Internal\Exceptions\TransactionFailedException;
+use Zotel\Wallet\Exceptions\BalanceIsEmpty;
+use Zotel\Wallet\Exceptions\InsufficientFunds;
+use Zotel\Wallet\Exceptions\ProductEnded;
+use Zotel\Wallet\Interfaces\ProductInterface;
+use Zotel\Wallet\Internal\Exceptions\ExceptionInterface;
+use Zotel\Wallet\Internal\Exceptions\ModelNotFoundException;
+use Zotel\Wallet\Internal\Exceptions\RecordNotFoundException;
+use Zotel\Wallet\Internal\Exceptions\TransactionFailedException;
 use App\Models\WalletTransfer;
-use Bavix\Wallet\Objects\Cart;
+use Zotel\Wallet\Objects\Cart;
 use function current;
 use Illuminate\Database\RecordsNotFoundException;
 
 /**
  * @psalm-require-extends \Illuminate\Database\Eloquent\Model
  *
- * @psalm-require-implements \Bavix\Wallet\Interfaces\Customer
+ * @psalm-require-implements \Zotel\Wallet\Interfaces\Customer
  */
 trait CanPay
 {
@@ -40,7 +40,7 @@ trait CanPay
      * @throws TransactionFailedException If the transaction fails.
      * @throws ExceptionInterface If an exception occurs.
      *
-     * @see \Bavix\Wallet\Interfaces\Customer::payFreeCart
+     * @see \Zotel\Wallet\Interfaces\Customer::payFreeCart
      */
     public function payFree(ProductInterface $product): WalletTransfer
     {
@@ -71,7 +71,7 @@ trait CanPay
      * @throws TransactionFailedException If the transaction fails.
      * @throws ExceptionInterface If an exception occurs.
      *
-     * @see \Bavix\Wallet\Interfaces\Customer::safePayCart
+     * @see \Zotel\Wallet\Interfaces\Customer::safePayCart
      */
     public function safePay(ProductInterface $product, bool $force = false): ?WalletTransfer
     {

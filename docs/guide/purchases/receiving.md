@@ -9,8 +9,8 @@ Add the `CanPay` trait and `Customer` interface to your User model.
 > The trait `CanPay` already inherits `HasWallet`, reuse will cause an error.
 
 ```php
-use Bavix\Wallet\Traits\CanPay;
-use Bavix\Wallet\Interfaces\Customer;
+use Zotel\Wallet\Traits\CanPay;
+use Zotel\Wallet\Interfaces\Customer;
 
 class User extends Model implements Customer
 {
@@ -29,10 +29,10 @@ Starting from version 9.x there are two product interfaces:
 
 An example with an unlimited number of products:
 ```php
-use Bavix\Wallet\Traits\HasWallet;
-use Bavix\Wallet\Traits\HasWallets;
-use Bavix\Wallet\Interfaces\Customer;
-use Bavix\Wallet\Interfaces\ProductInterface;
+use Zotel\Wallet\Traits\HasWallet;
+use Zotel\Wallet\Traits\HasWallets;
+use Zotel\Wallet\Interfaces\Customer;
+use Zotel\Wallet\Interfaces\ProductInterface;
 
 class Item extends Model implements ProductInterface
 {
@@ -55,10 +55,10 @@ class Item extends Model implements ProductInterface
 
 Example with a limited number of products:
 ```php
-use Bavix\Wallet\Traits\HasWallet;
-use Bavix\Wallet\Traits\HasWallets;
-use Bavix\Wallet\Interfaces\Customer;
-use Bavix\Wallet\Interfaces\ProductLimitedInterface;
+use Zotel\Wallet\Traits\HasWallet;
+use Zotel\Wallet\Traits\HasWallets;
+use Zotel\Wallet\Interfaces\Customer;
+use Zotel\Wallet\Interfaces\ProductLimitedInterface;
 
 class Item extends Model implements ProductLimitedInterface
 {

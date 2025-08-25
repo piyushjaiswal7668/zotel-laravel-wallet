@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Test\Units\Domain;
+namespace Zotel\Wallet\Test\Units\Domain;
 
-use Bavix\Wallet\Exceptions\InsufficientFunds;
-use Bavix\Wallet\Internal\Exceptions\ExceptionInterface;
-use Bavix\Wallet\Internal\Service\MathServiceInterface;
-use Bavix\Wallet\Test\Infra\Factories\BuyerFactory;
-use Bavix\Wallet\Test\Infra\Factories\ItemTaxFactory;
-use Bavix\Wallet\Test\Infra\Models\Buyer;
-use Bavix\Wallet\Test\Infra\Models\ItemTax;
-use Bavix\Wallet\Test\Infra\TestCase;
+use Zotel\Wallet\Exceptions\InsufficientFunds;
+use Zotel\Wallet\Internal\Exceptions\ExceptionInterface;
+use Zotel\Wallet\Internal\Service\MathServiceInterface;
+use Zotel\Wallet\Test\Infra\Factories\BuyerFactory;
+use Zotel\Wallet\Test\Infra\Factories\ItemTaxFactory;
+use Zotel\Wallet\Test\Infra\Models\Buyer;
+use Zotel\Wallet\Test\Infra\Models\ItemTax;
+use Zotel\Wallet\Test\Infra\TestCase;
 
 /**
  * @internal

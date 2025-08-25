@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Test\Infra;
+namespace Zotel\Wallet\Test\Infra;
 
 use Illuminate\Support\ServiceProvider;
 

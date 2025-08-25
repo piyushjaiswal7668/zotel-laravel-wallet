@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Internal\Decorator;
+namespace Zotel\Wallet\Internal\Decorator;
 
-use Bavix\Wallet\Internal\Exceptions\RecordNotFoundException;
-use Bavix\Wallet\Internal\Service\LockServiceInterface;
-use Bavix\Wallet\Internal\Service\MathServiceInterface;
-use Bavix\Wallet\Internal\Service\StateServiceInterface;
-use Bavix\Wallet\Internal\Service\StorageServiceInterface;
+use Zotel\Wallet\Internal\Exceptions\RecordNotFoundException;
+use Zotel\Wallet\Internal\Service\LockServiceInterface;
+use Zotel\Wallet\Internal\Service\MathServiceInterface;
+use Zotel\Wallet\Internal\Service\StateServiceInterface;
+use Zotel\Wallet\Internal\Service\StorageServiceInterface;
 
 final readonly class StorageServiceLockDecorator implements StorageServiceInterface
 {

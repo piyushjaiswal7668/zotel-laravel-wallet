@@ -21,8 +21,8 @@ We will write a simple service.
 We will take the data from the array, and not from the database.
 
 ```php
-use Bavix\Wallet\Internal\Service\MathServiceInterface;
-use Bavix\Wallet\Services\ExchangeServiceInterface;
+use Zotel\Wallet\Internal\Service\MathServiceInterface;
+use Zotel\Wallet\Services\ExchangeServiceInterface;
 
 class MyExchangeService implements ExchangeServiceInterface
 {

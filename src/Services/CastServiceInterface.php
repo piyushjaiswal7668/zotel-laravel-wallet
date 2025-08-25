@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Services;
+namespace Zotel\Wallet\Services;
 
-use Bavix\Wallet\Interfaces\Wallet;
+use Zotel\Wallet\Interfaces\Wallet;
 use App\Models\Wallet as WalletModel;
 use Illuminate\Database\Eloquent\Model;
 
@@ -25,7 +25,7 @@ interface CastServiceInterface
      *                    otherwise a new wallet will be created.
      * @return WalletModel The retrieved wallet model.
      *
-     * @throws \Bavix\Wallet\Internal\Exceptions\ModelNotFoundException If the wallet does not exist and `$save` is set to `false`.
+     * @throws \Zotel\Wallet\Internal\Exceptions\ModelNotFoundException If the wallet does not exist and `$save` is set to `false`.
      *
      * @see Wallet
      * @see WalletModel

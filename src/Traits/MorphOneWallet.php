@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Traits;
+namespace Zotel\Wallet\Traits;
 
 use App\Models\Wallet as WalletModel;
-use Bavix\Wallet\Services\CastServiceInterface;
+use Zotel\Wallet\Services\CastServiceInterface;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 /**

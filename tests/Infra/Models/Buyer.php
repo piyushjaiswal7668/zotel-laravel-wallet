@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Test\Infra\Models;
+namespace Zotel\Wallet\Test\Infra\Models;
 
-use Bavix\Wallet\Interfaces\Customer;
-use Bavix\Wallet\Traits\CanPay;
-use Bavix\Wallet\Traits\HasWallets;
+use Zotel\Wallet\Interfaces\Customer;
+use Zotel\Wallet\Traits\CanPay;
+use Zotel\Wallet\Traits\HasWallets;
 use Illuminate\Database\Eloquent\Model;
 
 /**

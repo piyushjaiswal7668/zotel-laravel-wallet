@@ -2,24 +2,24 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Models;
+namespace Zotel\Wallet\Models;
 
 use function app;
 use function array_key_exists;
-use Bavix\Wallet\Interfaces\Confirmable;
-use Bavix\Wallet\Interfaces\Customer;
-use Bavix\Wallet\Interfaces\Exchangeable;
-use Bavix\Wallet\Interfaces\WalletFloat;
-use Bavix\Wallet\Internal\Exceptions\ExceptionInterface;
-use Bavix\Wallet\Internal\Exceptions\TransactionFailedException;
-use Bavix\Wallet\Internal\Service\IdentifierFactoryServiceInterface;
-use Bavix\Wallet\Internal\Service\MathServiceInterface;
-use Bavix\Wallet\Services\AtomicServiceInterface;
-use Bavix\Wallet\Services\RegulatorServiceInterface;
-use Bavix\Wallet\Traits\CanConfirm;
-use Bavix\Wallet\Traits\CanExchange;
-use Bavix\Wallet\Traits\CanPayFloat;
-use Bavix\Wallet\Traits\HasGift;
+use Zotel\Wallet\Interfaces\Confirmable;
+use Zotel\Wallet\Interfaces\Customer;
+use Zotel\Wallet\Interfaces\Exchangeable;
+use Zotel\Wallet\Interfaces\WalletFloat;
+use Zotel\Wallet\Internal\Exceptions\ExceptionInterface;
+use Zotel\Wallet\Internal\Exceptions\TransactionFailedException;
+use Zotel\Wallet\Internal\Service\IdentifierFactoryServiceInterface;
+use Zotel\Wallet\Internal\Service\MathServiceInterface;
+use Zotel\Wallet\Services\AtomicServiceInterface;
+use Zotel\Wallet\Services\RegulatorServiceInterface;
+use Zotel\Wallet\Traits\CanConfirm;
+use Zotel\Wallet\Traits\CanExchange;
+use Zotel\Wallet\Traits\CanPayFloat;
+use Zotel\Wallet\Traits\HasGift;
 use function config;
 use DateTimeInterface;
 use Illuminate\Database\Eloquent\Model;

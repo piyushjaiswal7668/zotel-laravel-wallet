@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Internal\Listeners;
+namespace Zotel\Wallet\Internal\Listeners;
 
-use Bavix\Wallet\Internal\Service\ConnectionServiceInterface;
-use Bavix\Wallet\Services\RegulatorServiceInterface;
+use Zotel\Wallet\Internal\Service\ConnectionServiceInterface;
+use Zotel\Wallet\Services\RegulatorServiceInterface;
 
 final class TransactionBeginningListener
 {

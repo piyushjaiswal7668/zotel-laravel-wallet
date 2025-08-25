@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Services;
+namespace Zotel\Wallet\Services;
 
-use Bavix\Wallet\Exceptions\AmountInvalid;
-use Bavix\Wallet\Exceptions\BalanceIsEmpty;
-use Bavix\Wallet\Exceptions\InsufficientFunds;
-use Bavix\Wallet\Interfaces\Wallet;
-use Bavix\Wallet\Internal\Dto\TransferLazyDtoInterface;
-use Bavix\Wallet\Internal\Exceptions\ExceptionInterface;
-use Bavix\Wallet\Internal\Service\MathServiceInterface;
-use Bavix\Wallet\Internal\Service\TranslatorServiceInterface;
+use Zotel\Wallet\Exceptions\AmountInvalid;
+use Zotel\Wallet\Exceptions\BalanceIsEmpty;
+use Zotel\Wallet\Exceptions\InsufficientFunds;
+use Zotel\Wallet\Interfaces\Wallet;
+use Zotel\Wallet\Internal\Dto\TransferLazyDtoInterface;
+use Zotel\Wallet\Internal\Exceptions\ExceptionInterface;
+use Zotel\Wallet\Internal\Service\MathServiceInterface;
+use Zotel\Wallet\Internal\Service\TranslatorServiceInterface;
 
 /**
  * @internal

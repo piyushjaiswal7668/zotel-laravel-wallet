@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Traits;
+namespace Zotel\Wallet\Traits;
 
-use Bavix\Wallet\Exceptions\AmountInvalid;
-use Bavix\Wallet\Exceptions\BalanceIsEmpty;
-use Bavix\Wallet\Exceptions\InsufficientFunds;
-use Bavix\Wallet\External\Contracts\ExtraDtoInterface;
-use Bavix\Wallet\Interfaces\Wallet;
-use Bavix\Wallet\Internal\Exceptions\ExceptionInterface;
-use Bavix\Wallet\Internal\Exceptions\TransactionFailedException;
-use Bavix\Wallet\Internal\Service\MathServiceInterface;
+use Zotel\Wallet\Exceptions\AmountInvalid;
+use Zotel\Wallet\Exceptions\BalanceIsEmpty;
+use Zotel\Wallet\Exceptions\InsufficientFunds;
+use Zotel\Wallet\External\Contracts\ExtraDtoInterface;
+use Zotel\Wallet\Interfaces\Wallet;
+use Zotel\Wallet\Internal\Exceptions\ExceptionInterface;
+use Zotel\Wallet\Internal\Exceptions\TransactionFailedException;
+use Zotel\Wallet\Internal\Service\MathServiceInterface;
 use App\Models\WalletTransaction;
 use App\Models\WalletTransfer;
-use Bavix\Wallet\Services\CastServiceInterface;
-use Bavix\Wallet\Services\FormatterServiceInterface;
+use Zotel\Wallet\Services\CastServiceInterface;
+use Zotel\Wallet\Services\FormatterServiceInterface;
 use Illuminate\Database\RecordsNotFoundException;
 
 /**
@@ -26,7 +26,7 @@ use Illuminate\Database\RecordsNotFoundException;
  *
  * @psalm-require-extends \Illuminate\Database\Eloquent\Model
  *
- * @psalm-require-implements \Bavix\Wallet\Interfaces\WalletFloat
+ * @psalm-require-implements \Zotel\Wallet\Interfaces\WalletFloat
  */
 trait HasWalletFloat
 {

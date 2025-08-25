@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Services;
+namespace Zotel\Wallet\Services;
 
-use Bavix\Wallet\Interfaces\Wallet;
+use Zotel\Wallet\Interfaces\Wallet;
 
 /**
  * @api
@@ -23,7 +23,7 @@ interface TaxServiceInterface
      * @param float|int|string $amount The amount to calculate the fee for.
      * @return string The fee, formatted as a string with the same decimal places as the wallet.
      *
-     * @see \Bavix\Wallet\Interfaces\Taxable::getFeePercent()
+     * @see \Zotel\Wallet\Interfaces\Taxable::getFeePercent()
      */
     public function getFee(Wallet $wallet, float|int|string $amount): string;
 }

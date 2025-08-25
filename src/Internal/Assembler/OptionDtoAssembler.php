@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Internal\Assembler;
+namespace Zotel\Wallet\Internal\Assembler;
 
-use Bavix\Wallet\External\Contracts\OptionDtoInterface;
-use Bavix\Wallet\External\Dto\Option;
+use Zotel\Wallet\External\Contracts\OptionDtoInterface;
+use Zotel\Wallet\External\Dto\Option;
 
 final class OptionDtoAssembler implements OptionDtoAssemblerInterface
 {

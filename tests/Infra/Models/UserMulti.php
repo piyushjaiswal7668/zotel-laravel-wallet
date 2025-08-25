@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Test\Infra\Models;
+namespace Zotel\Wallet\Test\Infra\Models;
 
-use Bavix\Wallet\Interfaces\Wallet;
-use Bavix\Wallet\Interfaces\WalletFloat;
-use Bavix\Wallet\Traits\HasWalletFloat;
-use Bavix\Wallet\Traits\HasWallets;
+use Zotel\Wallet\Interfaces\Wallet;
+use Zotel\Wallet\Interfaces\WalletFloat;
+use Zotel\Wallet\Traits\HasWalletFloat;
+use Zotel\Wallet\Traits\HasWallets;
 use Illuminate\Database\Eloquent\Model;
 
 /**

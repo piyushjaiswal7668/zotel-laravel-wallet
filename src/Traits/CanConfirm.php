@@ -2,23 +2,23 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Traits;
+namespace Zotel\Wallet\Traits;
 
-use Bavix\Wallet\Exceptions\BalanceIsEmpty;
-use Bavix\Wallet\Exceptions\ConfirmedInvalid;
-use Bavix\Wallet\Exceptions\InsufficientFunds;
-use Bavix\Wallet\Exceptions\UnconfirmedInvalid;
-use Bavix\Wallet\Exceptions\WalletOwnerInvalid;
-use Bavix\Wallet\Internal\Exceptions\ExceptionInterface;
-use Bavix\Wallet\Internal\Exceptions\RecordNotFoundException;
-use Bavix\Wallet\Internal\Exceptions\TransactionFailedException;
-use Bavix\Wallet\Internal\Service\MathServiceInterface;
-use Bavix\Wallet\Internal\Service\TranslatorServiceInterface;
+use Zotel\Wallet\Exceptions\BalanceIsEmpty;
+use Zotel\Wallet\Exceptions\ConfirmedInvalid;
+use Zotel\Wallet\Exceptions\InsufficientFunds;
+use Zotel\Wallet\Exceptions\UnconfirmedInvalid;
+use Zotel\Wallet\Exceptions\WalletOwnerInvalid;
+use Zotel\Wallet\Internal\Exceptions\ExceptionInterface;
+use Zotel\Wallet\Internal\Exceptions\RecordNotFoundException;
+use Zotel\Wallet\Internal\Exceptions\TransactionFailedException;
+use Zotel\Wallet\Internal\Service\MathServiceInterface;
+use Zotel\Wallet\Internal\Service\TranslatorServiceInterface;
 use App\Models\WalletTransaction;
-use Bavix\Wallet\Services\AtomicServiceInterface;
-use Bavix\Wallet\Services\CastServiceInterface;
-use Bavix\Wallet\Services\ConsistencyServiceInterface;
-use Bavix\Wallet\Services\RegulatorServiceInterface;
+use Zotel\Wallet\Services\AtomicServiceInterface;
+use Zotel\Wallet\Services\CastServiceInterface;
+use Zotel\Wallet\Services\ConsistencyServiceInterface;
+use Zotel\Wallet\Services\RegulatorServiceInterface;
 use Illuminate\Database\RecordsNotFoundException;
 
 /**

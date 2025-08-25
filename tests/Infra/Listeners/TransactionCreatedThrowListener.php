@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Test\Infra\Listeners;
+namespace Zotel\Wallet\Test\Infra\Listeners;
 
-use Bavix\Wallet\Internal\Events\TransactionCreatedEventInterface;
-use Bavix\Wallet\Test\Infra\Exceptions\UnknownEventException;
+use Zotel\Wallet\Internal\Events\TransactionCreatedEventInterface;
+use Zotel\Wallet\Test\Infra\Exceptions\UnknownEventException;
 
 final class TransactionCreatedThrowListener
 {

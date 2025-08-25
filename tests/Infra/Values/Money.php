@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Test\Infra\Values;
+namespace Zotel\Wallet\Test\Infra\Values;
 
 final readonly class Money
 {

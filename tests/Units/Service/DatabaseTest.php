@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Test\Units\Service;
+namespace Zotel\Wallet\Test\Units\Service;
 
-use Bavix\Wallet\Internal\Exceptions\ExceptionInterface;
-use Bavix\Wallet\Internal\Exceptions\TransactionFailedException;
-use Bavix\Wallet\Internal\Service\DatabaseServiceInterface;
-use Bavix\Wallet\Test\Infra\TestCase;
+use Zotel\Wallet\Internal\Exceptions\ExceptionInterface;
+use Zotel\Wallet\Internal\Exceptions\TransactionFailedException;
+use Zotel\Wallet\Internal\Service\DatabaseServiceInterface;
+use Zotel\Wallet\Test\Infra\TestCase;
 
 /**
  * @internal

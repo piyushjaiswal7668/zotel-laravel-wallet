@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Test\Infra\PackageModels;
+namespace Zotel\Wallet\Test\Infra\PackageModels;
 
-use Bavix\Wallet\Test\Infra\Values\Money;
+use Zotel\Wallet\Test\Infra\Values\Money;
 
 /**
  * Class WalletTransaction.

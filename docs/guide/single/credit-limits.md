@@ -9,9 +9,9 @@ By default, the credit limit is zero.
 An example of working with a credit limit:
 ```php
 /**
- * @var \Bavix\Wallet\Interfaces\Customer $customer
+ * @var \Zotel\Wallet\Interfaces\Customer $customer
  * @var \App\Models\Wallet $wallet
- * @var \Bavix\Wallet\Interfaces\ProductInterface $product
+ * @var \Zotel\Wallet\Interfaces\ProductInterface $product
  */
 $wallet = $customer->wallet; // get default wallet
 $wallet->meta['credit'] = 10000; // credit limit
@@ -26,7 +26,7 @@ $wallet->balanceInt; // -500
 
 For multi-wallets when creating:
 ```php
-/** @var \Bavix\Wallet\Traits\HasWallets $user */
+/** @var \Zotel\Wallet\Traits\HasWallets $user */
 $wallet = $user->createWallet([
     'name' => 'My Wallet',
     'meta' => ['credit' => 500],

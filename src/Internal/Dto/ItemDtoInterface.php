@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Internal\Dto;
+namespace Zotel\Wallet\Internal\Dto;
 
-use Bavix\Wallet\Interfaces\ProductInterface;
-use Bavix\Wallet\Interfaces\Wallet;
+use Zotel\Wallet\Interfaces\ProductInterface;
+use Zotel\Wallet\Interfaces\Wallet;
 use Countable;
 
 interface ItemDtoInterface extends Countable

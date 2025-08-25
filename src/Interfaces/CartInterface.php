@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Interfaces;
+namespace Zotel\Wallet\Interfaces;
 
-use Bavix\Wallet\Internal\Dto\BasketDtoInterface;
-use Bavix\Wallet\Internal\Exceptions\CartEmptyException;
+use Zotel\Wallet\Internal\Dto\BasketDtoInterface;
+use Zotel\Wallet\Internal\Exceptions\CartEmptyException;
 
 /**
  * The `CartInterface` is a kind of cart hydrate, needed for a smooth transition

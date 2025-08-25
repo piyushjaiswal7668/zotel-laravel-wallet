@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Interfaces;
+namespace Zotel\Wallet\Interfaces;
 
 interface MaximalTaxable extends Taxable
 {

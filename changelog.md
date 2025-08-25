@@ -2052,9 +2052,9 @@ Added a patch from version 4.2.1 #150
 ### Changed
 
 - applied fixes from cs-fixer
-- change singleton path `bavix.wallet::transaction` to `Bavix\Wallet\Models\Transaction::class`
-- change singleton path `bavix.wallet::transfer` to `Bavix\Wallet\Models\Transfer::class`
-- change singleton path `bavix.wallet::wallet` to `Bavix\Wallet\Models\Wallet::class`
+- change singleton path `bavix.wallet::transaction` to `Zotel\Wallet\Models\Transaction::class`
+- change singleton path `bavix.wallet::transfer` to `Zotel\Wallet\Models\Transfer::class`
+- change singleton path `bavix.wallet::wallet` to `Zotel\Wallet\Models\Wallet::class`
 - change method `canBuy`. Added parameter `$quantity`
 
 ### Removed

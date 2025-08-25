@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Internal\Assembler;
+namespace Zotel\Wallet\Internal\Assembler;
 
-use Bavix\Wallet\Internal\Events\WalletCreatedEventInterface;
+use Zotel\Wallet\Internal\Events\WalletCreatedEventInterface;
 use App\Models\Wallet;
 
 interface WalletCreatedEventAssemblerInterface

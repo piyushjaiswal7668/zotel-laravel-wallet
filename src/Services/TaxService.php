@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Services;
+namespace Zotel\Wallet\Services;
 
-use Bavix\Wallet\Interfaces\MaximalTaxable;
-use Bavix\Wallet\Interfaces\MinimalTaxable;
-use Bavix\Wallet\Interfaces\Taxable;
-use Bavix\Wallet\Interfaces\Wallet;
-use Bavix\Wallet\Internal\Service\MathServiceInterface;
+use Zotel\Wallet\Interfaces\MaximalTaxable;
+use Zotel\Wallet\Interfaces\MinimalTaxable;
+use Zotel\Wallet\Interfaces\Taxable;
+use Zotel\Wallet\Interfaces\Wallet;
+use Zotel\Wallet\Internal\Service\MathServiceInterface;
 
 /**
  * @internal

@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Test\Units\Domain;
+namespace Zotel\Wallet\Test\Units\Domain;
 
 use App\Models\WalletTransfer;
-use Bavix\Wallet\Test\Infra\Factories\BuyerFactory;
-use Bavix\Wallet\Test\Infra\Factories\ItemDiscountFactory;
-use Bavix\Wallet\Test\Infra\Models\Buyer;
-use Bavix\Wallet\Test\Infra\Models\ItemDiscount;
-use Bavix\Wallet\Test\Infra\TestCase;
+use Zotel\Wallet\Test\Infra\Factories\BuyerFactory;
+use Zotel\Wallet\Test\Infra\Factories\ItemDiscountFactory;
+use Zotel\Wallet\Test\Infra\Models\Buyer;
+use Zotel\Wallet\Test\Infra\Models\ItemDiscount;
+use Zotel\Wallet\Test\Infra\TestCase;
 
 /**
  * @internal

@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Test\Infra\Models;
+namespace Zotel\Wallet\Test\Infra\Models;
 
-use Bavix\Wallet\Interfaces\Confirmable;
-use Bavix\Wallet\Interfaces\Wallet;
-use Bavix\Wallet\Traits\CanConfirm;
-use Bavix\Wallet\Traits\HasWallet;
+use Zotel\Wallet\Interfaces\Confirmable;
+use Zotel\Wallet\Interfaces\Wallet;
+use Zotel\Wallet\Traits\CanConfirm;
+use Zotel\Wallet\Traits\HasWallet;
 use Illuminate\Database\Eloquent\Model;
 
 /**

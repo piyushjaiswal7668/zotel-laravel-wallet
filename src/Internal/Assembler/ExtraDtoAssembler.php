@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Internal\Assembler;
+namespace Zotel\Wallet\Internal\Assembler;
 
-use Bavix\Wallet\External\Contracts\ExtraDtoInterface;
-use Bavix\Wallet\External\Dto\Extra;
+use Zotel\Wallet\External\Contracts\ExtraDtoInterface;
+use Zotel\Wallet\External\Dto\Extra;
 
 final readonly class ExtraDtoAssembler implements ExtraDtoAssemblerInterface
 {

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Services;
+namespace Zotel\Wallet\Services;
 
-use Bavix\Wallet\Internal\Exceptions\ModelNotFoundException;
+use Zotel\Wallet\Internal\Exceptions\ModelNotFoundException;
 use App\Models\Wallet;
 use Illuminate\Database\Eloquent\Model;
 

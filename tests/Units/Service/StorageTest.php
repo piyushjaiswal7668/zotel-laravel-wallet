@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Test\Units\Service;
+namespace Zotel\Wallet\Test\Units\Service;
 
-use Bavix\Wallet\Internal\Decorator\StorageServiceLockDecorator;
-use Bavix\Wallet\Internal\Exceptions\ExceptionInterface;
-use Bavix\Wallet\Internal\Exceptions\RecordNotFoundException;
-use Bavix\Wallet\Internal\Service\StorageService;
-use Bavix\Wallet\Test\Infra\TestCase;
+use Zotel\Wallet\Internal\Decorator\StorageServiceLockDecorator;
+use Zotel\Wallet\Internal\Exceptions\ExceptionInterface;
+use Zotel\Wallet\Internal\Exceptions\RecordNotFoundException;
+use Zotel\Wallet\Internal\Service\StorageService;
+use Zotel\Wallet\Test\Infra\TestCase;
 
 /**
  * @internal

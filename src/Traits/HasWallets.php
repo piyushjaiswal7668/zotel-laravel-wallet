@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Traits;
+namespace Zotel\Wallet\Traits;
 
 use function array_key_exists;
-use Bavix\Wallet\Internal\Exceptions\ModelNotFoundException;
+use Zotel\Wallet\Internal\Exceptions\ModelNotFoundException;
 use App\Models\Wallet as WalletModel;
-use Bavix\Wallet\Services\WalletServiceInterface;
+use Zotel\Wallet\Services\WalletServiceInterface;
 use function config;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Support\Collection;

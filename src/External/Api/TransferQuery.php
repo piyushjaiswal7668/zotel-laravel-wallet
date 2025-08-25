@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\External\Api;
+namespace Zotel\Wallet\External\Api;
 
-use Bavix\Wallet\External\Contracts\ExtraDtoInterface;
-use Bavix\Wallet\Interfaces\Wallet;
+use Zotel\Wallet\External\Contracts\ExtraDtoInterface;
+use Zotel\Wallet\Interfaces\Wallet;
 
 final readonly class TransferQuery implements TransferQueryInterface
 {

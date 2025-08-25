@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Test\Infra\Models;
+namespace Zotel\Wallet\Test\Infra\Models;
 
-use Bavix\Wallet\Interfaces\Customer;
-use Bavix\Wallet\Interfaces\Discount;
-use Bavix\Wallet\Interfaces\ProductLimitedInterface;
+use Zotel\Wallet\Interfaces\Customer;
+use Zotel\Wallet\Interfaces\Discount;
+use Zotel\Wallet\Interfaces\ProductLimitedInterface;
 use App\Models\Wallet;
-use Bavix\Wallet\Services\CastService;
-use Bavix\Wallet\Traits\HasWallet;
+use Zotel\Wallet\Services\CastService;
+use Zotel\Wallet\Traits\HasWallet;
 use Illuminate\Database\Eloquent\Model;
 
 /**

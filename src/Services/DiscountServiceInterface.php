@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Services;
+namespace Zotel\Wallet\Services;
 
-use Bavix\Wallet\Interfaces\Wallet;
+use Zotel\Wallet\Interfaces\Wallet;
 
 /**
  * @api
@@ -24,8 +24,8 @@ interface DiscountServiceInterface
      * @return int The discount amount. The value is negative and represents the amount that the customer will pay less
      *             for the product. The returned value is the sum of the product's price and the discount amount.
      *
-     * @see \Bavix\Wallet\Interfaces\Wallet::getBalance()
-     * @see \Bavix\Wallet\Interfaces\Wallet::getAmount()
+     * @see \Zotel\Wallet\Interfaces\Wallet::getBalance()
+     * @see \Zotel\Wallet\Interfaces\Wallet::getAmount()
      */
     public function getDiscount(Wallet $customer, Wallet $product): int;
 }

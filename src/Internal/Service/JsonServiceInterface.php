@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Internal\Service;
+namespace Zotel\Wallet\Internal\Service;
 
 interface JsonServiceInterface
 {

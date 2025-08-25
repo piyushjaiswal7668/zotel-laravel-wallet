@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Services;
+namespace Zotel\Wallet\Services;
 
-use Bavix\Wallet\Interfaces\ProductInterface;
-use Bavix\Wallet\Interfaces\Wallet;
-use Bavix\Wallet\Internal\Dto\BasketDtoInterface;
-use Bavix\Wallet\Internal\Dto\TransactionDtoInterface;
-use Bavix\Wallet\Internal\Dto\TransferDtoInterface;
-use Bavix\Wallet\Internal\Service\MathServiceInterface;
+use Zotel\Wallet\Interfaces\ProductInterface;
+use Zotel\Wallet\Interfaces\Wallet;
+use Zotel\Wallet\Internal\Dto\BasketDtoInterface;
+use Zotel\Wallet\Internal\Dto\TransactionDtoInterface;
+use Zotel\Wallet\Internal\Dto\TransferDtoInterface;
+use Zotel\Wallet\Internal\Service\MathServiceInterface;
 
 /**
  * @internal

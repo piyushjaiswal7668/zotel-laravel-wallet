@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Services;
+namespace Zotel\Wallet\Services;
 
-use Bavix\Wallet\Interfaces\Customer;
-use Bavix\Wallet\Interfaces\Discount;
-use Bavix\Wallet\Interfaces\Wallet;
+use Zotel\Wallet\Interfaces\Customer;
+use Zotel\Wallet\Interfaces\Discount;
+use Zotel\Wallet\Interfaces\Wallet;
 
 /**
  * @internal

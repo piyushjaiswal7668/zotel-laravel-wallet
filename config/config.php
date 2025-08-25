@@ -2,57 +2,57 @@
 
 declare(strict_types=1);
 
-use Bavix\Wallet\Internal\Assembler\AvailabilityDtoAssembler;
-use Bavix\Wallet\Internal\Assembler\BalanceUpdatedEventAssembler;
-use Bavix\Wallet\Internal\Assembler\ExtraDtoAssembler;
-use Bavix\Wallet\Internal\Assembler\OptionDtoAssembler;
-use Bavix\Wallet\Internal\Assembler\TransactionCreatedEventAssembler;
-use Bavix\Wallet\Internal\Assembler\TransactionDtoAssembler;
-use Bavix\Wallet\Internal\Assembler\TransactionQueryAssembler;
-use Bavix\Wallet\Internal\Assembler\TransferDtoAssembler;
-use Bavix\Wallet\Internal\Assembler\TransferLazyDtoAssembler;
-use Bavix\Wallet\Internal\Assembler\TransferQueryAssembler;
-use Bavix\Wallet\Internal\Events\BalanceUpdatedEvent;
-use Bavix\Wallet\Internal\Events\TransactionCreatedEvent;
-use Bavix\Wallet\Internal\Events\WalletCreatedEvent;
-use Bavix\Wallet\Internal\Repository\TransactionRepository;
-use Bavix\Wallet\Internal\Repository\TransferRepository;
-use Bavix\Wallet\Internal\Repository\WalletRepository;
-use Bavix\Wallet\Internal\Service\ClockService;
-use Bavix\Wallet\Internal\Service\ConnectionService;
-use Bavix\Wallet\Internal\Service\DatabaseService;
-use Bavix\Wallet\Internal\Service\DispatcherService;
-use Bavix\Wallet\Internal\Service\IdentifierFactoryService;
-use Bavix\Wallet\Internal\Service\JsonService;
-use Bavix\Wallet\Internal\Service\LockService;
-use Bavix\Wallet\Internal\Service\MathService;
-use Bavix\Wallet\Internal\Service\StateService;
-use Bavix\Wallet\Internal\Service\StorageService;
-use Bavix\Wallet\Internal\Service\TranslatorService;
-use Bavix\Wallet\Internal\Service\UuidFactoryService;
-use Bavix\Wallet\Internal\Transform\TransactionDtoTransformer;
-use Bavix\Wallet\Internal\Transform\TransferDtoTransformer;
+use Zotel\Wallet\Internal\Assembler\AvailabilityDtoAssembler;
+use Zotel\Wallet\Internal\Assembler\BalanceUpdatedEventAssembler;
+use Zotel\Wallet\Internal\Assembler\ExtraDtoAssembler;
+use Zotel\Wallet\Internal\Assembler\OptionDtoAssembler;
+use Zotel\Wallet\Internal\Assembler\TransactionCreatedEventAssembler;
+use Zotel\Wallet\Internal\Assembler\TransactionDtoAssembler;
+use Zotel\Wallet\Internal\Assembler\TransactionQueryAssembler;
+use Zotel\Wallet\Internal\Assembler\TransferDtoAssembler;
+use Zotel\Wallet\Internal\Assembler\TransferLazyDtoAssembler;
+use Zotel\Wallet\Internal\Assembler\TransferQueryAssembler;
+use Zotel\Wallet\Internal\Events\BalanceUpdatedEvent;
+use Zotel\Wallet\Internal\Events\TransactionCreatedEvent;
+use Zotel\Wallet\Internal\Events\WalletCreatedEvent;
+use Zotel\Wallet\Internal\Repository\TransactionRepository;
+use Zotel\Wallet\Internal\Repository\TransferRepository;
+use Zotel\Wallet\Internal\Repository\WalletRepository;
+use Zotel\Wallet\Internal\Service\ClockService;
+use Zotel\Wallet\Internal\Service\ConnectionService;
+use Zotel\Wallet\Internal\Service\DatabaseService;
+use Zotel\Wallet\Internal\Service\DispatcherService;
+use Zotel\Wallet\Internal\Service\IdentifierFactoryService;
+use Zotel\Wallet\Internal\Service\JsonService;
+use Zotel\Wallet\Internal\Service\LockService;
+use Zotel\Wallet\Internal\Service\MathService;
+use Zotel\Wallet\Internal\Service\StateService;
+use Zotel\Wallet\Internal\Service\StorageService;
+use Zotel\Wallet\Internal\Service\TranslatorService;
+use Zotel\Wallet\Internal\Service\UuidFactoryService;
+use Zotel\Wallet\Internal\Transform\TransactionDtoTransformer;
+use Zotel\Wallet\Internal\Transform\TransferDtoTransformer;
 use App\Models\WalletTransaction;
 use App\Models\WalletTransfer;
 use App\Models\Wallet;
-use Bavix\Wallet\Services\AssistantService;
-use Bavix\Wallet\Services\AtmService;
-use Bavix\Wallet\Services\AtomicService;
-use Bavix\Wallet\Services\BasketService;
-use Bavix\Wallet\Services\BookkeeperService;
-use Bavix\Wallet\Services\CastService;
-use Bavix\Wallet\Services\ConsistencyService;
-use Bavix\Wallet\Services\DiscountService;
-use Bavix\Wallet\Services\EagerLoaderService;
-use Bavix\Wallet\Services\ExchangeService;
-use Bavix\Wallet\Services\FormatterService;
-use Bavix\Wallet\Services\PrepareService;
-use Bavix\Wallet\Services\PurchaseService;
-use Bavix\Wallet\Services\RegulatorService;
-use Bavix\Wallet\Services\TaxService;
-use Bavix\Wallet\Services\TransactionService;
-use Bavix\Wallet\Services\TransferService;
-use Bavix\Wallet\Services\WalletService;
+use Zotel\Wallet\Services\AssistantService;
+use Zotel\Wallet\Services\AtmService;
+use Zotel\Wallet\Services\AtomicService;
+use Zotel\Wallet\Services\BasketService;
+use Zotel\Wallet\Services\BookkeeperService;
+use Zotel\Wallet\Services\CastService;
+use Zotel\Wallet\Services\ConsistencyService;
+use Zotel\Wallet\Services\DiscountService;
+use Zotel\Wallet\Services\EagerLoaderService;
+use Zotel\Wallet\Services\ExchangeService;
+use Zotel\Wallet\Services\FormatterService;
+use Zotel\Wallet\Services\PrepareService;
+use Zotel\Wallet\Services\PurchaseService;
+use Zotel\Wallet\Services\RegulatorService;
+use Zotel\Wallet\Services\TaxService;
+use Zotel\Wallet\Services\TransactionService;
+use Zotel\Wallet\Services\TransferService;
+use Zotel\Wallet\Services\WalletService;
 
 return [
     /**
@@ -232,7 +232,7 @@ return [
      *
      * @var array<string, class-string>
      *
-     * @see \Bavix\Wallet\Services
+     * @see \Zotel\Wallet\Services
      */
     'services' => [
         // Service for performing operations related to the assistant.
@@ -278,27 +278,27 @@ return [
      *
      * Each repository is responsible for fetching data from the database for a specific entity.
      *
-     * @see \Bavix\Wallet\Interfaces\Wallet
-     * @see \Bavix\Wallet\Interfaces\Transaction
-     * @see \Bavix\Wallet\Interfaces\WalletTransfer
+     * @see \Zotel\Wallet\Interfaces\Wallet
+     * @see \Zotel\Wallet\Interfaces\Transaction
+     * @see \Zotel\Wallet\Interfaces\WalletTransfer
      */
     'repositories' => [
         /**
          * Repository for fetching transaction data.
          *
-         * @see \Bavix\Wallet\Interfaces\Transaction
+         * @see \Zotel\Wallet\Interfaces\Transaction
          */
         'transaction' => TransactionRepository::class,
         /**
          * Repository for fetching transfer data.
          *
-         * @see \Bavix\Wallet\Interfaces\WalletTransfer
+         * @see \Zotel\Wallet\Interfaces\WalletTransfer
          */
         'transfer' => TransferRepository::class,
         /**
          * Repository for fetching wallet data.
          *
-         * @see \Bavix\Wallet\Interfaces\Wallet
+         * @see \Zotel\Wallet\Interfaces\Wallet
          */
         'wallet' => WalletRepository::class,
     ],

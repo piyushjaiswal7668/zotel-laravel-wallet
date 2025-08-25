@@ -9,8 +9,8 @@ Add the `CanPay` trait and `Customer` interface to your User model.
 > The trait `CanPay` already inherits `HasWallet`, reuse will cause an error.
 
 ```php
-use Bavix\Wallet\Traits\CanPay;
-use Bavix\Wallet\Interfaces\Customer;
+use Zotel\Wallet\Traits\CanPay;
+use Zotel\Wallet\Interfaces\Customer;
 
 class User extends Model implements Customer
 {
@@ -23,10 +23,10 @@ class User extends Model implements Customer
 Add the `HasWallet` trait and `ProductInterface` (or `ProductLimitedInterface`) interface to Item model.
 
 ```php
-use Bavix\Wallet\Traits\HasWallet;
-use Bavix\Wallet\Interfaces\Customer;
-use Bavix\Wallet\Interfaces\Taxable;
-use Bavix\Wallet\Interfaces\ProductLimitedInterface;
+use Zotel\Wallet\Traits\HasWallet;
+use Zotel\Wallet\Interfaces\Customer;
+use Zotel\Wallet\Interfaces\Taxable;
+use Zotel\Wallet\Interfaces\ProductLimitedInterface;
 
 class Item extends Model implements ProductLimitedInterface, Taxable
 {
@@ -89,10 +89,10 @@ $user->balance; // 0
 Add interface `MinimalTaxable` (or `MaximalTaxable`) in class `Item`.
 
 ```php
-use Bavix\Wallet\Traits\HasWallet;
-use Bavix\Wallet\Interfaces\Customer;
-use Bavix\Wallet\Interfaces\MinimalTaxable;
-use Bavix\Wallet\Interfaces\ProductInterface;
+use Zotel\Wallet\Traits\HasWallet;
+use Zotel\Wallet\Interfaces\Customer;
+use Zotel\Wallet\Interfaces\MinimalTaxable;
+use Zotel\Wallet\Interfaces\ProductInterface;
 
 class Item extends Model implements ProductInterface, MinimalTaxable
 {

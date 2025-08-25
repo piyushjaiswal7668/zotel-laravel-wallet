@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Services;
+namespace Zotel\Wallet\Services;
 
 use Brick\Math\BigDecimal;
 use Brick\Math\RoundingMode;

@@ -14,9 +14,9 @@ composer req bavix/laravel-wallet-swap
 We need a simple model with the ability to work multi-wallets.
 
 ```php
-use Bavix\Wallet\Interfaces\Wallet;
-use Bavix\Wallet\Traits\HasWallets;
-use Bavix\Wallet\Traits\HasWallet;
+use Zotel\Wallet\Interfaces\Wallet;
+use Zotel\Wallet\Traits\HasWallets;
+use Zotel\Wallet\Traits\HasWallet;
 
 class User extends Model implements Wallet
 {

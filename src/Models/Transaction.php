@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Models;
+namespace Zotel\Wallet\Models;
 
-use Bavix\Wallet\Interfaces\Wallet;
-use Bavix\Wallet\Internal\Observers\TransactionObserver;
-use Bavix\Wallet\Internal\Service\MathServiceInterface;
+use Zotel\Wallet\Interfaces\Wallet;
+use Zotel\Wallet\Internal\Observers\TransactionObserver;
+use Zotel\Wallet\Internal\Service\MathServiceInterface;
 use App\Models\Wallet as WalletModel;
-use Bavix\Wallet\Services\CastServiceInterface;
+use Zotel\Wallet\Services\CastServiceInterface;
 use function config;
 use DateTimeInterface;
 use Illuminate\Database\Eloquent\Model;

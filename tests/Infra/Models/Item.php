@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Test\Infra\Models;
+namespace Zotel\Wallet\Test\Infra\Models;
 
-use Bavix\Wallet\Interfaces\Customer;
-use Bavix\Wallet\Interfaces\ProductLimitedInterface;
+use Zotel\Wallet\Interfaces\Customer;
+use Zotel\Wallet\Interfaces\ProductLimitedInterface;
 use App\Models\WalletTransfer;
 use App\Models\Wallet;
-use Bavix\Wallet\Services\CastService;
-use Bavix\Wallet\Services\CastServiceInterface;
-use Bavix\Wallet\Test\Infra\Helpers\Config;
-use Bavix\Wallet\Traits\HasWallet;
-use Bavix\Wallet\Traits\HasWallets;
+use Zotel\Wallet\Services\CastService;
+use Zotel\Wallet\Services\CastServiceInterface;
+use Zotel\Wallet\Test\Infra\Helpers\Config;
+use Zotel\Wallet\Traits\HasWallet;
+use Zotel\Wallet\Traits\HasWallets;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 

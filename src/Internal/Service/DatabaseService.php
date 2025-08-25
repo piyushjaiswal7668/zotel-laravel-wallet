@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Internal\Service;
+namespace Zotel\Wallet\Internal\Service;
 
-use Bavix\Wallet\Internal\Exceptions\ExceptionInterface;
-use Bavix\Wallet\Internal\Exceptions\TransactionFailedException;
-use Bavix\Wallet\Internal\Exceptions\TransactionRollbackException;
+use Zotel\Wallet\Internal\Exceptions\ExceptionInterface;
+use Zotel\Wallet\Internal\Exceptions\TransactionFailedException;
+use Zotel\Wallet\Internal\Exceptions\TransactionRollbackException;
 use Illuminate\Database\RecordsNotFoundException;
 use Throwable;
 

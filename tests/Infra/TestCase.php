@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Test\Infra;
+namespace Zotel\Wallet\Test\Infra;
 
-use Bavix\Wallet\Test\Infra\PackageModels\WalletTransaction;
-use Bavix\Wallet\Test\Infra\PackageModels\WalletTransfer;
-use Bavix\Wallet\Test\Infra\PackageModels\Wallet;
-use Bavix\Wallet\Test\Infra\Services\MyExchangeService;
-use Bavix\Wallet\WalletServiceProvider;
+use Zotel\Wallet\Test\Infra\PackageModels\WalletTransaction;
+use Zotel\Wallet\Test\Infra\PackageModels\WalletTransfer;
+use Zotel\Wallet\Test\Infra\PackageModels\Wallet;
+use Zotel\Wallet\Test\Infra\Services\MyExchangeService;
+use Zotel\Wallet\WalletServiceProvider;
 use Illuminate\Config\Repository;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Testing\RefreshDatabase;

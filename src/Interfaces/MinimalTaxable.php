@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Interfaces;
+namespace Zotel\Wallet\Interfaces;
 
 interface MinimalTaxable extends Taxable
 {
@@ -23,7 +23,7 @@ interface MinimalTaxable extends Taxable
      * If the transaction amount is $100 and the fee is 2% and the minimal fee is $5,
      * then the minimum fee for the transaction will be $5.
      *
-     * @see \Bavix\Wallet\Services\TaxService::getFee()
+     * @see \Zotel\Wallet\Services\TaxService::getFee()
      */
     public function getMinimalFee(): float|int;
 }

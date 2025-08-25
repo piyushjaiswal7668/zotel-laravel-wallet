@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\External\Dto;
+namespace Zotel\Wallet\External\Dto;
 
-use Bavix\Wallet\External\Contracts\OptionDtoInterface;
+use Zotel\Wallet\External\Contracts\OptionDtoInterface;
 
 final readonly class Option implements OptionDtoInterface
 {

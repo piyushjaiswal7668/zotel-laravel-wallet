@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Services;
+namespace Zotel\Wallet\Services;
 
-use Bavix\Wallet\Internal\Assembler\WalletCreatedEventAssemblerInterface;
-use Bavix\Wallet\Internal\Exceptions\ModelNotFoundException;
-use Bavix\Wallet\Internal\Repository\WalletRepositoryInterface;
-use Bavix\Wallet\Internal\Service\DispatcherServiceInterface;
-use Bavix\Wallet\Internal\Service\IdentifierFactoryServiceInterface;
+use Zotel\Wallet\Internal\Assembler\WalletCreatedEventAssemblerInterface;
+use Zotel\Wallet\Internal\Exceptions\ModelNotFoundException;
+use Zotel\Wallet\Internal\Repository\WalletRepositoryInterface;
+use Zotel\Wallet\Internal\Service\DispatcherServiceInterface;
+use Zotel\Wallet\Internal\Service\IdentifierFactoryServiceInterface;
 use App\Models\Wallet;
 use Illuminate\Database\Eloquent\Model;
 

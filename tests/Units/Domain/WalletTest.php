@@ -2,22 +2,22 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Test\Units\Domain;
+namespace Zotel\Wallet\Test\Units\Domain;
 
-use Bavix\Wallet\Exceptions\AmountInvalid;
-use Bavix\Wallet\Exceptions\BalanceIsEmpty;
-use Bavix\Wallet\Exceptions\InsufficientFunds;
-use Bavix\Wallet\Internal\Exceptions\ExceptionInterface;
-use Bavix\Wallet\Internal\Exceptions\TransactionFailedException;
-use Bavix\Wallet\Internal\Service\DatabaseServiceInterface;
+use Zotel\Wallet\Exceptions\AmountInvalid;
+use Zotel\Wallet\Exceptions\BalanceIsEmpty;
+use Zotel\Wallet\Exceptions\InsufficientFunds;
+use Zotel\Wallet\Internal\Exceptions\ExceptionInterface;
+use Zotel\Wallet\Internal\Exceptions\TransactionFailedException;
+use Zotel\Wallet\Internal\Service\DatabaseServiceInterface;
 use App\Models\WalletTransaction;
-use Bavix\Wallet\Services\RegulatorServiceInterface;
-use Bavix\Wallet\Test\Infra\Factories\UserDynamicFactory;
-use Bavix\Wallet\Test\Infra\Factories\UserFactory;
-use Bavix\Wallet\Test\Infra\Models\User;
-use Bavix\Wallet\Test\Infra\Models\UserDynamic;
-use Bavix\Wallet\Test\Infra\PackageModels\Wallet;
-use Bavix\Wallet\Test\Infra\TestCase;
+use Zotel\Wallet\Services\RegulatorServiceInterface;
+use Zotel\Wallet\Test\Infra\Factories\UserDynamicFactory;
+use Zotel\Wallet\Test\Infra\Factories\UserFactory;
+use Zotel\Wallet\Test\Infra\Models\User;
+use Zotel\Wallet\Test\Infra\Models\UserDynamic;
+use Zotel\Wallet\Test\Infra\PackageModels\Wallet;
+use Zotel\Wallet\Test\Infra\TestCase;
 use Illuminate\Database\Eloquent\Collection;
 use RuntimeException;
 use Throwable;

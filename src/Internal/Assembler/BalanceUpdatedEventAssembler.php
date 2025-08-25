@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Internal\Assembler;
+namespace Zotel\Wallet\Internal\Assembler;
 
-use Bavix\Wallet\Internal\Events\BalanceUpdatedEvent;
-use Bavix\Wallet\Internal\Events\BalanceUpdatedEventInterface;
-use Bavix\Wallet\Internal\Service\ClockServiceInterface;
+use Zotel\Wallet\Internal\Events\BalanceUpdatedEvent;
+use Zotel\Wallet\Internal\Events\BalanceUpdatedEventInterface;
+use Zotel\Wallet\Internal\Service\ClockServiceInterface;
 use App\Models\Wallet;
 
 final readonly class BalanceUpdatedEventAssembler implements BalanceUpdatedEventAssemblerInterface

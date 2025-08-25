@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Services;
+namespace Zotel\Wallet\Services;
 
-use Bavix\Wallet\Interfaces\Customer;
-use Bavix\Wallet\Internal\Dto\BasketDtoInterface;
+use Zotel\Wallet\Interfaces\Customer;
+use Zotel\Wallet\Internal\Dto\BasketDtoInterface;
 
 /**
  * This class is responsible for eager loading wallets by basket.

@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Test\Units\Domain;
+namespace Zotel\Wallet\Test\Units\Domain;
 
-use Bavix\Wallet\Exceptions\AmountInvalid;
-use Bavix\Wallet\Exceptions\BalanceIsEmpty;
-use Bavix\Wallet\Internal\Exceptions\ExceptionInterface;
-use Bavix\Wallet\Internal\Service\DatabaseServiceInterface;
-use Bavix\Wallet\Internal\Service\MathServiceInterface;
+use Zotel\Wallet\Exceptions\AmountInvalid;
+use Zotel\Wallet\Exceptions\BalanceIsEmpty;
+use Zotel\Wallet\Internal\Exceptions\ExceptionInterface;
+use Zotel\Wallet\Internal\Service\DatabaseServiceInterface;
+use Zotel\Wallet\Internal\Service\MathServiceInterface;
 use App\Models\WalletTransaction;
-use Bavix\Wallet\Test\Infra\Factories\UserFloatFactory;
-use Bavix\Wallet\Test\Infra\Models\UserFloat;
-use Bavix\Wallet\Test\Infra\Models\UserFloat as User;
-use Bavix\Wallet\Test\Infra\TestCase;
+use Zotel\Wallet\Test\Infra\Factories\UserFloatFactory;
+use Zotel\Wallet\Test\Infra\Models\UserFloat;
+use Zotel\Wallet\Test\Infra\Models\UserFloat as User;
+use Zotel\Wallet\Test\Infra\TestCase;
 
 /**
  * @internal

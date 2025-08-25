@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Bavix\Wallet\Internal\Service\IdentifierFactoryServiceInterface;
+use Zotel\Wallet\Internal\Service\IdentifierFactoryServiceInterface;
 use App\Models\Wallet;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;

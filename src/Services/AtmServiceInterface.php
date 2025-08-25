@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Services;
+namespace Zotel\Wallet\Services;
 
-use Bavix\Wallet\Internal\Dto\TransactionDtoInterface;
-use Bavix\Wallet\Internal\Dto\TransferDtoInterface;
+use Zotel\Wallet\Internal\Dto\TransactionDtoInterface;
+use Zotel\Wallet\Internal\Dto\TransferDtoInterface;
 use App\Models\WalletTransaction;
 use App\Models\WalletTransfer;
 
@@ -30,7 +30,7 @@ interface AtmServiceInterface
      *      An array of transaction objects. The keys are the transaction UUIDs and the values are the transaction
      *      objects.
      *
-     * @throws \Bavix\Wallet\Internal\Exceptions\ModelNotFoundException
+     * @throws \Zotel\Wallet\Internal\Exceptions\ModelNotFoundException
      *      If any of the objects does not have a wallet.
      */
     public function makeTransactions(array $objects): array;
@@ -51,7 +51,7 @@ interface AtmServiceInterface
      *      An array of transfer objects. The keys are the transfer UUIDs and the values are the transfer
      *      objects.
      *
-     * @throws \Bavix\Wallet\Internal\Exceptions\ModelNotFoundException
+     * @throws \Zotel\Wallet\Internal\Exceptions\ModelNotFoundException
      *      If any of the objects does not have a wallet.
      */
     public function makeTransfers(array $objects): array;

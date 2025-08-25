@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Internal\Exceptions;
+namespace Zotel\Wallet\Internal\Exceptions;
 
 use RuntimeException;
 

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Test\Infra\Factories;
+namespace Zotel\Wallet\Test\Infra\Factories;
 
-use Bavix\Wallet\Test\Infra\Models\ItemMultiPrice;
+use Zotel\Wallet\Test\Infra\Models\ItemMultiPrice;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**

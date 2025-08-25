@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Interfaces;
+namespace Zotel\Wallet\Interfaces;
 
-use Bavix\Wallet\Exceptions\BalanceIsEmpty;
-use Bavix\Wallet\Exceptions\ConfirmedInvalid;
-use Bavix\Wallet\Exceptions\InsufficientFunds;
-use Bavix\Wallet\Exceptions\UnconfirmedInvalid;
-use Bavix\Wallet\Exceptions\WalletOwnerInvalid;
-use Bavix\Wallet\Internal\Exceptions\ExceptionInterface;
-use Bavix\Wallet\Internal\Exceptions\RecordNotFoundException;
-use Bavix\Wallet\Internal\Exceptions\TransactionFailedException;
+use Zotel\Wallet\Exceptions\BalanceIsEmpty;
+use Zotel\Wallet\Exceptions\ConfirmedInvalid;
+use Zotel\Wallet\Exceptions\InsufficientFunds;
+use Zotel\Wallet\Exceptions\UnconfirmedInvalid;
+use Zotel\Wallet\Exceptions\WalletOwnerInvalid;
+use Zotel\Wallet\Internal\Exceptions\ExceptionInterface;
+use Zotel\Wallet\Internal\Exceptions\RecordNotFoundException;
+use Zotel\Wallet\Internal\Exceptions\TransactionFailedException;
 use App\Models\WalletTransaction;
 use Illuminate\Database\RecordsNotFoundException;
 

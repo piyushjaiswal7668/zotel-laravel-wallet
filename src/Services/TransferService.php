@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Services;
+namespace Zotel\Wallet\Services;
 
-use Bavix\Wallet\Internal\Assembler\TransferDtoAssemblerInterface;
-use Bavix\Wallet\Internal\Dto\TransferLazyDtoInterface;
-use Bavix\Wallet\Internal\Exceptions\ExceptionInterface;
-use Bavix\Wallet\Internal\Exceptions\RecordNotFoundException;
-use Bavix\Wallet\Internal\Exceptions\TransactionFailedException;
-use Bavix\Wallet\Internal\Repository\TransferRepositoryInterface;
-use Bavix\Wallet\Internal\Service\DatabaseServiceInterface;
+use Zotel\Wallet\Internal\Assembler\TransferDtoAssemblerInterface;
+use Zotel\Wallet\Internal\Dto\TransferLazyDtoInterface;
+use Zotel\Wallet\Internal\Exceptions\ExceptionInterface;
+use Zotel\Wallet\Internal\Exceptions\RecordNotFoundException;
+use Zotel\Wallet\Internal\Exceptions\TransactionFailedException;
+use Zotel\Wallet\Internal\Repository\TransferRepositoryInterface;
+use Zotel\Wallet\Internal\Service\DatabaseServiceInterface;
 use App\Models\WalletTransaction;
 use App\Models\WalletTransfer;
 use Illuminate\Database\RecordsNotFoundException;

@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\External\Api;
+namespace Zotel\Wallet\External\Api;
 
-use Bavix\Wallet\External\Contracts\ExtraDtoInterface;
-use Bavix\Wallet\Interfaces\Wallet;
-use Bavix\Wallet\Services\CastServiceInterface;
-use Bavix\Wallet\Services\FormatterServiceInterface;
+use Zotel\Wallet\External\Contracts\ExtraDtoInterface;
+use Zotel\Wallet\Interfaces\Wallet;
+use Zotel\Wallet\Services\CastServiceInterface;
+use Zotel\Wallet\Services\FormatterServiceInterface;
 
 final readonly class TransferFloatQuery implements TransferQueryInterface
 {

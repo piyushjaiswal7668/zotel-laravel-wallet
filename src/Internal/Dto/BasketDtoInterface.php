@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\Internal\Dto;
+namespace Zotel\Wallet\Internal\Dto;
 
-use Bavix\Wallet\Interfaces\ProductInterface;
+use Zotel\Wallet\Interfaces\ProductInterface;
 use Countable;
 use Generator;
 

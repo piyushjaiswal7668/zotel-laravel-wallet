@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Bavix\Wallet\External\Api;
+namespace Zotel\Wallet\External\Api;
 
-use Bavix\Wallet\Interfaces\Wallet;
+use Zotel\Wallet\Interfaces\Wallet;
 
 final readonly class TransactionQuery implements TransactionQueryInterface
 {
