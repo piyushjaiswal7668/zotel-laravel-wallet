@@ -24,7 +24,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/zotel/laravel-wallet"
+            "url": "https://github.com/piyushjaiswal7668/zotel-laravel-wallet"
         }
     ],
     "require": {
