@@ -25,7 +25,7 @@ parameters:
 			path: src/External/Dto/Option.php
 
 		-
-			message: '#^Generic type Illuminate\\Database\\Eloquent\\Relations\\HasMany\<Zotel\\Wallet\\Models\\Transaction\> in PHPDoc tag @return does not specify all template types of class Illuminate\\Database\\Eloquent\\Relations\\HasMany\: TRelatedModel, TDeclaringModel$#'
+			message: '#^Generic type Illuminate\\Database\\Eloquent\\Relations\\HasMany\<Zotel\\Wallet\\Models\\WalletTransaction\> in PHPDoc tag @return does not specify all template types of class Illuminate\\Database\\Eloquent\\Relations\\HasMany\: TRelatedModel, TDeclaringModel$#'
 			identifier: generics.lessTypes
 			count: 1
 			path: src/Interfaces/Wallet.php
@@ -37,7 +37,7 @@ parameters:
 			path: src/Interfaces/Wallet.php
 
 		-
-			message: '#^Generic type Illuminate\\Database\\Eloquent\\Relations\\MorphMany\<Zotel\\Wallet\\Models\\Transaction\> in PHPDoc tag @return does not specify all template types of class Illuminate\\Database\\Eloquent\\Relations\\MorphMany\: TRelatedModel, TDeclaringModel$#'
+			message: '#^Generic type Illuminate\\Database\\Eloquent\\Relations\\MorphMany\<Zotel\\Wallet\\Models\\WalletTransaction\> in PHPDoc tag @return does not specify all template types of class Illuminate\\Database\\Eloquent\\Relations\\MorphMany\: TRelatedModel, TDeclaringModel$#'
 			identifier: generics.lessTypes
 			count: 1
 			path: src/Interfaces/Wallet.php
@@ -301,43 +301,43 @@ parameters:
 			path: src/Internal/Service/StorageService.php
 
 		-
-			message: '#^Method Zotel\\Wallet\\Models\\Transaction\:\:payable\(\) should return Illuminate\\Database\\Eloquent\\Relations\\MorphTo\<Illuminate\\Database\\Eloquent\\Model, Zotel\\Wallet\\Models\\Transaction\> but returns Illuminate\\Database\\Eloquent\\Relations\\MorphTo\<Illuminate\\Database\\Eloquent\\Model, \$this\(Zotel\\Wallet\\Models\\Transaction\)\>\.$#'
+			message: '#^Method Zotel\\Wallet\\Models\\WalletTransaction\:\:payable\(\) should return Illuminate\\Database\\Eloquent\\Relations\\MorphTo\<Illuminate\\Database\\Eloquent\\Model, Zotel\\Wallet\\Models\\WalletTransaction\> but returns Illuminate\\Database\\Eloquent\\Relations\\MorphTo\<Illuminate\\Database\\Eloquent\\Model, \$this\(Zotel\\Wallet\\Models\\WalletTransaction\)\>\.$#'
 			identifier: return.type
 			count: 1
-			path: src/Models/Transaction.php
+			path: src/Models/WalletTransaction.php
 
 		-
-			message: '#^Method Zotel\\Wallet\\Models\\Transaction\:\:wallet\(\) should return Illuminate\\Database\\Eloquent\\Relations\\BelongsTo\<Zotel\\Wallet\\Models\\Wallet, Zotel\\Wallet\\Models\\Transaction\> but returns Illuminate\\Database\\Eloquent\\Relations\\BelongsTo\<Illuminate\\Database\\Eloquent\\Model, \$this\(Zotel\\Wallet\\Models\\Transaction\)\>\.$#'
+			message: '#^Method Zotel\\Wallet\\Models\\WalletTransaction\:\:wallet\(\) should return Illuminate\\Database\\Eloquent\\Relations\\BelongsTo\<Zotel\\Wallet\\Models\\Wallet, Zotel\\Wallet\\Models\\WalletTransaction\> but returns Illuminate\\Database\\Eloquent\\Relations\\BelongsTo\<Illuminate\\Database\\Eloquent\\Model, \$this\(Zotel\\Wallet\\Models\\WalletTransaction\)\>\.$#'
 			identifier: return.type
 			count: 1
-			path: src/Models/Transaction.php
+			path: src/Models/WalletTransaction.php
 
 		-
-			message: '#^PHPDoc type array\<int, string\> of property Zotel\\Wallet\\Models\\Transaction\:\:\$fillable is not covariant with PHPDoc type list\<string\> of overridden property Illuminate\\Database\\Eloquent\\Model\:\:\$fillable\.$#'
+			message: '#^PHPDoc type array\<int, string\> of property Zotel\\Wallet\\Models\\WalletTransaction\:\:\$fillable is not covariant with PHPDoc type list\<string\> of overridden property Illuminate\\Database\\Eloquent\\Model\:\:\$fillable\.$#'
 			identifier: property.phpDocType
 			count: 1
-			path: src/Models/Transaction.php
+			path: src/Models/WalletTransaction.php
 
 		-
 			message: '#^Parameter \#1 \$related of method Illuminate\\Database\\Eloquent\\Model\:\:belongsTo\(\) expects class\-string\<Illuminate\\Database\\Eloquent\\Model\>, mixed given\.$#'
 			identifier: argument.type
 			count: 1
-			path: src/Models/Transaction.php
+			path: src/Models/WalletTransaction.php
 
 		-
 			message: '#^Property Illuminate\\Database\\Eloquent\\Model\:\:\$table \(string\|null\) does not accept mixed\.$#'
 			identifier: assign.propertyType
 			count: 1
-			path: src/Models/Transaction.php
+			path: src/Models/WalletTransaction.php
 
 		-
 			message: '#^Unable to resolve the template type TRelatedModel in call to method Illuminate\\Database\\Eloquent\\Model\:\:belongsTo\(\)$#'
 			identifier: argument.templateType
 			count: 1
-			path: src/Models/Transaction.php
+			path: src/Models/WalletTransaction.php
 
 		-
-			message: '#^Method Zotel\\Wallet\\Models\\Transfer\:\:deposit\(\) should return Illuminate\\Database\\Eloquent\\Relations\\BelongsTo\<Zotel\\Wallet\\Models\\Transaction, Zotel\\Wallet\\Models\\Transfer\> but returns Illuminate\\Database\\Eloquent\\Relations\\BelongsTo\<Illuminate\\Database\\Eloquent\\Model, \$this\(Zotel\\Wallet\\Models\\Transfer\)\>\.$#'
+			message: '#^Method Zotel\\Wallet\\Models\\Transfer\:\:deposit\(\) should return Illuminate\\Database\\Eloquent\\Relations\\BelongsTo\<Zotel\\Wallet\\Models\\WalletTransaction, Zotel\\Wallet\\Models\\Transfer\> but returns Illuminate\\Database\\Eloquent\\Relations\\BelongsTo\<Illuminate\\Database\\Eloquent\\Model, \$this\(Zotel\\Wallet\\Models\\Transfer\)\>\.$#'
 			identifier: return.type
 			count: 1
 			path: src/Models/Transfer.php
@@ -355,7 +355,7 @@ parameters:
 			path: src/Models/Transfer.php
 
 		-
-			message: '#^Method Zotel\\Wallet\\Models\\Transfer\:\:withdraw\(\) should return Illuminate\\Database\\Eloquent\\Relations\\BelongsTo\<Zotel\\Wallet\\Models\\Transaction, Zotel\\Wallet\\Models\\Transfer\> but returns Illuminate\\Database\\Eloquent\\Relations\\BelongsTo\<Illuminate\\Database\\Eloquent\\Model, \$this\(Zotel\\Wallet\\Models\\Transfer\)\>\.$#'
+			message: '#^Method Zotel\\Wallet\\Models\\Transfer\:\:withdraw\(\) should return Illuminate\\Database\\Eloquent\\Relations\\BelongsTo\<Zotel\\Wallet\\Models\\WalletTransaction, Zotel\\Wallet\\Models\\Transfer\> but returns Illuminate\\Database\\Eloquent\\Relations\\BelongsTo\<Illuminate\\Database\\Eloquent\\Model, \$this\(Zotel\\Wallet\\Models\\Transfer\)\>\.$#'
 			identifier: return.type
 			count: 1
 			path: src/Models/Transfer.php
@@ -403,7 +403,7 @@ parameters:
 			path: src/Models/Wallet.php
 
 		-
-			message: '#^Generic type Illuminate\\Database\\Eloquent\\Relations\\HasMany\<Zotel\\Wallet\\Models\\Transaction\> in PHPDoc tag @return does not specify all template types of class Illuminate\\Database\\Eloquent\\Relations\\HasMany\: TRelatedModel, TDeclaringModel$#'
+			message: '#^Generic type Illuminate\\Database\\Eloquent\\Relations\\HasMany\<Zotel\\Wallet\\Models\\WalletTransaction\> in PHPDoc tag @return does not specify all template types of class Illuminate\\Database\\Eloquent\\Relations\\HasMany\: TRelatedModel, TDeclaringModel$#'
 			identifier: generics.lessTypes
 			count: 2
 			path: src/Models/Wallet.php
@@ -415,7 +415,7 @@ parameters:
 			path: src/Models/Wallet.php
 
 		-
-			message: '#^Generic type Illuminate\\Database\\Eloquent\\Relations\\MorphMany\<Zotel\\Wallet\\Models\\Transaction\> in PHPDoc tag @return does not specify all template types of class Illuminate\\Database\\Eloquent\\Relations\\MorphMany\: TRelatedModel, TDeclaringModel$#'
+			message: '#^Generic type Illuminate\\Database\\Eloquent\\Relations\\MorphMany\<Zotel\\Wallet\\Models\\WalletTransaction\> in PHPDoc tag @return does not specify all template types of class Illuminate\\Database\\Eloquent\\Relations\\MorphMany\: TRelatedModel, TDeclaringModel$#'
 			identifier: generics.lessTypes
 			count: 2
 			path: src/Models/Wallet.php

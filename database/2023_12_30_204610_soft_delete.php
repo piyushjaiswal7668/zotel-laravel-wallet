@@ -19,7 +19,7 @@ return new class() extends Migration
         Schema::table((new WalletTransfer())->getTable(), static function (Blueprint $table) {
             $table->softDeletesTz();
         });
-        Schema::table((new Transaction())->getTable(), static function (Blueprint $table) {
+        Schema::table((new WalletTransaction())->getTable(), static function (Blueprint $table) {
             $table->softDeletesTz();
         });
     }
@@ -32,7 +32,7 @@ return new class() extends Migration
         Schema::table((new WalletTransfer())->getTable(), static function (Blueprint $table) {
             $table->dropSoftDeletes();
         });
-        Schema::table((new Transaction())->getTable(), static function (Blueprint $table) {
+        Schema::table((new WalletTransaction())->getTable(), static function (Blueprint $table) {
             $table->dropSoftDeletes();
         });
     }

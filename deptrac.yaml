@@ -129,7 +129,7 @@ parameters:
     - name: Model
       collectors:
         - type: className
-          regex: ^Zotel\\.*Models\\Transaction$
+          regex: ^Zotel\\.*Models\\WalletTransaction$
         - type: className
           regex: ^Zotel\\.*Models\\Transfer$
         - type: className

@@ -404,7 +404,7 @@ Many thanks to the guys for finding the bug [@ISNewton](https://github.com/ISNew
 ### Added
 
 - Added environment variables for cache and locks (WALLET_CACHE_DRIVER, WALLET_CACHE_TTL, WALLET_LOCK_DRIVER, WALLET_LOCK_TTL).
-- Transaction/transfer uuids added to External API.
+- WalletTransaction/transfer uuids added to External API.
 - Improved support for custom types with phpstan. Now you will find more errors.
 - Added the ability to buy for any wallet through the basket (receiving wallet).
 
@@ -1061,7 +1061,7 @@ Many thanks to the guys for finding the bug [@ISNewton](https://github.com/ISNew
 
 ### Added
 
-- Transaction support.
+- WalletTransaction support.
 - Now, within the transaction, the wallet has its own balance state.
 
 ### Fixed
@@ -1079,7 +1079,7 @@ Many thanks to the guys for finding the bug [@ISNewton](https://github.com/ISNew
 
 ## What's Changed
 
-* [7.1] Transaction State by [@rez1dent3](https://github.com/rez1dent3) in https://github.com/bavix/laravel-wallet/pull/412
+* [7.1] WalletTransaction State by [@rez1dent3](https://github.com/rez1dent3) in https://github.com/bavix/laravel-wallet/pull/412
 
 **Full Changelog**: https://github.com/bavix/laravel-wallet/compare/7.0.0...7.1.0
 
@@ -1695,7 +1695,7 @@ Added a patch from version 4.2.1 #150
 
 ### Added
 
-- add `$amountFloat` to Transaction model
+- add `$amountFloat` to WalletTransaction model
 
 **Full Changelog**: https://github.com/bavix/laravel-wallet/compare/4.1.1...4.1.2
 
@@ -2052,7 +2052,7 @@ Added a patch from version 4.2.1 #150
 ### Changed
 
 - applied fixes from cs-fixer
-- change singleton path `bavix.wallet::transaction` to `Zotel\Wallet\Models\Transaction::class`
+- change singleton path `bavix.wallet::transaction` to `Zotel\Wallet\Models\WalletTransaction::class`
 - change singleton path `bavix.wallet::transfer` to `Zotel\Wallet\Models\Transfer::class`
 - change singleton path `bavix.wallet::wallet` to `Zotel\Wallet\Models\Wallet::class`
 - change method `canBuy`. Added parameter `$quantity`
@@ -2288,7 +2288,7 @@ Added a patch from version 4.2.1 #150
 ### Changed
 
 - Add $type argument before $amount.
-  protected change(string $type, int $amount, ?array $meta, bool $confirmed): Transaction.
+  protected change(string $type, int $amount, ?array $meta, bool $confirmed): WalletTransaction.
 
 ### Fixed
 
@@ -2471,15 +2471,15 @@ Added a patch from version 4.2.1 #150
   - methods:
     
     - private checkAmount(int $amount): void
-    - public forceWithdraw(int $amount, ?array $meta = null, bool $confirmed = true): Transaction
-    - public deposit(int $amount, ?array $meta = null, bool $confirmed = true): Transaction
-    - public withdraw(int $amount, ?array $meta = null, bool $confirmed = true): Transaction
+    - public forceWithdraw(int $amount, ?array $meta = null, bool $confirmed = true): WalletTransaction
+    - public deposit(int $amount, ?array $meta = null, bool $confirmed = true): WalletTransaction
+    - public withdraw(int $amount, ?array $meta = null, bool $confirmed = true): WalletTransaction
     - public canWithdraw(int $amount): bool
     - public transfer(Wallet $wallet, int $amount, ?array $meta = null): Transfer
     - public safeTransfer(Wallet $wallet, int $amount, ?array $meta = null): ?Transfer
     - public forceTransfer(Wallet $wallet, int $amount, ?array $meta = null): Transfer
-    - protected assemble(Wallet $wallet, Transaction $withdraw, Transaction $deposit): Transfer
-    - protected change(int $amount, ?array $meta, bool $confirmed): Transaction
+    - protected assemble(Wallet $wallet, WalletTransaction $withdraw, WalletTransaction $deposit): Transfer
+    - protected change(int $amount, ?array $meta, bool $confirmed): WalletTransaction
     - public resetBalance(): void
     
   - relations:
@@ -2503,7 +2503,7 @@ Added a patch from version 4.2.1 #150
   
 - Exceptions: AmountInvalid, BalanceIsEmpty.
   
-- Models: Transfer, Transaction.
+- Models: Transfer, WalletTransaction.
   
 
 ## What's Changed

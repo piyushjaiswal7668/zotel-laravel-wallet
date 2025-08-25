@@ -54,6 +54,6 @@ return new class() extends Migration
 
     private function transactionTable(): string
     {
-        return (new Transaction())->getTable();
+        return (new WalletTransaction())->getTable();
     }
 };

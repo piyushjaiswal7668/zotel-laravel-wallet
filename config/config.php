@@ -279,14 +279,14 @@ return [
      * Each repository is responsible for fetching data from the database for a specific entity.
      *
      * @see \Zotel\Wallet\Interfaces\Wallet
-     * @see \Zotel\Wallet\Interfaces\Transaction
+     * @see \Zotel\Wallet\Interfaces\WalletTransaction
      * @see \Zotel\Wallet\Interfaces\WalletTransfer
      */
     'repositories' => [
         /**
          * Repository for fetching transaction data.
          *
-         * @see \Zotel\Wallet\Interfaces\Transaction
+         * @see \Zotel\Wallet\Interfaces\WalletTransaction
          */
         'transaction' => TransactionRepository::class,
         /**
@@ -347,7 +347,7 @@ return [
          */
         'option' => OptionDtoAssembler::class,
         /**
-         * Assembler for creating Transaction DTO.
+         * Assembler for creating WalletTransaction DTO.
          */
         'transaction' => TransactionDtoAssembler::class,
         /**
@@ -359,11 +359,11 @@ return [
          */
         'transfer' => TransferDtoAssembler::class,
         /**
-         * Assembler for creating Transaction Created Event DTO.
+         * Assembler for creating WalletTransaction Created Event DTO.
          */
         'transaction_created_event' => TransactionCreatedEventAssembler::class,
         /**
-         * Assembler for creating Transaction Query DTO.
+         * Assembler for creating WalletTransaction Query DTO.
          */
         'transaction_query' => TransactionQueryAssembler::class,
         /**
@@ -397,7 +397,7 @@ return [
     /**
      * Base model 'transaction'.
      *
-     * @see Transaction
+     * @see WalletTransaction
      */
     'transaction' => [
         /**
@@ -405,7 +405,7 @@ return [
          *
          * This value is used to store transactions in a database.
          *
-         * @see Transaction
+         * @see WalletTransaction
          */
         'table' => env('WALLET_TRANSACTION_TABLE_NAME', 'transactions'),
 
@@ -414,9 +414,9 @@ return [
          *
          * This value is used to create new transactions.
          *
-         * @see Transaction
+         * @see WalletTransaction
          */
-        'model' => Transaction::class,
+        'model' => WalletTransaction::class,
     ],
 
     /**

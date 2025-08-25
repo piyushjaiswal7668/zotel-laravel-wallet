@@ -169,7 +169,7 @@ parameters:
 			path: tests/Units/Domain/BalanceTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertNotNull\(\) with Zotel\\Wallet\\Models\\Transaction will always evaluate to true\.$#'
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertNotNull\(\) with Zotel\\Wallet\\Models\\WalletTransaction will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: tests/Units/Domain/BalanceTest.php
@@ -193,7 +193,7 @@ parameters:
 			path: tests/Units/Domain/BlockTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertNotNull\(\) with Zotel\\Wallet\\Models\\Transaction will always evaluate to true\.$#'
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertNotNull\(\) with Zotel\\Wallet\\Models\\WalletTransaction will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: tests/Units/Domain/CartReceivingTest.php
@@ -205,7 +205,7 @@ parameters:
 			path: tests/Units/Domain/CartReceivingTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertNotNull\(\) with Zotel\\Wallet\\Models\\Transaction will always evaluate to true\.$#'
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertNotNull\(\) with Zotel\\Wallet\\Models\\WalletTransaction will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 5
 			path: tests/Units/Domain/CartTest.php
@@ -247,7 +247,7 @@ parameters:
 			path: tests/Units/Domain/CreditWalletTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertNotNull\(\) with Zotel\\Wallet\\Models\\Transaction will always evaluate to true\.$#'
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertNotNull\(\) with Zotel\\Wallet\\Models\\WalletTransaction will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 3
 			path: tests/Units/Domain/CreditWalletTest.php
@@ -283,7 +283,7 @@ parameters:
 			path: tests/Units/Domain/EagerLoadingTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertNotNull\(\) with Zotel\\Wallet\\Models\\Transaction will always evaluate to true\.$#'
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertNotNull\(\) with Zotel\\Wallet\\Models\\WalletTransaction will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 5
 			path: tests/Units/Domain/EventTest.php
@@ -379,7 +379,7 @@ parameters:
 			path: tests/Units/Domain/ModelTableTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertNotNull\(\) with Zotel\\Wallet\\Models\\Transaction will always evaluate to true\.$#'
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertNotNull\(\) with Zotel\\Wallet\\Models\\WalletTransaction will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: tests/Units/Domain/MultiWalletGiftTest.php
@@ -463,7 +463,7 @@ parameters:
 			path: tests/Units/Domain/ProductTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertNotNull\(\) with Zotel\\Wallet\\Models\\Transaction will always evaluate to true\.$#'
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertNotNull\(\) with Zotel\\Wallet\\Models\\WalletTransaction will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: tests/Units/Domain/SilentlyDiscardingTest.php
@@ -529,7 +529,7 @@ parameters:
 			path: tests/Units/Domain/TaxTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertNotNull\(\) with Zotel\\Wallet\\Models\\Transaction will always evaluate to true\.$#'
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertNotNull\(\) with Zotel\\Wallet\\Models\\WalletTransaction will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 2
 			path: tests/Units/Domain/TransactionAmountFloatAccessorTest.php
@@ -571,7 +571,7 @@ parameters:
 			path: tests/Units/Domain/WalletFloatTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertNotNull\(\) with Zotel\\Wallet\\Models\\Transaction will always evaluate to true\.$#'
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertNotNull\(\) with Zotel\\Wallet\\Models\\WalletTransaction will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 3
 			path: tests/Units/Domain/WalletTest.php

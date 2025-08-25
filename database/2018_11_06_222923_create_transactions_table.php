@@ -38,6 +38,6 @@ return new class() extends Migration
 
     private function table(): string
     {
-        return (new Transaction())->getTable();
+        return (new WalletTransaction())->getTable();
     }
 };
