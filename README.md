@@ -1,26 +1,20 @@
 ![Laravel Wallet](https://github.com/bavix/laravel-wallet/assets/5111255/95e7877c-a950-4b04-9414-de62216d31c2)
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/588400f5f40cbbf3a8ab/maintainability)](https://codeclimate.com/github/bavix/laravel-wallet/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/588400f5f40cbbf3a8ab/test_coverage)](https://codeclimate.com/github/bavix/laravel-wallet/test_coverage) [![Financial Contributors on Open Collective](https://opencollective.com/laravel-wallet/all/badge.svg?label=financial+contributors)](https://opencollective.com/laravel-wallet) [![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2Fbavix%2Flaravel-wallet%2Fmaster)](https://packagist.org/packages/bavix/laravel-wallet)
-
-[![Latest Stable Version](https://poser.pugx.org/bavix/laravel-wallet/v)](https://packagist.org/packages/bavix/laravel-wallet) [![Latest Unstable Version](https://poser.pugx.org/bavix/laravel-wallet/v/unstable)](https://packagist.org/packages/bavix/laravel-wallet) [![License](https://poser.pugx.org/bavix/laravel-wallet/license)](https://packagist.org/packages/bavix/laravel-wallet) [![composer.lock](https://poser.pugx.org/bavix/laravel-wallet/composerlock)](https://packagist.org/packages/bavix/laravel-wallet)
-
-[![Sparkline](https://stars.medv.io/bavix/laravel-wallet.svg)](https://stars.medv.io/bavix/laravel-wallet)
-
 laravel-wallet - It's easy to work with a virtual wallet.
 
 [[Benchmark](https://github.com/bavix/laravel-wallet-benchmark/)] 
-[[Documentation](https://bavix.github.io/laravel-wallet/)] 
+[[Documentation](https://piyushjaiswal7668.github.io/zotel-laravel-wallet/)] 
 [[Get Started](https://bavix.github.io/laravel-wallet/guide/introduction/)] 
 
-* **Vendor**: bavix
+* **Vendor**: zotel
 * **Package**: laravel-wallet
-* **[Composer](https://getcomposer.org/):** `composer require bavix/laravel-wallet`
+* **[Composer](https://getcomposer.org/):** `composer require zotel-laravel-wallet`
 
 ### Support Policy
 
 | Version    | Laravel        | PHP             | Release date | End of improvements | End of support |
 |------------|----------------|-----------------|--------------|---------------------|----------------|
-| 11.x [LTS] | ^11.0, ^12.0   | 8.2,8.3,8.4     | Mar 14, 2024 | May 1, 2026         | Sep 6, 2026    |
+| 1.x [LTS] | ^11.0, ^12.0   | 8.2,8.3,8.4     | Aug 25, 2025 | Aug 25, 2025         | Sep 6, 2026    |
 
 ### Upgrade Guide
 
@@ -30,10 +24,8 @@ To perform the migration, you will be [helped by the instruction](https://bavix.
 
 I want to create a cozy place for developers using the wallet package. This will help you find bugs faster, get feedback and discuss ideas.
 
-![telegram](https://github.com/bavix/laravel-wallet/assets/5111255/ed2b1193-c0c6-41af-83cb-0fe61ae8df21)
 
 
-Telegram: [@laravel_wallet](https://t.me/laravel_wallet)
 
 ### Extensions
 
