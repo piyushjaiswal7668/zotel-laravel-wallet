@@ -39,18 +39,24 @@ final readonly class WalletRepository implements WalletRepositoryInterface
         }
 
         $cases = [];
+        $bindings = [];
         foreach ($data as $walletId => $balance) {
-            $cases[] = 'WHEN id = '.$walletId.' THEN '.$balance;
+            $cases[] = 'WHEN id = ? THEN ?';
+            $bindings[] = $walletId;
+            $bindings[] = $balance;
         }
 
         $buildQuery = $this->wallet->getConnection()
             ->raw('CASE '.implode(' ', $cases).' END');
 
-        return $this->wallet->newQuery()
-            ->whereIn('id', array_keys($data))
-            ->update([
-                'balance' => $buildQuery,
-            ]);
+        $query = $this->wallet->newQuery()
+            ->whereIn('id', array_keys($data));
+
+        $query->addBinding($bindings, 'update');
+
+        return $query->update([
+            'balance' => $buildQuery,
+        ]);
     }
 
     public function findById(int $id): ?Wallet
