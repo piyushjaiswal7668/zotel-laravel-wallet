@@ -41,7 +41,7 @@
         "ergebnis/phpstan-rules": "^2.1",
         "infection/infection": "~0.27",
         "larastan/larastan": "^3.0",
-        "laravel/cashier": "^15.0",
+        "laravel/cashier": "^16.2",
         "nunomaduro/collision": "^8.0",
         "orchestra/testbench": "^10.0",
         "phpstan/phpstan": "^2.1",
